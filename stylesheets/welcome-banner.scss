@@ -1,0 +1,9 @@
+.welcome-banner.--location-above-topic-content {
+  height: 20rem;
+  margin-inline: calc(-1 * var(--main-outlet-padding-x));
+  margin-block-start: calc(-1 * var(--main-outlet-padding-top));
+  padding-inline: var(--main-outlet-padding-x);
+  padding-block: var(--main-outlet-padding-top) var(--main-outlet-padding-bottom);
+  background-color: var(--w-background);
+  border-radius: 0;
+}

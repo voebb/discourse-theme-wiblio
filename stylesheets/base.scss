@@ -1,3 +1,11 @@
+:root {
+  --main-outlet-padding-x: var(--space-5);
+}
+
 html {
   background-color: var(--w-background);
+}
+
+#main-outlet {
+  background-color: var(--secondary);
 }
