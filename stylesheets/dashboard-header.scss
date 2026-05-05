@@ -1,10 +1,11 @@
-.zlb-community-dashboard-header,
-.welcome-banner.--location-above-topic-content {
+@use "lib/viewport";
+
+.zlb-community-dashboard-header {
   box-sizing: content-box;
   height: 12vw;
   position: relative;
   margin-inline: calc(-1 * var(--main-outlet-padding-x));
-  margin-block-start: -34vw;
+  margin-block-start: -19vw;
   padding-block-start: 30vw;
   border-radius: 0;
 
@@ -17,12 +18,19 @@
     z-index: -1;
   }
 
-  &:has(.zlb-community-header__background-image) {
-    .zlb-community-header__titles {
+  @include viewport.from(md) {
+    margin-block-start: -30vw;
+  }
+
+  .zlb-community-header__titles {
+    inset: var(--main-outlet-padding-x);
+    top: auto;
+    bottom: 0;
+
+    @include viewport.from(md) {
       padding-inline: var(--main-outlet-padding-x);
-      inset: var(--main-outlet-padding-x);
+      position: absolute;
       top: auto;
-      bottom: 0;
     }
   }
 }
@@ -31,10 +39,7 @@
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   gap: var(--space-2);
-  position: absolute;
   padding-block-end: var(--main-outlet-padding-x);
-  inset: 0;
-  top: auto;
 }
 
 .zlb-community-header__subtitle {
@@ -45,11 +50,17 @@
   aspect-ratio: 1.7 / 1;
   position: absolute;
   inset: 0;
-  top: auto;
   z-index: -1;
+  top: -22vw;
+  bottom: auto;
   max-width: 100%;
   background-image: none;
   background-color: var(--secondary);
+
+  @include viewport.from(md) {
+    top: auto;
+    bottom: 0;
+  }
 
   &,
   &::after,

@@ -32,8 +32,12 @@ body.scrolled {
 }
 
 .zlb-community-header {
+  width: 100%;
+  overflow: visible;
+}
+
+.zlb-community-header__titles {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   gap: var(--space-2);
-  overflow: visible;
 }
