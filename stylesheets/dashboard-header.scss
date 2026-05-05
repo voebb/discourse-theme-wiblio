@@ -1,25 +1,23 @@
 @use "lib/viewport";
 
 .zlb-community-dashboard-header {
+  width: auto;
   box-sizing: content-box;
-  height: 12vw;
+  height: 8rem;
   position: relative;
   margin-inline: calc(-1 * var(--main-outlet-padding-x));
-  margin-block-start: -19vw;
-  padding-block-start: 30vw;
+  margin-block-start: calc(-1 * (100% - 2 * var(--d-wrap-padding-x)) / 4);
+  padding-block-start: 35%;
   border-radius: 0;
 
-  &::before {
-    content: "";
-    background-color: var(--secondary);
-    position: absolute;
-    inset: 0;
-    clip-path: polygon(100% 100%, 0% 100%, 100% 0%);
-    z-index: -1;
+  @include viewport.from(md) {
+    margin-block-start: calc(-15% - 4rem);
+    padding-block-start: 15%;
   }
 
-  @include viewport.from(md) {
-    margin-block-start: -30vw;
+  @include viewport.from(lg) {
+    margin-block-start: max(calc(-22% + 3rem), -6rem);
+    padding-block-start: 10%;
   }
 
   .zlb-community-header__titles {
@@ -51,7 +49,7 @@
   position: absolute;
   inset: 0;
   z-index: -1;
-  top: -22vw;
+  top: -38%;
   bottom: auto;
   max-width: 100%;
   background-image: none;
