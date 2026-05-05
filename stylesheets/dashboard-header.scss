@@ -7,8 +7,10 @@
   position: relative;
   margin-inline: calc(-1 * var(--main-outlet-padding-x));
   margin-block-start: calc(-1 * (100% - 2 * var(--d-wrap-padding-x)) / 4);
+  margin-block-end: 0;
   padding-block-start: 35%;
   border-radius: 0;
+  top: auto;
 
   @include viewport.from(md) {
     margin-block-start: calc(-15% - 4rem);
@@ -22,6 +24,7 @@
 
   .zlb-community-header__titles {
     inset: var(--main-outlet-padding-x);
+    padding-block-end: var(--main-outlet-padding-x);
     top: auto;
     bottom: 0;
 
@@ -37,7 +40,7 @@
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   gap: var(--space-2);
-  padding-block-end: var(--main-outlet-padding-x);
+  padding-inline-start: 0;
 }
 
 .zlb-community-header__subtitle {

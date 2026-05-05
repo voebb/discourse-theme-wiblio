@@ -1,3 +1,7 @@
+@use "lib/viewport";
+
+$rhomb: "" !default;
+
 :root {
   --shadow-header: none;
 }
@@ -32,8 +36,22 @@ body.scrolled {
 }
 
 .zlb-community-header {
-  width: 100%;
+  width: auto;
+  min-width: 100%;
+  padding-block-start: 23.5rem;
+  padding-inline-start: var(--main-outlet-padding-x);
+  top: -25.9rem;
+  margin-block-end: -25.75rem;
+  margin-inline: calc(-1 * var(--main-outlet-padding-x));
   overflow: visible;
+  background: url($rhomb) 0 calc(100% - 1.75rem) no-repeat;
+  background-size: 100%;
+
+  @include viewport.from(md) {
+    top: -28.25rem;
+    margin-block-end: -26.75rem;
+    background-position: 0 bottom;
+  }
 }
 
 .zlb-community-header__titles {

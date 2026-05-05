@@ -15,7 +15,9 @@
   $chat-svg: $chat
 );
 @use "discourse";
-@use "header";
+@use "header" with (
+  $rhomb: $rhomb
+);
 @use "sidebar";
 @use "button";
 @use "input";
