@@ -23,7 +23,7 @@ You‘ll be asked for:
 - The default URL of your discourse instance. You should check this, but it’s probably `http://localhost:4200`
 - An API key for your discourse instance. To get this, in your browser go to the admin section of your running discourse instance, and choose the `Advanced` section in the main navigation. In there, click the `API keys` link. Create a new API key, scoped to your user.
 
-When asked which theme, choose `Create and sync with a new theme`
+When asked which theme, if this is your first time developing the theme locally, choose `Create and sync with a new theme`. If you are continuing development of the theme, choose `Sync with existing theme: 'wiblio' (id:2)` (the `id` mentioned will vary, dependent on how many time you’ve chosen to `Create and sync with a new theme`).
 
 When successful, you’ll see the messages below (your URL may differ). Visit the URL given to see your discourse instance rendered with the local Wiblio theme. Any changes you make will be visible in your browser.
 

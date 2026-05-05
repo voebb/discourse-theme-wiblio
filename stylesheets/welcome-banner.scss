@@ -59,9 +59,8 @@
     position: absolute;
     inset: var(--main-outlet-padding-x);
     background-image: linear-gradient(
-      135deg,
-      var(--tertiary-low),
-      var(--tertiary-high)
+      var(--w-brand-secondary-500),
+      var(--w-brand-secondary-800)
     );
     z-index: -1;
   }
