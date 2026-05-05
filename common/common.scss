@@ -6,7 +6,9 @@
 @use "design-tokens/colors.secondary";
 
 // Base
-@use "base";
+@use "base" with (
+  $rhomb: $rhomb
+);
 
 // Components
 @use "chat" with (

@@ -1,3 +1,5 @@
+$rhomb: "" !default;
+
 :root {
   --main-outlet-padding-x: var(--space-5);
 }
@@ -7,5 +9,24 @@ html {
 }
 
 #main-outlet {
+  position: relative;
   background-color: var(--secondary);
+  margin: 40px 0;
+
+  &::before {
+    content: url($rhomb);
+    position: absolute;
+    bottom: calc(100% - 6px);
+    left: 0;
+    width: 100%;
+  }
+
+  &::after {
+    content: url($rhomb);
+    position: absolute;
+    top: calc(100% - 6px);
+    left: 0;
+    width: 100%;
+    transform: scale(-100%);
+  }
 }
