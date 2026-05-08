@@ -1,9 +1,17 @@
 :root {
   // Wiblio
-  --w-box-background: #f5f5f5;
+  --w-box-background: #f8f8f8;
   --w-box-background--hover: #e6e6e6;
   --w-background: oklch(from var(--tertiary) calc(l * 1.2) calc(c * 1.2) h);
+  --w-background-hover: oklch(
+    from var(--tertiary) calc(l * 1.4) calc(c * 0.4) h
+  );
+  --w-background-emphazise: oklch(
+    from var(--tertiary) calc(l * 1.4) calc(c * 0.7) h
+  );
   --w-hover: oklch(from var(--tertiary) calc(l * 0.8) c h);
+  --w-border-color: #e6e6e6;
+  --w-border-color-hover: oklch(from var(--tertiary) calc(l * 2) calc(c * 1) h);
 
   // Probably make better use of these variables
   // --tertiary-very-low: #{$tertiary-very-low};
@@ -24,7 +32,7 @@
   // --tertiary-900: #{$tertiary-900};
 
   // General
-  --content-border-color: #e6e6e6 !important;
+  --content-border-color: var(--w-border-color) !important;
 
   // Header
 
@@ -43,12 +51,4 @@
 
   // Categories
   --d-category-box-background-color: var(--w-box-background) !important;
-
-  // Topics
-  --topic-list-item-background-color: oklch(
-    from var(--tertiary) calc(l * 1.3) calc(c * 0.8) h
-  ) !important;
-  --topic-list-item-background-color--visited: var(
-    --w-box-background
-  ) !important;
 }

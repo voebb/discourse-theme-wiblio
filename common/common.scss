@@ -15,10 +15,13 @@
 @use "discourse";
 @use "header";
 @use "sidebar";
-@use "categories";
-@use "topics";
 @use "button";
 @use "input";
+@use "categories";
+@use "category-badges";
+@use "topic-cards";
+@use "topic-list-fixes";
+@use "topic";
 @use "skip-link";
 @use "user-pill";
 
@@ -33,6 +36,7 @@
 
   &::before {
     content: url($rhomb);
+    z-index: -1;
     position: absolute;
     bottom: calc(100% - 6px);
     left: 0;
@@ -42,7 +46,8 @@
   &::after {
     content: url($rhomb);
     position: absolute;
-    top: calc(100% - 6px);
+    z-index: -1;
+    top: calc(100% - 7px);
     left: 0;
     width: 100%;
     transform: scale(-100%);

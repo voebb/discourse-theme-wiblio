@@ -1,0 +1,59 @@
+@use "lib/viewport";
+
+// CategoryBadges
+// TODO: darkmode
+.badge-category__wrapper {
+  --badge-category-bg: light-dark(
+    oklch(from var(--category-badge-color) 97% calc(c * 0.3) h),
+    oklch(from var(--category-badge-color) 45% calc(c * 0.5) h)
+  );
+  --badge-category-text: light-dark(
+    oklch(from var(--category-badge-color) 20% calc(c * 1) h),
+    oklch(from var(--category-badge-color) 100% calc(c * 0.9) h)
+  );
+
+  border: 1px solid transparent;
+
+  &:hover {
+    border: 1px solid
+      oklch(from var(--category-badge-color) 85% calc(c * 0.3) h) !important;
+  }
+}
+
+// Hides lock icon on closed category
+.restricted {
+  .d-icon-lock {
+    display: none !important;
+  }
+}
+
+.topic-list,
+.category-boxes .subcategories {
+  .badge-category__wrapper {
+    border-radius: var(--w-border-radius-full);
+    padding: 3px 6px;
+    background-color: var(--badge-category-bg);
+
+    @include viewport.until(md) {
+      padding: 2px 6px;
+      font-size: var(--font-down-2);
+    }
+
+    .badge-category__name {
+      color: var(--badge-category-text);
+    }
+  }
+}
+
+// undo all the above for the few instances that arent styled like traditional badges
+.category-text-title {
+  .badge-category__wrapper {
+    border-radius: 0;
+    padding: 0;
+    background-color: transparent;
+
+    .badge-category__name {
+      color: var(--primary);
+    }
+  }
+}

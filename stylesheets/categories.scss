@@ -1,17 +1,12 @@
 :root {
+  --d-category-box-background-color: var(--w-box-background) !important;
   --d-category-border-accent-width: 0;
   --d-category-border-box-width: 0;
   --zlb-expander-gap: var(--space-4);
+  --zlb-category-button-hover-background-color: var(--w-background-hover);
+  --zlb-category-button-hover-border-color: var(--w-border-color-hover);
 }
 
-.category-box {
-  &::before {
-    display: none !important;
-  }
-  border-width: 1px !important;
-  border-color: var(--content-border-color) !important;
-
-  &:hover {
-    background-color: var(--w-box-background);
-  }
+.zlb-community-category-button {
+  transition: background-color 0.2s ease;
 }

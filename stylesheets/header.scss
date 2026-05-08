@@ -5,6 +5,7 @@
 
 .header-sidebar-toggle {
   .btn-sidebar-toggle {
+    border-radius: var(--w-border-radius-full);
     &:hover {
       background-color: var(--w-hover) !important;
 
@@ -15,6 +16,7 @@
 
     svg {
       color: inherit !important;
+      width: var(--space-5);
     }
   }
 }

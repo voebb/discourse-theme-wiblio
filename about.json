@@ -7,12 +7,15 @@
   "theme_version": "0.0.1",
   "minimum_discourse_version": null,
   "maximum_discourse_version": null,
+  
   "assets": {
     "chat": "assets/chat.svg",
     "rhomb": "assets/rhomb.svg"
   },
-  "modifiers": {},
-  "color_schemes": {
+ "modifiers": {
+    "serialize_topic_is_hot": true
+  },
+   "color_schemes": {
     "wiblio Light": {
       "primary": "000000",
       "secondary": "ffffff",
@@ -24,5 +27,7 @@
     }
   },
   "screenshots": [],
-  "theme_site_settings": {}
+   "theme_site_settings": {
+    "search_experience": "search_field"
+  }
 }
