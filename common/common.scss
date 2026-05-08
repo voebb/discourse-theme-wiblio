@@ -9,6 +9,9 @@
 @use "base";
 
 // Components
+@use "chat" with (
+  $chat-svg: $chat
+);
 @use "discourse";
 @use "header";
 @use "sidebar";

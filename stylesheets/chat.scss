@@ -1,0 +1,112 @@
+$chat-svg: "" !default;
+
+.full-page-chat {
+  --main-outlet-offset: 13vh;
+}
+
+.chat-messages-container {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.625rem;
+  padding-block-end: 0.625rem;
+}
+
+.chat-message-container {
+  box-sizing: border-box;
+  grid-template-columns: min(300px, 100%) minmax(0, 1fr);
+  padding-inline: 1rem;
+
+  &.is-by-current-user {
+    grid-template-columns: minmax(0, 1fr) min(300px, 100%);
+
+    > * {
+      grid-column: 2 / 3;
+    }
+  }
+
+  .no-touch &:hover,
+  .no-touch &.-active {
+    background-color: transparent;
+  }
+}
+
+.chat-message {
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  border-radius: var(--space-4);
+  background-color: var(--primary-low);
+  margin-bottom: 0.625rem;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: var(--space-4);
+    margin-inline-end: -100%;
+    background-color: inherit;
+    inline-size: 0.875rem; // 14px
+    block-size: 0.6875rem; // 11px
+    mask-image: url($chat-svg);
+    transform: scaleX(-1);
+  }
+
+  &,
+  .chat-message-container:not(.-user-info-hidden) & {
+    padding: 0.625rem;
+  }
+
+  .is-by-current-user & {
+    align-items: end;
+    text-align: right;
+    background-color: var(--w-brand-primary-500);
+
+    &::after {
+      left: auto;
+      right: var(--space-4);
+      margin-inline-start: -100%;
+      margin-inline-end: 0;
+      transform: none;
+    }
+  }
+}
+
+.chat-message-content {
+  .is-by-current-user & {
+    align-items: end;
+  }
+}
+
+.chat-message-avatar {
+  display: none;
+}
+
+.chat-message-info {
+  gap: 1rem;
+}
+
+.chat-message-info__date {
+  .is-by-current-user & {
+    order: -1;
+  }
+}
+
+.chat-message-info__username {
+  font-size: var(--font-down-1);
+}
+
+.chat-message-separator-date {
+  & + .chat-message-separator__line-container {
+    padding-inline: 1rem;
+
+    .chat-message-separator__line {
+      border-color: var(--primary-400);
+    }
+  }
+
+  .chat-message-separator__text {
+    color: var(--primary-400);
+  }
+}

@@ -9,6 +9,7 @@
   "maximum_discourse_version": null,
   
   "assets": {
+    "chat": "assets/chat.svg",
     "rhomb": "assets/rhomb.svg"
   },
  "modifiers": {
@@ -30,4 +31,3 @@
     "search_experience": "search_field"
   }
 }
-
