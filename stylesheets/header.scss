@@ -1,11 +1,21 @@
+:root {
+  --shadow-header: none;
+}
+
 .d-header {
   background-color: transparent;
-  box-shadow: none;
+}
+
+body.scrolled {
+  .d-header {
+    background-color: oklch(from var(--secondary) l c h / 0.8);
+  }
 }
 
 .header-sidebar-toggle {
   .btn-sidebar-toggle {
     border-radius: var(--w-border-radius-full);
+
     &:hover {
       background-color: var(--w-hover) !important;
 
