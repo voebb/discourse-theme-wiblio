@@ -1,0 +1,52 @@
+.zlb-community-expander--user-list {
+  --zlb-expander-user-list-background-color: var(--primary-low);
+  --zlb-expander-user-list-background-color-rgb: 230, 230, 230;
+
+  &[open] {
+    --zlb-expander-padding: 0 var(--space-4) var(--space-4);
+
+    .zlb-community-expander__content > :first-child {
+      padding-block-start: var(--space-6);
+    }
+  }
+
+  .zlb-community-expander__content {
+    max-block-size: 50vh;
+    overflow-y: auto;
+    background:
+        /* Shadow Cover TOP */
+      linear-gradient(
+          var(--zlb-expander-user-list-background-color) 30%,
+          rgba(var(--zlb-expander-user-list-background-color-rgb), 0)
+        )
+        center top,
+      /* Shadow Cover BOTTOM */
+      linear-gradient(
+          rgba(var(--zlb-expander-user-list-background-color-rgb), 0),
+          var(--zlb-expander-user-list-background-color) 70%
+        )
+        center bottom,
+      /* Shadow TOP */
+      radial-gradient(
+          farthest-side at 50% 0,
+          rgba(0, 0, 0, 0.2),
+          rgba(0, 0, 0, 0)
+        )
+        center top,
+      /* Shadow BOTTOM */
+      radial-gradient(
+          farthest-side at 50% 100%,
+          rgba(0, 0, 0, 0.2),
+          rgba(0, 0, 0, 0)
+        )
+        center bottom;
+
+    background-repeat: no-repeat;
+    background-size:
+      100% 40px,
+      100% 40px,
+      100% 14px,
+      100% 14px;
+    background-attachment: local, local, scroll, scroll;
+  }
+}

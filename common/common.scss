@@ -1,6 +1,6 @@
 // Design tokens - primary
-@use "design-tokens/colors.primary" as primary-colors;
 @use "design-tokens/border-radius.primary";
+@use "design-tokens/colors.primary" as primary-colors;
 
 // Design tokens - secondary
 @use "design-tokens/colors.secondary";
@@ -9,12 +9,14 @@
 @use "base";
 
 // Components
-@use "header";
-@use "sidebar";
-@use "categories";
-@use "topics";
+@use "badge";
 @use "button";
+@use "categories";
+@use "expander";
+@use "header";
 @use "input";
+@use "sidebar";
+@use "topics";
 @use "user-pill";
 
 :root {
