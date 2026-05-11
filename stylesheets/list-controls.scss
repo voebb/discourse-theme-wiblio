@@ -1,0 +1,153 @@
+@use "lib/viewport";
+
+.list-controls {
+  position: sticky;
+  top: var(--header-offset);
+  background-color: var(--d-content-background);
+  z-index: 1;
+  padding: 1rem 0 0 0;
+  max-width: unset;
+}
+
+.category-heading {
+  display: none;
+}
+
+.navigation-container {
+  gap: 1rem;
+  flex-wrap: wrap-reverse;
+
+  @include viewport.until(sm) {
+    gap: var(--space-2);
+  }
+}
+
+#navigation-bar,
+.navigation-controls,
+.category-breadcrumb {
+  @include viewport.until(sm) {
+    margin-bottom: 0;
+  }
+}
+
+.navigation-controls {
+  justify-content: flex-end;
+  margin: 0 0 0 auto;
+
+  .d-combo-button {
+    order: 2;
+  }
+}
+
+.category-breadcrumb.hidden,
+.category-breadcrumb {
+  row-gap: var(--space-1);
+
+  @include viewport.until(sm) {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: var(--space-2);
+
+    li {
+      margin-right: 0;
+    }
+
+    .select-kit {
+      width: 100%;
+    }
+  }
+}
+
+.select-kit {
+  &.is-expanded {
+    .select-kit-body {
+      border-radius: var(--d-border-radius);
+      background-color: var(--d-content-background);
+    }
+
+    .select-kit-header:not(.btn) {
+      background-color: var(--d-hover);
+
+      .d-icon {
+        color: var(--primary);
+        width: 0.8em;
+      }
+    }
+  }
+}
+
+.combo-box {
+  --category-badge-title-color: var(--primary);
+
+  // needs more specificity than just in the button file
+  background-color: var(--secondary);
+  border-radius: var(--d-border-radius);
+
+  .combo-box-header {
+    background: transparent;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background-color: var(--d-hover);
+      border-color: var(--primary);
+    }
+  }
+}
+
+.select-kit.combo-box.category-drop .angle-icon {
+  color: var(--primary);
+  width: 0.8em;
+  height: 0.8em;
+}
+
+.select-kit-row[data-value="no-tags"],
+.select-kit-row[data-value="no-categories"] {
+  display: flex;
+  font-weight: 500 !important;
+}
+
+.nav-pills > li > a:hover,
+.nav-pills > li button:hover {
+  .discourse-no-touch & {
+    background: transparent;
+    color: var(--d-nav-color--hover);
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      height: var(--d-nav-underline-height);
+      background: var(--d-nav-color--hover);
+    }
+  }
+}
+
+.fk-d-button-tooltip {
+  &:has(#create-topic) {
+    order: 2;
+  }
+}
+
+.topic-drafts-menu-trigger,
+#create-topic {
+  border-radius: var(--d-button-border-radius);
+  background-color: var(--d-button-default-bg-color);
+
+  &:hover {
+    background-color: var(--d-button-default-bg-color--hover) !important;
+  }
+}
+
+#create-topic {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+
+  @include viewport.until(sm) {
+    .d-icon {
+      margin: 0;
+    }
+  }
+}

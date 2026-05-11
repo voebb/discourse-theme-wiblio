@@ -1,0 +1,282 @@
+@use "lib/viewport";
+
+// Fixing bulk select (only needed for desktop)
+.bulk-select-enabled {
+  body:not(.user-messages-page) & {
+    .topic-list-header {
+      position: sticky;
+      top: 8em;
+      height: 0;
+      z-index: 1;
+    }
+
+    .topic-author-avatar-data {
+      display: none;
+    }
+
+    .bulk-select.topic-list-data {
+      grid-area: bulk-select;
+      margin-left: -0.5em;
+
+      @media screen and (width <= 576px) {
+        margin-top: 0;
+
+        label {
+          padding-block: 0.345em;
+        }
+      }
+
+      input {
+        transform: scale(1.5);
+      }
+    }
+  }
+}
+
+.topic-list-header {
+  body:not(.user-messages-page) & {
+    tr {
+      border: none;
+    }
+
+    .topic-list-data {
+      padding: 0;
+
+      &:not(.default) {
+        display: none;
+      }
+
+      &.default {
+        .bulk-select,
+        span:not(.bulk-select-topics, .d-button-label) {
+          display: none;
+        }
+      }
+
+      .bulk-select-topics {
+        position: absolute;
+        right: 0;
+        background: var(--secondary);
+        border-radius: var(--d-border-radius);
+        display: flex;
+        gap: 0.5rem;
+        margin: var(--space-4) 0;
+        padding: var(--space-1);
+
+        button {
+          white-space: nowrap;
+          margin: 0;
+        }
+      }
+    }
+  }
+
+  // Mobile stuff
+  .list-controls {
+    @include viewport.until(sm) {
+      padding-inline: var(
+        --space-4
+      ) !important; // override will be fixed when the whole chat page shenanigans is resolved
+      padding-block: var(--space-2);
+      border-bottom: 1px solid var(--primary-200);
+    }
+
+    .navigation-container {
+      @include viewport.until(sm) {
+        gap: var(--space-2);
+
+        .category-breadcrumb.hidden,
+        .category-breadcrumb {
+          display: flex !important;
+          column-gap: var(--space-4);
+          row-gap: var(--space-1);
+          flex-basis: 100%;
+
+          li {
+            margin-right: 0;
+            margin-left: calc(
+              (var(--space-2) - 2px) * -1
+            ); // 2px is width of the outline
+          }
+
+          .select-kit-header-wrapper {
+            gap: 0.25em;
+          }
+
+          .select-kit-header {
+            background: var(--d-content-background);
+          }
+        }
+
+        .btn-default {
+          border: 0;
+          margin-right: 0;
+
+          .d-icon {
+            font-size: var(--font-up-1);
+          }
+        }
+
+        .fk-d-button-tooltip {
+          margin-right: 0;
+          margin-left: var(
+            --space-1
+          ); // pure visual correction for horizontal alignment
+
+          &:has(#create-topic) {
+            order: 1;
+          }
+        }
+      }
+
+      #navigation-bar,
+      .navigation-controls,
+      .category-breadcrumb {
+        @include viewport.until(sm) {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  .list-container {
+    @include viewport.until(sm) {
+      padding-inline: 0 !important;
+    }
+
+    .topic-list-body {
+      @include viewport.until(sm) {
+        border-top: 0;
+        padding-top: 0;
+      }
+    }
+  }
+
+  #topic-title {
+    @include viewport.until(sm) {
+      .title-wrapper {
+        gap: var(--space-2);
+      }
+
+      .topic-category {
+        order: -1;
+      }
+
+      .badge-category__wrapper {
+        font-size: var(--font-down-2-rem);
+        border-radius: var(--d-border-radius);
+        padding: var(--space-1) var(--space-2);
+        background-color: var(--badge-category-bg);
+        border: 1px solid var(--badge-category-bg);
+      }
+
+      .badge-category__name {
+        color: var(--badge-category-text);
+      }
+
+      .discourse-tags {
+        gap: var(--space-1);
+
+        &__tag-separator {
+          display: none;
+        }
+      }
+
+      .discourse-tag {
+        font-size: var(--font-down-2-rem);
+        padding: var(--space-1) var(--space-2);
+        gap: var(--space-1);
+        border-radius: var(--d-border-radius-large);
+        border: 1px solid var(--primary-low-mid);
+        background: var(--secondary);
+      }
+    }
+  }
+
+  .container.posts {
+    @include viewport.until(sm) {
+      .main-avatar .avatar {
+        width: 40px;
+        height: 40px;
+      }
+
+      .topic-body {
+        .topic-meta-data {
+          .username {
+            font-size: var(--font-0-rem);
+          }
+        }
+
+        .contents {
+          padding-top: var(--space-4);
+        }
+      }
+
+      .small-action {
+        &-desc {
+          padding: var(--space-1) 0;
+        }
+
+        // for core eventually, better way imo
+        .topic-avatar {
+          padding-top: 0;
+          align-items: center;
+
+          .d-icon {
+            font-size: var(--font-up-1);
+          }
+        }
+      }
+    }
+  }
+
+  #topic-footer-buttons {
+    @include viewport.until(sm) {
+      padding-inline: var(--space-1) !important;
+    }
+  }
+}
+
+#topic-progress-wrapper {
+  .progress-back-container {
+    margin-right: 0;
+    margin-bottom: var(--space-1);
+
+    .btn-primary.progress-back {
+      border-radius: 0;
+      background: var(--secondary);
+      border: 1px solid var(--tertiary-low);
+      color: var(--accent-color);
+      padding: var(--space-2) var(--space-4);
+
+      .d-icon {
+        color: var(--accent-color);
+      }
+    }
+  }
+
+  .topic-admin-menu-trigger {
+    border-radius: 0;
+    background: var(--secondary);
+    border: 1px solid var(--tertiary-low);
+  }
+}
+
+.mobile-device #reply-control.show-preview .submit-panel {
+  background-color: var(--background-color);
+}
+
+.d-editor-preview-wrapper {
+  outline: 2px solid var(--background-color);
+}
+
+// ZLB
+.zlb-community-dashboard-topic-list {
+  position: sticky;
+  top: var(--header-offset);
+
+  .topic-list-body {
+    max-height: 60vh;
+    overflow-y: scroll;
+  }
+}
