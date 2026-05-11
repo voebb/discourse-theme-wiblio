@@ -4,15 +4,50 @@ $shape_image_url: "" !default;
 
 :root {
   --shadow-header: none;
+  --d-header-icon-color: var(--primary);
 }
 
 .d-header {
   background-color: transparent;
+  transition: background-color 0.5s ease;
 }
 
 body.scrolled {
   .d-header {
     background-color: oklch(from var(--secondary) l c h / 0.8);
+  }
+}
+
+.d-header-icons {
+  column-gap: var(--space-1);
+  align-items: center;
+}
+
+.header-dropdown-toggle {
+  .btn {
+    background-color: transparent;
+    border: 1px solid var(--primary);
+    border-radius: var(--w-border-radius-full);
+    padding: 0;
+
+    &:hover {
+      background-color: var(--w-button-outline-hover-color);
+    }
+
+    svg {
+      width: var(--space-4);
+    }
+  }
+
+  &.current-user {
+    .btn {
+      border: 0;
+
+      img.avatar {
+        width: calc(100% + 2px);
+        height: calc(100% + 2px);
+      }
+    }
   }
 }
 

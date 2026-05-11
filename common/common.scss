@@ -7,25 +7,29 @@
 
 // Base
 @use "base" with (
-  $shape_image_url: $rhomb
+  $shape_image_url: $rhomb,
+  $water_url: $water,
+  $water_m_url: $water_m,
+  $sun_url: $sun,
+  $sun_m_url: $sun_m
 );
 
 // Components
 @use "chat" with (
   $chat-svg: $chat
 );
-@use "discourse";
 @use "header" with (
   $shape_image_url: $rhomb
 );
-@use "sidebar";
 @use "button";
-@use "input";
 @use "categories";
 @use "category-badges";
+@use "dashboard-header";
+@use "discourse";
+@use "input";
+@use "sidebar";
+@use "skip-link";
 @use "topic-cards";
 @use "topic-list-fixes";
 @use "topic";
-@use "skip-link";
 @use "user-pill";
-@use "dashboard-header";
