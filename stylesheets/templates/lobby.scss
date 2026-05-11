@@ -1,0 +1,18 @@
+.zlb-community-lobby {
+  #main-outlet-wrapper {
+    padding-inline: 0;
+  }
+
+  #main-outlet {
+    margin-block: 0;
+
+    &::after {
+      display: none;
+    }
+  }
+
+  .discourse-root,
+  #main-outlet-wrapper,
+  #main-outlet {
+  }
+}

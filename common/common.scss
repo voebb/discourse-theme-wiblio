@@ -41,3 +41,8 @@
 @use "organisms/dashboard-header";
 @use "organisms/modal";
 @use "organisms/sidebar";
+@use "lobby-header";
+@use "topic-list-fixes";
+
+// Templates
+@use "templates/lobby";
