@@ -45,7 +45,7 @@ html {
     background: url($shape_image_url) 0 100% no-repeat;
     background-size: 100% auto;
     position: absolute;
-    top: 100%;
+    top: calc(100% - 1px); // -1px because Chrome has a rounding error
     left: 0;
     width: 100%;
     min-height: 4.575rem; // Magic number, matches the amount of the angle shown on the header
