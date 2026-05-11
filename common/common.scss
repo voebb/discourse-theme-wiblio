@@ -15,6 +15,9 @@
 );
 
 // Components
+@use "button";
+@use "categories";
+@use "category-badges";
 @use "chat" with (
   $chat-svg: $chat
 );
@@ -26,11 +29,14 @@
 @use "category-badges";
 @use "dashboard-header";
 @use "discourse";
+@use "form-kit";
 @use "input";
 @use "list-controls";
 @use "sidebar";
 @use "skip-link";
 @use "topic-cards";
 @use "topic-list";
+@use "topic-list-fixes";
+@use "modal";
 @use "topic";
 @use "user-pill";
