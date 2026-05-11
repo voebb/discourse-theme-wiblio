@@ -1,4 +1,10 @@
+@use "lib/viewport";
+
 $shape_image_url: "" !default;
+$water_url: "" !default;
+$water_m_url: "" !default;
+$sun_url: "" !default;
+$sun_m_url: "" !default;
 
 :root {
   --main-outlet-padding-x: var(--space-5);
@@ -6,9 +12,19 @@ $shape_image_url: "" !default;
 
 html {
   background-color: var(--w-background);
+  background-image: url($sun_url), url($water_url);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-attachment: fixed;
+
+  @include viewport.until(sm) {
+    background-image: url($sun_m_url), url($water_m_url);
+  }
 }
 
 #main-outlet {
+  --main-outlet-padding-x: var(--space-5);
   position: relative;
   background-color: var(--secondary);
   margin: 40px 0;
@@ -20,5 +36,13 @@ html {
     left: 0;
     width: 100%;
     transform: scale(-100%);
+  }
+
+  @include viewport.until(lg) {
+    --main-outlet-padding-x: var(--space-4);
+  }
+
+  @include viewport.until(sm) {
+    --main-outlet-padding-x: var(--space-3);
   }
 }

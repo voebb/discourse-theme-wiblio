@@ -10,7 +10,11 @@
   
   "assets": {
     "chat": "assets/chat.svg",
-    "rhomb": "assets/rhomb.svg"
+    "rhomb": "assets/rhomb.svg",
+    "water": "assets/water.svg",
+    "water_m": "assets/water_m.svg",
+    "sun": "assets/sun.svg",
+    "sun_m": "assets/sun_m.svg"
   },
  "modifiers": {
     "serialize_topic_is_hot": true
@@ -19,9 +23,9 @@
     "wiblio Light": {
       "primary": "000000",
       "secondary": "ffffff",
-      "tertiary": "6ecc92",
-      "hover": "d9ffe7",
-      "selected": "bfffd7",
+      "tertiary": "3CD6DB",
+      "hover": "D1FFFF",
+      "selected": "64EEF2",
       "love": "e69bae",
       "header_primary": "000000"
     }
