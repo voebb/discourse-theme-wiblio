@@ -1,3 +1,24 @@
+$shape_image_url: "" !default;
+
+:root {
+  --main-outlet-padding-x: var(--space-5);
+}
+
 html {
   background-color: var(--w-background);
+}
+
+#main-outlet {
+  position: relative;
+  background-color: var(--secondary);
+  margin: 40px 0;
+
+  &::after {
+    content: url($shape_image_url);
+    position: absolute;
+    top: calc(100% - 6px);
+    left: 0;
+    width: 100%;
+    transform: scale(-100%);
+  }
 }

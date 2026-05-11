@@ -6,14 +6,18 @@
 @use "design-tokens/colors.secondary";
 
 // Base
-@use "base";
+@use "base" with (
+  $shape_image_url: $rhomb
+);
 
 // Components
 @use "chat" with (
   $chat-svg: $chat
 );
 @use "discourse";
-@use "header";
+@use "header" with (
+  $shape_image_url: $rhomb
+);
 @use "sidebar";
 @use "button";
 @use "input";
@@ -24,32 +28,4 @@
 @use "topic";
 @use "skip-link";
 @use "user-pill";
-
-:root {
-  --main-outlet-padding-x: var(--space-5);
-}
-
-#main-outlet {
-  position: relative;
-  background-color: var(--secondary);
-  margin: 40px 0;
-
-  &::before {
-    content: url($rhomb);
-    z-index: -1;
-    position: absolute;
-    bottom: calc(100% - 6px);
-    left: 0;
-    width: 100%;
-  }
-
-  &::after {
-    content: url($rhomb);
-    position: absolute;
-    z-index: -1;
-    top: calc(100% - 7px);
-    left: 0;
-    width: 100%;
-    transform: scale(-100%);
-  }
-}
+@use "dashboard-header";

@@ -1,0 +1,94 @@
+@use "lib/viewport";
+
+.zlb-community-header--dashboard {
+  width: auto;
+  box-sizing: content-box;
+  height: 8rem;
+  position: relative;
+  margin-inline: calc(-1 * var(--main-outlet-padding-x));
+  margin-block-start: calc(-1 * (100% - 2 * var(--d-wrap-padding-x)) / 4);
+  margin-block-end: 0;
+  padding-block-start: 35%;
+  border-radius: 0;
+  top: auto;
+
+  @include viewport.from(md) {
+    margin-block-start: calc(-15% - 4rem);
+    padding-block-start: 15%;
+  }
+
+  @include viewport.from(lg) {
+    margin-block-start: max(calc(-22% + 3rem), -6rem);
+    padding-block-start: 10%;
+  }
+
+  .zlb-community-header__titles {
+    inset: var(--main-outlet-padding-x);
+    padding-block-end: var(--main-outlet-padding-x);
+    top: auto;
+    bottom: 0;
+
+    @include viewport.from(md) {
+      padding-inline: var(--main-outlet-padding-x);
+      position: absolute;
+      top: auto;
+    }
+  }
+}
+
+.zlb-community-header__titles {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-2);
+  padding-inline-start: 0;
+}
+
+.zlb-community-header__subtitle {
+  font-size: var(--font-0);
+}
+
+.zlb-community-header__background-image {
+  aspect-ratio: 1.7 / 1;
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  top: -38%;
+  bottom: auto;
+  max-width: 100%;
+  background-image: none;
+  background-color: var(--secondary);
+
+  @include viewport.from(md) {
+    top: auto;
+    bottom: 0;
+  }
+
+  &,
+  &::after,
+  img {
+    clip-path: polygon(100% 100%, 0% 100%, 0% 65%, 100% 0%);
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: var(--main-outlet-padding-x);
+    background-image: linear-gradient(
+      var(--w-brand-secondary-500),
+      var(--w-brand-secondary-800)
+    );
+    z-index: -1;
+  }
+
+  img {
+    display: block;
+    left: var(--main-outlet-padding-x);
+  }
+
+  &::after,
+  img {
+    width: calc(100% - (var(--main-outlet-padding-x) * 2));
+    height: calc(100% - var(--main-outlet-padding-x));
+    top: calc(var(--main-outlet-padding-x) * 1.325);
+  }
+}
