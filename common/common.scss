@@ -15,17 +15,17 @@
 );
 
 // Components
-@use "button";
-@use "categories";
-@use "category-badges";
 @use "chat" with (
   $chat-svg: $chat
 );
-@use "dashboard-header";
-@use "discourse";
 @use "header" with (
   $shape_image_url: $rhomb
 );
+@use "button";
+@use "categories";
+@use "category-badges";
+@use "dashboard-header";
+@use "discourse";
 @use "input";
 @use "sidebar";
 @use "skip-link";
