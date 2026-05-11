@@ -1,6 +1,6 @@
 @use "lib/viewport";
 
-$rhomb: "" !default;
+$shape_image_url: "" !default;
 
 :root {
   --shadow-header: none;
@@ -44,7 +44,7 @@ body.scrolled {
   margin-block-end: -25.75rem;
   margin-inline: calc(-1 * var(--main-outlet-padding-x));
   overflow: visible;
-  background: url($rhomb) 0 calc(100% - 1.75rem) no-repeat;
+  background: url($shape_image_url) 0 calc(100% - 1.75rem) no-repeat;
   background-size: 100%;
 
   @include viewport.from(md) {

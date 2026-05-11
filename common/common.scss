@@ -7,7 +7,7 @@
 
 // Base
 @use "base" with (
-  $rhomb: $rhomb
+  $shape_image_url: $rhomb
 );
 
 // Components
@@ -16,7 +16,7 @@
 );
 @use "discourse";
 @use "header" with (
-  $rhomb: $rhomb
+  $shape_image_url: $rhomb
 );
 @use "sidebar";
 @use "button";
@@ -28,5 +28,4 @@
 @use "topic";
 @use "skip-link";
 @use "user-pill";
-@use "welcome-banner";
 @use "dashboard-header";
