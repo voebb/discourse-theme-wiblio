@@ -24,6 +24,10 @@ $chat-svg: "" !default;
     }
   }
 
+  &.-highlighted {
+    background-color: transparent;
+  }
+
   .no-touch &:hover,
   .no-touch &.-active {
     background-color: transparent;
