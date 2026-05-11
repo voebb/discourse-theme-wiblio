@@ -6,7 +6,7 @@
 @use "design-tokens/colors.secondary";
 
 // Base
-@use "base" with (
+@use "base/html" with (
   $shape_image_url: $rhomb,
   $water_url: $water,
   $water_m_url: $water_m,
@@ -14,29 +14,30 @@
   $sun_m_url: $sun_m
 );
 
-// Components
-@use "button";
-@use "categories";
-@use "category-badges";
-@use "chat" with (
-  $chat-svg: $chat
-);
-@use "header" with (
+// Atoms
+@use "atoms/button";
+@use "atoms/categories";
+@use "atoms/category-badges";
+@use "atoms/discourse";
+@use "atoms/input";
+@use "atoms/skip-link";
+@use "atoms/user-pill";
+
+// Molecules
+@use "molecules/header" with (
   $shape_image_url: $rhomb
 );
-@use "button";
-@use "categories";
-@use "category-badges";
-@use "dashboard-header";
-@use "discourse";
-@use "form-kit";
-@use "input";
 @use "list-controls";
-@use "sidebar";
-@use "skip-link";
-@use "topic-cards";
 @use "topic-list";
-@use "topic-list-fixes";
-@use "modal";
-@use "topic";
-@use "user-pill";
+@use "molecules/form-kit";
+@use "molecules/topic-cards";
+@use "molecules/topic-list-fixes";
+@use "molecules/topic";
+
+// Organisms
+@use "organisms/chat" with (
+  $chat-svg: $chat
+);
+@use "organisms/dashboard-header";
+@use "organisms/modal";
+@use "organisms/sidebar";
