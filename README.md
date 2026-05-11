@@ -2,7 +2,7 @@
 
 **Theme Summary**
 
-For more information, please see: **url to meta topic**
+For more information working with and installing Discourse, please see the [Discourse documentation](https://meta.discourse.org/t/introduction-to-discourse-development).
 
 ## Developing locally
 
