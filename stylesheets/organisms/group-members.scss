@@ -1,0 +1,19 @@
+.group-members {
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+
+  .directory-table__header {
+    display: none;
+  }
+
+  .directory-table__row {
+    grid-column: auto;
+    grid-template-columns: minmax(0, 1fr);
+    border: 1px solid var(--zlb-card-border-color);
+    border-radius: var(--zlb-card-border-radius);
+    background-color: var(--zlb-card-background-color);
+  }
+
+  .directory-table__cell {
+    border: 0;
+  }
+}
