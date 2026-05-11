@@ -5,6 +5,7 @@ $shape_image_url: "" !default;
 :root {
   --shadow-header: none;
   --d-header-icon-color: var(--primary);
+  --d-header-icon-background--hover: var(--w-button-outline-hover-color);
 }
 
 .d-header {
@@ -25,14 +26,9 @@ body.scrolled {
 
 .header-dropdown-toggle {
   .btn {
-    background-color: transparent;
     border: 1px solid var(--primary);
     border-radius: var(--w-border-radius-full);
     padding: 0;
-
-    &:hover {
-      background-color: var(--w-button-outline-hover-color);
-    }
 
     svg {
       width: var(--space-4);
@@ -53,10 +49,15 @@ body.scrolled {
 
 .header-sidebar-toggle {
   .btn-sidebar-toggle {
+    border: 1px solid var(--primary);
     border-radius: var(--w-border-radius-full);
 
+    svg {
+      width: var(--space-4) !important;
+    }
+
     &:hover {
-      background-color: var(--w-hover) !important;
+      background-color: var(--w-sidebar-hover) !important;
 
       svg {
         color: var(--secondary) !important;
@@ -67,6 +68,13 @@ body.scrolled {
       color: inherit !important;
       width: var(--space-5);
     }
+  }
+}
+
+.header-search--enabled {
+  .search-input {
+    border-color: var(--w-border-color);
+    border-radius: var(--w-border-radius-full) !important;
   }
 }
 
