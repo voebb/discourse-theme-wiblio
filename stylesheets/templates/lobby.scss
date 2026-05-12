@@ -21,3 +21,12 @@
     }
   }
 }
+
+@include viewport.from(lg) {
+  .zlb-community-lobby {
+    #main-outlet {
+      height: calc(100dvh - var(--space-4));
+      margin-block-start: var(--space-4);
+    }
+  }
+}
