@@ -1,5 +1,4 @@
 .group-members {
-  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
   margin: 0;
   padding-block-start: var(--zlb-card-padding);
 
@@ -7,21 +6,37 @@
     display: none;
   }
 
+  .directory-table__body {
+    grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+    gap: var(--space-10) var(--space-12);
+  }
+
   .directory-table__row {
     grid-column: auto;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    grid-template-areas: "user user actions-1" "user user actions-2" "added last-posted last-seen";
+    grid-template-columns:
+      [user-start added-start] repeat(4, minmax(0, 1fr))
+      [added-end last-posted-start] repeat(2, minmax(0, 1fr))
+      [user-end chat-start actions-start] repeat(2, minmax(0, 1fr))
+      [last-posted-end actions-end last-seen-start status-start] repeat(
+        4,
+        minmax(0, 1fr)
+      )
+      [status-end last-seen-end chat-end];
+    grid-template-rows:
+      [user-start chat-start] auto
+      [actions-start status-start chat-end] auto
+      [user-end actions-end status-end last-posted-start last-seen-start added-start] auto
+      [last-posted-end last-seen-end added-end];
     border: 1px solid var(--zlb-card-border-color);
     border-radius: var(--zlb-card-border-radius);
     background-color: var(--zlb-card-background-color);
     padding: var(--zlb-card-padding);
-    gap: var(--space-4);
+    gap: var(--space-4) var(--space-2);
   }
 
   .directory-table__cell {
     border: 0;
     padding: 0;
-    grid-column: 1 / -1;
   }
 
   .directory-table__cell--username {
@@ -29,11 +44,16 @@
   }
 
   .directory-table__cell.group-owner {
-    grid-area: actions-2;
-    justify-content: end;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-area: status;
 
     .directory-table__label {
       display: none;
+    }
+
+    .directory-table__value {
+      justify-self: end;
     }
   }
 
@@ -49,10 +69,16 @@
     grid-area: last-seen;
   }
 
+  .chat-direct-message-btn {
+    grid-area: chat;
+    align-self: start;
+    justify-self: end;
+  }
+
   .directory-table__cell--member-settings {
-    grid-area: actions-1;
+    grid-area: actions;
     justify-content: end;
-    align-items: start;
+    align-items: center;
   }
 
   .directory-table__cell--added,
@@ -66,6 +92,10 @@
     display: block;
     color: var(--primary-high);
     font-size: var(--font-down-2);
+
+    &::after {
+      display: none;
+    }
   }
 
   .user-info {
