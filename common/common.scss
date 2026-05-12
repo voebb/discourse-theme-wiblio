@@ -41,5 +41,9 @@
 );
 @use "organisms/dashboard-header";
 @use "organisms/group-members";
+@use "organisms/lobby-header";
 @use "organisms/modal";
 @use "organisms/sidebar";
+
+// Templates
+@use "templates/lobby";
