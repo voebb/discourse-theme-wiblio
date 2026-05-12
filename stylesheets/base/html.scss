@@ -35,6 +35,11 @@ html {
   }
 }
 
+#main-outlet-wrapper {
+  grid-template-rows: 1fr;
+  min-height: calc(92dvh - var(--header-offset, 0px));
+}
+
 #main-outlet {
   position: relative;
   background-color: var(--secondary);
