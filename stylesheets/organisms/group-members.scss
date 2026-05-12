@@ -1,5 +1,7 @@
 .group-members {
   grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  margin: 0;
+  padding-block-start: var(--zlb-card-padding);
 
   .directory-table__header {
     display: none;
@@ -7,13 +9,72 @@
 
   .directory-table__row {
     grid-column: auto;
-    grid-template-columns: minmax(0, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-areas: "user user actions-1" "user user actions-2" "added last-posted last-seen";
     border: 1px solid var(--zlb-card-border-color);
     border-radius: var(--zlb-card-border-radius);
     background-color: var(--zlb-card-background-color);
+    padding: var(--zlb-card-padding);
+    gap: var(--space-4);
   }
 
   .directory-table__cell {
     border: 0;
+    padding: 0;
+    grid-column: 1 / -1;
+  }
+
+  .directory-table__cell--username {
+    grid-area: user;
+  }
+
+  .directory-table__cell.group-owner {
+    grid-area: actions-2;
+    justify-content: end;
+
+    .directory-table__label {
+      display: none;
+    }
+  }
+
+  .directory-table__cell--added {
+    grid-area: added;
+  }
+
+  .directory-table__cell--last-posted {
+    grid-area: last-posted;
+  }
+
+  .directory-table__cell--last-seen {
+    grid-area: last-seen;
+  }
+
+  .directory-table__cell--member-settings {
+    grid-area: actions-1;
+    justify-content: end;
+    align-items: start;
+  }
+
+  .directory-table__cell--added,
+  .directory-table__cell--last-posted,
+  .directory-table__cell--last-seen {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .directory-table__label {
+    display: block;
+    color: var(--primary-high);
+    font-size: var(--font-down-2);
+  }
+
+  .user-info {
+    margin-block-start: calc(-1 * (var(--space-4) + var(--zlb-card-padding)));
+    flex-direction: column;
+  }
+
+  .avatar {
+    block-size: 6.25rem;
+    inline-size: 6.25rem;
   }
 }

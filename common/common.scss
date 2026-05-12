@@ -25,6 +25,7 @@
 @use "atoms/user-pill";
 
 // Molecules
+@use "molecules/card";
 @use "molecules/header" with (
   $shape_image_url: $rhomb
 );
