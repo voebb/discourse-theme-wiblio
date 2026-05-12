@@ -25,6 +25,7 @@
 @use "atoms/user-pill";
 
 // Molecules
+@use "molecules/card";
 @use "molecules/header" with (
   $shape_image_url: $rhomb
 );
@@ -39,6 +40,7 @@
   $chat-svg: $chat
 );
 @use "organisms/dashboard-header";
+@use "organisms/group-members";
 @use "organisms/lobby-header";
 @use "organisms/modal";
 @use "organisms/sidebar";
