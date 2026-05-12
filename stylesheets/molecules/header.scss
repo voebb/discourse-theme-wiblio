@@ -84,7 +84,7 @@ body.scrolled {
   min-width: 100%;
   padding-block-start: 23.5rem;
   padding-inline-start: var(--main-outlet-padding-x);
-  top: -25.9rem;
+  top: calc(-1 * (22.275rem + var(--header-offset)));
   margin-block-end: -25.75rem;
   margin-inline: calc(-1 * var(--main-outlet-padding-x));
   overflow: visible;
@@ -92,7 +92,7 @@ body.scrolled {
   background-size: 100%;
 
   @include viewport.from(md) {
-    top: -28.25rem;
+    top: calc(-1 * (24.25rem + var(--header-offset)));
     margin-block-end: -26.75rem;
     background-position: 0 bottom;
   }
