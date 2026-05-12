@@ -27,8 +27,8 @@
 @use "molecules/header" with (
   $shape_image_url: $rhomb
 );
-@use "list-controls";
-@use "topic-list";
+@use "molecules/list-controls";
+@use "molecules/topic-list";
 @use "molecules/form-kit";
 @use "molecules/topic-cards";
 @use "molecules/topic-list-fixes";
