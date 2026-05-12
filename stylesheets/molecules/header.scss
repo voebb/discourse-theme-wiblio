@@ -8,6 +8,7 @@ $shape_image_url: "" !default;
   --d-header-icon-background--hover: var(--w-button-outline-hover-color);
 }
 
+body.login-page .d-header,
 .d-header {
   background-color: transparent;
   transition: background-color 0.5s ease;
