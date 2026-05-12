@@ -1,7 +1,15 @@
-body.login-page {
+body.login-page,
+body.signup-page {
   background: transparent;
 }
 
-.login-page #main-outlet-wrapper {
-  padding-inline: var(--d-wrap-padding-x);
+.login-page,
+.signup-page {
+  #main-outlet-wrapper {
+    padding-inline: var(--d-wrap-padding-x);
+  }
+
+  .d-header {
+    background-color: transparent !important;
+  }
 }
