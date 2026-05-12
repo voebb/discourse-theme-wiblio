@@ -39,5 +39,9 @@
   $chat-svg: $chat
 );
 @use "organisms/dashboard-header";
+@use "organisms/lobby-header";
 @use "organisms/modal";
 @use "organisms/sidebar";
+
+// Templates
+@use "templates/lobby";
