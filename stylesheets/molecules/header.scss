@@ -23,6 +23,7 @@ body.scrolled {
 .d-header-icons {
   column-gap: var(--space-1);
   align-items: center;
+  padding-inline-end: var(--space-4);
 }
 
 .header-dropdown-toggle {
@@ -85,6 +86,7 @@ body.scrolled {
   padding-block-start: 23.5rem;
   padding-inline-start: var(--main-outlet-padding-x);
   top: calc(-1 * (22.275rem + var(--header-offset)));
+  right: -0.5px;
   margin-block-end: -25.75rem;
   margin-inline: calc(-1 * var(--main-outlet-padding-x));
   overflow: visible;
