@@ -1,0 +1,73 @@
+@use "lib/viewport";
+
+:root {
+  --w-modal-backdrop-opacity: 0.8;
+  --w-modal-offset: 3rem;
+}
+
+// fade in
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: var(--w-modal-backdrop-opacity);
+  }
+}
+
+@keyframes backdrop-fade-out {
+  from {
+    opacity: var(--w-modal-backdrop-opacity);
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+.d-modal__container {
+  padding: var(--space-4);
+  border-radius: var(--zlb-card-border-radius);
+
+  html:not(.keyboard-visible).mobile-device & {
+    padding-bottom: max(env(safe-area-inset-bottom), var(--space-4));
+  }
+
+  @include viewport.until(sm) {
+    width: calc(100% - var(--w-modal-offset) * 2);
+    left: var(--w-modal-offset);
+    right: var(--w-modal-offset);
+
+    html:not(.keyboard-visible).mobile-device & {
+      bottom: var(--w-modal-offset);
+    }
+  }
+}
+
+.d-modal__footer,
+.d-modal__header:not(.--has-primary-action) {
+  border: 0;
+  padding: 0;
+}
+
+.d-modal__body {
+  padding-inline: 0;
+
+  @include viewport.until(sm) {
+    align-items: stretch;
+  }
+}
+
+.d-modal__footer {
+  flex-wrap: nowrap;
+
+  > * {
+    display: flex;
+    flex: 1 1 50%;
+  }
+}
+
+.zlb-community-modal__user-pill {
+  margin-inline: auto;
+}
