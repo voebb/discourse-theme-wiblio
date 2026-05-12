@@ -32,6 +32,7 @@
 @use "molecules/topic-list";
 @use "molecules/form-kit";
 @use "molecules/topic-cards";
+@use "molecules/topic-list";
 @use "molecules/topic";
 
 // Organisms
@@ -39,10 +40,9 @@
   $chat-svg: $chat
 );
 @use "organisms/dashboard-header";
+@use "organisms/lobby-header";
 @use "organisms/modal";
 @use "organisms/sidebar";
-@use "lobby-header";
-@use "topic-list-fixes";
 
 // Templates
 @use "templates/lobby";
