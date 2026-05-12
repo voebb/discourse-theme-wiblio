@@ -47,6 +47,8 @@
     display: grid;
     grid-template-columns: minmax(0, 1fr);
     grid-area: status;
+    order: unset;
+    align-self: center;
 
     .directory-table__label {
       display: none;
