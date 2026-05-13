@@ -6,6 +6,12 @@ $chat-svg: "" !default;
   --main-outlet-offset: 13vh;
 }
 
+@include viewport.from(md) {
+  .full-page-chat {
+    --main-outlet-offset: 18vh;
+  }
+}
+
 .chat-messages-container {
   display: grid;
   grid-template-columns: minmax(0, 1fr);

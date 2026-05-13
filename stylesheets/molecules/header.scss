@@ -95,9 +95,12 @@ body.scrolled {
   padding-inline-start: var(--main-outlet-padding-x);
   margin-block-start: calc(-1 * var(--main-outlet-padding-top));
   margin-block-end: var(--w-header-titles-offset);
-  margin-inline: calc(-1 * (var(--main-outlet-padding-x)));
   overflow: visible;
   background-color: var(--secondary);
+
+  body:not(.has-full-page-chat) & {
+    margin-inline: calc(-1 * (var(--main-outlet-padding-x)));
+  }
 
   &:not(.zlb-community-header--dashboard)::before {
     content: "";
