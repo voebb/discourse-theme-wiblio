@@ -14,6 +14,7 @@
   $sun_m_url: $sun_m
 );
 @use "base/login-page";
+@use "base/last-minute-fixes";
 
 // Atoms
 @use "atoms/badge";
