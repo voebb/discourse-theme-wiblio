@@ -15,12 +15,12 @@
   @include viewport.from(md) {
     height: 8rem;
     margin-block-start: calc(-15% - 4rem);
-    padding-block-start: 15%;
+    padding-block-start: 13%;
   }
 
   @include viewport.from(lg) {
     margin-block-start: max(calc(-22% + 3rem), -5rem);
-    padding-block-start: 10%;
+    padding-block-start: 5%;
   }
 
   .zlb-community-header__titles {
