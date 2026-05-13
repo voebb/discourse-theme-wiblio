@@ -17,6 +17,15 @@
     "sun_m": "assets/sun_m.svg"
   },
  "modifiers": {
+      "svg_icons": [
+      "fire",
+      "far-square-check",
+      "far-square",
+      "thumbtack",
+      "reply",
+      "heart",
+      "user-plus"
+    ],
     "serialize_topic_is_hot": true
   },
    "color_schemes": {
