@@ -103,7 +103,7 @@ body.scrolled {
   overflow: visible;
   background-color: var(--secondary);
 
-  &::before {
+  &:not(.zlb-community-header--dashboard)::before {
     content: "";
     position: absolute;
     top: calc(-1 * var(--w-header-padding-top));

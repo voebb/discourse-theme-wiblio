@@ -3,7 +3,6 @@
 .zlb-community-header--dashboard {
   width: auto;
   box-sizing: content-box;
-  height: 8rem;
   position: relative;
   margin-inline: calc(-1 * var(--main-outlet-padding-x));
   margin-block-start: calc(-1 * (100% - 2 * var(--d-wrap-padding-x)) / 4);
@@ -11,8 +10,10 @@
   padding-block-start: 35%;
   border-radius: 0;
   top: auto;
+  background-color: transparent;
 
   @include viewport.from(md) {
+    height: 8rem;
     margin-block-start: calc(-15% - 4rem);
     padding-block-start: 15%;
   }
