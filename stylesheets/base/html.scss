@@ -8,6 +8,8 @@ $sun_m_url: "" !default;
 
 :root {
   --main-outlet-padding-x: var(--space-3);
+  --main-outlet-margin-y: var(--w-header-height);
+  --w-header-height: 3rem;
 }
 
 @include viewport.from(md) {
@@ -43,7 +45,7 @@ html {
 #main-outlet {
   position: relative;
   background-color: var(--secondary);
-  margin-block-start: var(--space-8);
+  margin-block-start: var(--main-outlet-margin-y);
 
   &::after {
     content: "";
@@ -55,5 +57,15 @@ html {
     width: 100%;
     min-height: 4.575rem; // Magic number, matches the amount of the angle shown on the header
     transform: scale(-100%);
+  }
+}
+
+@include viewport.from(md) {
+  :root {
+    --w-header-height: 5rem;
+  }
+
+  .has-sidebar-page {
+    --w-header-height: 5rem;
   }
 }
