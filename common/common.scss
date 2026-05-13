@@ -16,9 +16,10 @@
 @use "base/login-page";
 
 // Atoms
+@use "atoms/badge";
 @use "atoms/button";
-@use "atoms/categories";
 @use "atoms/category-badges";
+@use "atoms/category-button";
 @use "atoms/discourse";
 @use "atoms/input";
 @use "atoms/skip-link";
@@ -26,6 +27,7 @@
 
 // Molecules
 @use "molecules/card";
+@use "molecules/expander";
 @use "molecules/header" with (
   $shape_image_url: $rhomb
 );
@@ -36,6 +38,7 @@
 @use "molecules/topic";
 
 // Organisms
+@use "organisms/category-header";
 @use "organisms/chat" with (
   $chat-svg: $chat
 );
