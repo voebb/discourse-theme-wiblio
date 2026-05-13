@@ -88,12 +88,6 @@ body.scrolled {
   --w-header-titles-offset: -2rem;
 }
 
-@include viewport.from(lg) {
-  :root {
-    --w-header-titles-offset: -3rem;
-  }
-}
-
 .zlb-community-header {
   position: relative;
   padding-inline-start: var(--main-outlet-padding-x);
@@ -121,4 +115,9 @@ body.scrolled {
   grid-template-columns: minmax(0, 1fr);
   gap: var(--space-2);
   top: var(--w-header-titles-offset);
+  padding-inline-start: 0;
+}
+
+.zlb-community-header__subtitle {
+  font-size: var(--font-0);
 }
