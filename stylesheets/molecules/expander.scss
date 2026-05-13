@@ -1,0 +1,26 @@
+:root {
+  --zlb-expander-gap: var(--space-4);
+  --zlb-expander-padding: var(--space-4);
+}
+
+.zlb-community-expander {
+  padding: 0;
+
+  &[open] {
+    padding-block-start: var(--zlb-expander-padding);
+  }
+}
+
+.zlb-community-expander__content {
+  padding-inline: var(--zlb-expander-padding);
+}
+
+.zlb-community-expander__summary {
+  padding: var(--zlb-expander-padding);
+  transition: color 0.2s ease;
+
+  &:hover,
+  &:focus-visible {
+    color: var(--tertiary);
+  }
+}

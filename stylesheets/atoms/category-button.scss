@@ -1,24 +1,10 @@
 :root {
-  --zlb-expander-gap: var(--space-4);
   --zlb-category-button-hover-background-color: var(--w-background-hover);
   --zlb-category-button-hover-border-color: var(--w-border-color-hover);
 }
 
 .zlb-community-category-button {
   transition: background-color 0.2s ease;
-}
-
-.zlb-community-category-header {
-  width: 100%;
-}
-
-.zlb-community-expander {
-  &:hover {
-    .zlb-community-expander__state {
-      color: var(--tertiary);
-      transition: color 0.2s ease;
-    }
-  }
 }
 
 .zlb-community-category-button {
