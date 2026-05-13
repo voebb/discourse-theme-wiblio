@@ -8,6 +8,7 @@ $sun_m_url: "" !default;
 
 :root {
   --main-outlet-padding-x: var(--space-3);
+  --main-outlet-margin-y: var(--w-header-height);
   --w-header-height: 3rem;
 }
 
@@ -44,7 +45,7 @@ html {
 #main-outlet {
   position: relative;
   background-color: var(--secondary);
-  margin-block-start: var(--w-header-height);
+  margin-block-start: var(--main-outlet-margin-y);
 
   &::after {
     content: "";
