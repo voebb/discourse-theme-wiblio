@@ -48,7 +48,8 @@
 }
 
 // undo all the above for the few instances that arent styled like traditional badges
-.category-text-title {
+.category-text-title,
+.select-kit-header-wrapper {
   .badge-category__wrapper {
     border-radius: 0;
     padding: 0;

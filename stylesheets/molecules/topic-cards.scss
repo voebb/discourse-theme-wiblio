@@ -10,9 +10,7 @@
 }
 
 :root {
-  --topic-list-item-background-color: oklch(
-    from var(--tertiary) calc(l * 1.3) calc(c * 0.8) h
-  ) !important;
+  --topic-list-item-background-color: var(--w-box-background) !important;
   --topic-list-item-background-color--visited: var(
     --w-box-background
   ) !important;

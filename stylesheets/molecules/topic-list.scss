@@ -275,6 +275,10 @@
   position: sticky;
   top: var(--header-offset);
 
+  .zlb-community-dashboard-topic-list__filters {
+    display: none !important;
+  }
+
   .topic-list-body {
     max-height: 60vh;
     overflow-y: scroll;

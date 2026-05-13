@@ -36,6 +36,28 @@
 
   .d-combo-button {
     order: 2;
+
+    .btn-icon {
+      border-color: initial;
+    }
+  }
+
+  .btn-icon {
+    border-color: transparent;
+  }
+
+  // TODO: make suitable for combobox??
+  #create-topic {
+    // border-top-right-radius: 0;
+    // border-bottom-right-radius: 0;
+    border-top-right-radius: var(--d-button-border-radius);
+    border-bottom-right-radius: var(--d-button-border-radius);
+
+    @include viewport.until(sm) {
+      .d-icon {
+        margin: 0;
+      }
+    }
   }
 }
 
@@ -43,23 +65,29 @@
 .category-breadcrumb {
   row-gap: var(--space-1);
 
-  @include viewport.until(sm) {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: var(--space-2);
+  // TODO: only when tags
+  // @include viewport.until(sm) {
+  //   width: 100%;
+  //   display: grid;
+  //   grid-template-columns: 1fr 1fr;
+  //   column-gap: var(--space-2);
 
-    li {
-      margin-right: 0;
-    }
+  //   li {
+  //     margin-right: 0;
+  //   }
 
-    .select-kit {
-      width: 100%;
-    }
+  //   .select-kit {
+  //     width: 100%;
+  //   }
+  // }
+  .tag-drop {
+    display: none;
   }
 }
 
 .select-kit {
+  --d-nav-border-color--active: var(--primary);
+
   &.is-expanded {
     .select-kit-body {
       border-radius: var(--d-border-radius);
@@ -102,7 +130,8 @@
 }
 
 .select-kit-row[data-value="no-tags"],
-.select-kit-row[data-value="no-categories"] {
+.select-kit-row[data-value="no-categories"],
+.select-kit-row[data-value="all-categories"] {
   display: flex;
   font-weight: 500 !important;
 }
@@ -138,16 +167,5 @@
 
   &:hover {
     background-color: var(--d-button-default-bg-color--hover) !important;
-  }
-}
-
-#create-topic {
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-
-  @include viewport.until(sm) {
-    .d-icon {
-      margin: 0;
-    }
   }
 }
