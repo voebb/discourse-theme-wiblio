@@ -1,3 +1,5 @@
+@use "lib/viewport";
+
 $chat-svg: "" !default;
 
 .full-page-chat {
@@ -96,7 +98,8 @@ $chat-svg: "" !default;
 }
 
 .chat-message-info {
-  gap: 1rem;
+  align-items: baseline;
+  gap: 0.5em;
 }
 
 .chat-message-info__date {
@@ -131,6 +134,37 @@ $chat-svg: "" !default;
 
     .d-button-label {
       text-align: center;
+    }
+  }
+}
+
+.chat-composer {
+  .chat-composer-dropdown__trigger-btn {
+    .d-icon {
+      color: var(--tertiary);
+      background-color: transparent;
+    }
+
+    &:hover {
+      color: var(--w-background-hover);
+    }
+  }
+
+  &__input-container {
+    @include viewport.until(sm) {
+      border-radius: var(--w-border-radius-full);
+      background: var(chat-composer__input-container);
+      border: 1px solid var(--w-border-color);
+    }
+  }
+
+  &__input {
+    background-color: transparent;
+  }
+
+  .chat-composer-button.-send {
+    @include viewport.from(sm) {
+      padding-right: var(--space-5);
     }
   }
 }
