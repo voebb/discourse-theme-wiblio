@@ -38,12 +38,12 @@
     order: 2;
 
     .btn-icon {
-      border-width: 1px;
+      border-color: initial;
     }
   }
 
   .btn-icon {
-    border-width: 0;
+    border-color: transparent;
   }
 
   // TODO: make suitable for combobox??
