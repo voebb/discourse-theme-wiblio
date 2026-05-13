@@ -79,6 +79,7 @@
   }
 
   &[data-section-name="forum"] {
+    --d-sidebar-vertical-gap: 0;
     border-radius: var(--d-border-radius);
 
     &:hover {
