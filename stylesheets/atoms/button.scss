@@ -8,7 +8,7 @@
   --d-button-default-bg-color--hover: var(--w-background-hover-dark);
   --d-button-default-icon-color: var(--primary);
   --d-button-default-icon-color--hover: var(--primary);
-  --d-button-default-border: var(--d-button-border);
+  --d-button-default-border: 1px solid var(--primary);
 }
 
 .btn-icon {
