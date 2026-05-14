@@ -1,5 +1,16 @@
 @use "lib/viewport";
 
+.qa-welcome-events {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: var(--space-3);
+  margin-bottom: var(--space-2);
+}
+
+.qa-lobby-back-to-event {
+  border: var(--w-border) !important;
+}
+
 @include viewport.until(lg) {
   .zlb-community-lobby {
     #main-outlet-wrapper {
