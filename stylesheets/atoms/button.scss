@@ -1,14 +1,86 @@
-// Copied from app/assets/stylesheet/common/components/buttons for further investigation
 :root {
+  // global
   --d-button-border-radius: 8px;
-  --d-button-transition: all 0.2s ease;
+  --d-button-transition: var(--w-transition);
+
+  // --d-button-border: 1px solid transparent;
+
+  // .btn-default
   --d-button-default-text-color: var(--primary);
   --d-button-default-text-color--hover: var(--primary);
-  --d-button-default-bg-color: var(--w-background);
-  --d-button-default-bg-color--hover: var(--w-background-hover-dark);
+  --d-button-default-bg-color: var(--w-button-background);
+  --d-button-default-bg-color--hover: var(--w-button-background--hover);
   --d-button-default-icon-color: var(--primary);
   --d-button-default-icon-color--hover: var(--primary);
-  --d-button-default-border: 1px solid var(--primary);
+
+  // --d-button-default-border: var(--d-button-border);
+  // --d-button-default-border--hover: var(--d-button-border);
+
+  // .btn-primary
+  --d-button-primary-text-color: var(--d-button-default-text-color);
+  --d-button-primary-text-color--hover: var(
+    --d-button-default-text-color--hover
+  );
+  --d-button-primary-bg-color: var(--d-button-default-bg-color);
+  --d-button-primary-bg-color--hover: var(--d-button-default-bg-color--hover);
+  --d-button-primary-icon-color: var(--d-button-default-icon-color);
+  --d-button-primary-icon-color--hover: var(
+    --d-button-default-icon-color--hover
+  );
+
+  // --d-button-primary-border: var(--d-button-border);
+  // --d-button-primary-border--hover: var(--d-button-border);
+
+  // .btn-danger and .btn.cancel
+  // --d-button-danger-text-color: var(--secondary);
+  // --d-button-danger-text-color--hover: var(--secondary);
+  // --d-button-danger-bg-color: var(--danger);
+  // --d-button-danger-bg-color--hover: var(--danger-hover);
+  // --d-button-danger-icon-color: var(--danger-low);
+  // --d-button-danger-icon-color--hover: var(--danger-low);
+  // --d-button-danger-border: var(--d-button-border);
+  // --d-button-danger-border--hover: var(--d-button-border);
+
+  // .btn-success and .btn.ok
+  // --d-button-success-text-color: var(--secondary);
+  // --d-button-success-text-color--hover: var(--secondary);
+  // --d-button-success-bg-color: var(--success);
+  // --d-button-success-bg-color--hover: var(--success-hover);
+  // --d-button-success-icon-color: var(--success-low);
+  // --d-button-success-icon-color--hover: var(--success-low);
+  // --d-button-success-border: var(--d-button-border);
+  // --d-button-success-border--hover: var(--d-button-border);
+
+  // .btn-flat
+  --d-button-flat-text-color: var(--primary);
+
+  // --d-button-flat-text-color--hover: var(--primary);
+  --d-button-flat-icon-color: var(--primary);
+
+  // --d-button-flat-icon-color--hover: var(--primary);
+  // --d-button-flat-bg-color: transparent;
+  // --d-button-flat-bg-color--hover: var(--d-hover);
+  // --d-button-flat-bg-color--focus: var(--d-hover);
+  --d-button-flat-text-color--disabled: var(--primary-high);
+
+  // .btn-flat.close
+  // --d-button-flat-close-text-color: var(--primary-high);
+  // --d-button-flat-close-bg-color: transparent;
+  // --d-button-flat-close-icon-color: var(--primary-high);
+  // --d-button-flat-close-icon-color--hover: var(--primary);
+
+  // .btn-transparent
+  // --d-button-transparent-text-color: var(--primary);
+  // --d-button-transparent-text-color--hover: var(--tertiary-hover);
+  // --d-button-transparent-icon-color: var(--primary-high);
+  // --d-button-transparent-icon-color--hover: var(--tertiary-hover);
+}
+
+.btn-primary[disabled]:not(.is-loading) {
+  color: var(--w-button-text--disabled);
+  background-color: var(--w-button-background--disabled);
+  border-color: var(--w-button-border-color--disabled);
+  opacity: 1;
 }
 
 .btn-icon {
