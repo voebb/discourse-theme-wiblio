@@ -135,5 +135,30 @@
 }
 
 .sidebar-footer-container {
-  display: none !important;
+  &::before {
+    display: none !important;
+  }
+
+  .sidebar-footer-actions {
+    width: 100%;
+
+    .btn {
+      display: none;
+    }
+
+    .w-sidebar-legal-links {
+      display: flex;
+      column-gap: var(--space-2);
+      margin-top: 0;
+
+      li {
+        list-style: none;
+
+        a {
+          color: var(--w-background-emphazise);
+          font-size: var(--font-down-1);
+        }
+      }
+    }
+  }
 }
