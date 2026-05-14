@@ -5,10 +5,10 @@
 
 .zlb-community-expander {
   padding: 0;
-  box-shadow: 4px 4px var(--primary);
 
   &:not(.zlb-community-expander--user-list) {
     gap: 0;
+    box-shadow: 4px 4px var(--primary);
 
     &[open] {
       padding-block-end: var(--zlb-expander-padding);
