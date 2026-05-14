@@ -9,9 +9,6 @@
 
   // Colors: Background
   --w-background: oklch(from var(--tertiary) calc(l * 1.2) calc(c * 1.2) h);
-  --w-background-hover: oklch(
-    from var(--tertiary) calc(l * 1.4) calc(c * 0.4) h
-  );
   --w-background-hover-dark: oklch(
     from var(--tertiary) calc(l * 0.99) calc(c * 1.4) h
   );
@@ -28,9 +25,9 @@
   --w-border-color-hover: oklch(from var(--tertiary) calc(l * 2) calc(c * 1) h);
 
   // Colors: Text
-  --w-link-color: oklch(from var(--tertiary) calc(l * 0.99) calc(c * 1.4) h);
+  --w-link-color: oklch(from var(--tertiary) calc(l * 0.7) calc(c * 2) h);
   --w-link-color--hover: oklch(
-    from var(--tertiary) calc(l * 0.99) calc(c * 1.4) h
+    from var(--tertiary) calc(l * 0.9) calc(c * 1) h
   );
   --w-text--disabled: var(--primary-500);
 
@@ -47,9 +44,6 @@
   --w-button-background--disabled: var(--primary-300);
   --w-button-text--disabled: var(--primary-700);
   --w-button-border-color--disabled: var(--w-button-text--disabled);
-  --w-button-outline-hover-color: oklch(
-    from var(--tertiary) calc(l * 2) calc(c * 1) h
-  );
 
   // Size
   --w-button-size-large: 48px;

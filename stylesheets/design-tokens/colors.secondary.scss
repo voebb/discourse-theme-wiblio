@@ -3,6 +3,7 @@
   --content-border-color: var(--w-border-color) !important;
   --d-content-background: oklch(from var(--secondary) l c h / 0.95);
   --accent-color: var(--w-border-color-hover);
+  --d-link-color: var(--w-link-color);
 
   // TODO: Probably make better use of these variables
   // --tertiary-very-low: #{$tertiary-very-low};
