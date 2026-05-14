@@ -1,23 +1,8 @@
 :root {
-  // Wiblio
-  --w-box-background: #f8f8f8;
-  --w-box-background--hover: #e6e6e6;
-  --w-background: oklch(from var(--tertiary) calc(l * 1.2) calc(c * 1.2) h);
-  --w-background-hover: oklch(
-    from var(--tertiary) calc(l * 1.4) calc(c * 0.4) h
-  );
-  --w-background-hover-dark: oklch(
-    from var(--tertiary) calc(l * 0.99) calc(c * 1.4) h
-  );
-  --w-background-emphazise: oklch(
-    from var(--tertiary) calc(l * 1.4) calc(c * 0.7) h
-  );
-  --w-sidebar-hover: oklch(from var(--tertiary) calc(l * 0.8) c h);
-  --w-border-color: #e6e6e6;
-  --w-border-color-hover: oklch(from var(--tertiary) calc(l * 2) calc(c * 1) h);
-  --w-button-outline-hover-color: oklch(
-    from var(--tertiary) calc(l * 2) calc(c * 1) h
-  );
+  // Discourse
+  --content-border-color: var(--w-border-color) !important;
+  --d-content-background: oklch(from var(--secondary) l c h / 0.95);
+  --accent-color: var(--w-border-color-hover);
 
   // TODO: Probably make better use of these variables
   // --tertiary-very-low: #{$tertiary-very-low};
@@ -36,11 +21,4 @@
   // --tertiary-700: #{$tertiary-700};
   // --tertiary-800: #{$tertiary-800};
   // --tertiary-900: #{$tertiary-900};
-
-  // General
-  --content-border-color: var(--w-border-color) !important;
-  --d-content-background: oklch(from var(--secondary) l c h / 0.95);
-  --accent-color: var(--w-border-color-hover);
-
-  // Sidebar
 }
