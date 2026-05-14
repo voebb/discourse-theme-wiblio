@@ -1,4 +1,9 @@
 @use "lib/viewport";
+@use "design-tokens/mixins";
+
+:root {
+  --d-nav-color--active: var(--w-link-color);
+}
 
 .list-controls {
   position: sticky;
@@ -30,33 +35,47 @@
   }
 }
 
+#navigation-bar {
+  .list-control-toggle-link-trigger {
+    color: var(--primary);
+  }
+}
+
 .navigation-controls {
   justify-content: flex-end;
   margin: 0 0 0 auto;
 
   .d-combo-button {
+    @include mixins.special-button-border;
+    height: initial;
     order: 2;
-
-    .btn-icon {
-      border-color: initial;
-    }
+    transition: var(--w-transition);
   }
 
-  .btn-icon {
-    border-color: transparent;
-  }
-
-  // TODO: make suitable for combobox??
   #create-topic {
-    // border-top-right-radius: 0;
-    // border-bottom-right-radius: 0;
-    border-top-right-radius: var(--d-button-border-radius);
-    border-bottom-right-radius: var(--d-button-border-radius);
+    border-top-left-radius: var(--w-button-border-radius-large);
+    border-bottom-left-radius: var(--w-button-border-radius-large);
+    background-color: var(--d-button-default-bg-color);
+
+    &:hover {
+      background-color: var(--d-button-default-bg-color--hover) !important;
+    }
 
     @include viewport.until(sm) {
       .d-icon {
         margin: 0;
       }
+    }
+  }
+
+  .topic-drafts-menu-trigger {
+    margin-left: 0 !important;
+    border-top-right-radius: var(--w-button-border-radius-large);
+    border-bottom-right-radius: var(--w-button-border-radius-large);
+    background-color: var(--d-button-default-bg-color);
+
+    &:hover {
+      background-color: var(--d-button-default-bg-color--hover) !important;
     }
   }
 }
@@ -115,6 +134,7 @@
   .combo-box-header {
     background: transparent;
     transition: all 0.2s ease;
+    color: var(--primary);
 
     &:hover {
       background-color: var(--d-hover);
@@ -151,21 +171,5 @@
       height: var(--d-nav-underline-height);
       background: var(--d-nav-color--hover);
     }
-  }
-}
-
-.fk-d-button-tooltip {
-  &:has(#create-topic) {
-    order: 2;
-  }
-}
-
-.topic-drafts-menu-trigger,
-#create-topic {
-  border-radius: var(--d-button-border-radius);
-  background-color: var(--d-button-default-bg-color);
-
-  &:hover {
-    background-color: var(--d-button-default-bg-color--hover) !important;
   }
 }

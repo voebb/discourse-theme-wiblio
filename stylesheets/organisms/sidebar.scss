@@ -102,7 +102,7 @@
 
 #sidebar-section-content-forum {
   margin-left: calc(
-    var(--space-1) + var(--font-down-1) +
+    0.5em + var(--font-down-1) +
       var(--d-sidebar-section-link-prefix-margin-right)
   ) !important;
 
@@ -135,5 +135,38 @@
 }
 
 .sidebar-footer-container {
-  display: none !important;
+  &::before {
+    display: none !important;
+  }
+
+  .sidebar-footer-actions {
+    width: 100%;
+
+    .btn {
+      display: none;
+    }
+
+    .w-sidebar-legal-links {
+      column-gap: var(--space-2);
+      margin-left: var(--d-sidebar-row-horizontal-padding);
+      margin-top: 0;
+
+      @include viewport.from(sm) {
+        display: flex;
+      }
+
+      li {
+        list-style: none;
+
+        a {
+          color: var(--primary-high);
+          font-size: var(--font-down-1);
+
+          @include viewport.from(sm) {
+            color: var(--w-background-emphazise);
+          }
+        }
+      }
+    }
+  }
 }

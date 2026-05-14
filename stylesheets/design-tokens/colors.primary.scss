@@ -1,12 +1,4 @@
 :root {
   --primary-low-mid: #e6e6e6;
   --primary-low: #f5f5f5;
-
-  // Wiblio
-  --w-brand-primary-200: var(--tertiary-200);
-  --w-brand-primary-500: var(--tertiary-500);
-  --w-brand-secondary-500: var(--quaternary);
-  --w-brand-secondary-800: oklch(
-    from var(--quaternary) calc(l * 0.9) calc(c * 1) h
-  );
 }

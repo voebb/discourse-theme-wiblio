@@ -1,3 +1,6 @@
+@use "design-tokens/mixins";
+@use "lib/viewport";
+
 body.login-page,
 body.signup-page {
   background: transparent;
@@ -12,4 +15,64 @@ body.signup-page {
   .d-header {
     background-color: transparent !important;
   }
+}
+
+.signup-progress-bar__segment.--active {
+  .signup-progress-bar__circle {
+    background-color: var(--tertiary);
+    border-color: var(--tertiary);
+    box-shadow: 0 0 1px calc(var(--progress-bar-circle-size) / 2)
+      var(--tertiary-low);
+  }
+}
+
+#login-form {
+  > label {
+    font-weight: normal;
+    color: var(--primary);
+
+    input {
+      width: var(--space-4);
+      height: var(--space-4);
+      margin-top: 1px;
+    }
+  }
+}
+
+.signup-page-cta__buttons,
+.login-page-cta__buttons {
+  margin-top: var(--space-5);
+
+  .signup-page-cta__signup,
+  .login-page-cta__login {
+    @include mixins.special-button-border;
+  }
+
+  .signup-page-cta__existing-account,
+  .login-page-cta__no-account-yet {
+    margin-top: var(--space-5);
+
+    @include viewport.from(sm) {
+      margin: var(--space-7) 0 var(--space-2) 0;
+    }
+
+    &::before {
+      display: none;
+    }
+  }
+
+  .signup-page-cta__login,
+  .login-page-cta__signup {
+    width: fit-content !important;
+    margin-top: var(--space-5);
+
+    @include viewport.from(sm) {
+      margin-top: 0;
+      height: var(--w-button-size-large);
+    }
+  }
+}
+
+.passkey-login-button {
+  border-width: 0 !important;
 }

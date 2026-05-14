@@ -1,0 +1,15 @@
+@mixin special-button-border {
+  height: var(--w-button-size-large);
+  border-radius: var(--w-button-border-radius-large);
+  border: 2px solid var(--primary);
+  box-shadow: 4px 4px var(--primary);
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+
+  &:hover {
+    border: 2px solid var(--primary);
+    box-shadow: 4px 6px var(--primary);
+    margin-top: -2px !important;
+    margin-bottom: 2px !important;
+  }
+}

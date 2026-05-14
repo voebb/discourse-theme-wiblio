@@ -5,6 +5,10 @@
 // Design tokens - secondary
 @use "design-tokens/colors.secondary";
 
+// Other Design tokens
+@use "design-tokens/variables";
+@use "design-tokens/mixins";
+
 // Base
 @use "base/html" with (
   $shape_image_url: $rhomb,
@@ -28,6 +32,8 @@
 
 // Molecules
 @use "molecules/card";
+@use "molecules/dropdown";
+@use "molecules/event-card";
 @use "molecules/expander";
 @use "molecules/header" with (
   $shape_image_url: $rhomb

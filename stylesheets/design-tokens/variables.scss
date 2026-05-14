@@ -1,0 +1,60 @@
+:root {
+  // Colors: ZLB-Plugin
+  --w-brand-primary-200: var(--tertiary-200);
+  --w-brand-primary-500: var(--tertiary-500);
+  --w-brand-secondary-500: var(--quaternary);
+  --w-brand-secondary-800: oklch(
+    from var(--quaternary) calc(l * 0.9) calc(c * 1) h
+  );
+
+  // Colors: Background
+  --w-background: oklch(from var(--tertiary) calc(l * 1.2) calc(c * 1.2) h);
+  --w-background-hover-dark: oklch(
+    from var(--tertiary) calc(l * 0.99) calc(c * 1.4) h
+  );
+  --w-background-emphazise: oklch(
+    from var(--tertiary) calc(l * 1.4) calc(c * 0.7) h
+  );
+
+  // Colors: Box
+  --w-box-background: #f8f8f8;
+  --w-box-background--hover: #e6e6e6;
+
+  // Colors: Border
+  --w-border-color: #e6e6e6;
+  --w-border-color-hover: oklch(from var(--tertiary) calc(l * 2) calc(c * 1) h);
+
+  // Colors: Text
+  --w-link-color: oklch(from var(--tertiary) calc(l * 0.7) calc(c * 2) h);
+  --w-link-color--hover: oklch(
+    from var(--tertiary) calc(l * 0.9) calc(c * 1) h
+  );
+  --w-text--disabled: var(--primary-500);
+
+  // Colors: Sidebar
+  --w-sidebar-hover: oklch(from var(--tertiary) calc(l * 0.8) c h);
+
+  // Colors: Button
+  --w-button-background: oklch(
+    from var(--tertiary) calc(l * 1.2) calc(c * 1.1) h
+  );
+  --w-button-background--hover: oklch(
+    from var(--tertiary) calc(l * 1.1) calc(c * 1.7) h
+  );
+  --w-button-background--disabled: var(--primary-300);
+  --w-button-text--disabled: var(--primary-700);
+  --w-button-border-color--disabled: var(--w-button-text--disabled);
+
+  // Size
+  --w-button-size-large: 48px;
+
+  // Border
+  --w-border: 1px solid var(--primary);
+
+  // Border radius
+  --w-border-radius-full: 999px;
+  --w-button-border-radius-large: 16px;
+
+  // Transition
+  --w-transition: all 0.2s ease;
+}
