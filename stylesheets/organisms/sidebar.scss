@@ -147,16 +147,24 @@
     }
 
     .w-sidebar-legal-links {
-      display: flex;
       column-gap: var(--space-2);
+      margin-left: var(--d-sidebar-row-horizontal-padding);
       margin-top: 0;
+
+      @include viewport.from(sm) {
+        display: flex;
+      }
 
       li {
         list-style: none;
 
         a {
-          color: var(--w-background-emphazise);
+          color: var(--primary-high);
           font-size: var(--font-down-1);
+
+          @include viewport.from(sm) {
+            color: var(--w-background-emphazise);
+          }
         }
       }
     }
