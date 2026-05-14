@@ -9,7 +9,7 @@
   --d-button-default-text-color: var(--primary);
   --d-button-default-text-color--hover: var(--primary);
   --d-button-default-bg-color: var(--w-button-background);
-  --d-button-default-bg-color--hover: var(--w-button-background--hover);
+  --d-button-default-bg-color--hover: var(--d-hover);
   --d-button-default-icon-color: var(--primary);
   --d-button-default-icon-color--hover: var(--primary);
 
@@ -22,7 +22,7 @@
     --d-button-default-text-color--hover
   );
   --d-button-primary-bg-color: var(--d-button-default-bg-color);
-  --d-button-primary-bg-color--hover: var(--d-button-default-bg-color--hover);
+  --d-button-primary-bg-color--hover: var(--w-button-background--hover);
   --d-button-primary-icon-color: var(--d-button-default-icon-color);
   --d-button-primary-icon-color--hover: var(
     --d-button-default-icon-color--hover
@@ -94,6 +94,10 @@
       background-color: var(--w-button-outline-hover-color);
     }
   }
+}
+
+.btn-social {
+  border-radius: var(--d-button-border-radius);
 }
 
 .nav-pills {
