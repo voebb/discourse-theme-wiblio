@@ -102,7 +102,7 @@
 
 #sidebar-section-content-forum {
   margin-left: calc(
-    var(--space-1) + var(--font-down-1) +
+    0.5em + var(--font-down-1) +
       var(--d-sidebar-section-link-prefix-margin-right)
   ) !important;
 

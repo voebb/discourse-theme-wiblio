@@ -49,6 +49,7 @@
     @include mixins.special-button-border;
     height: initial;
     order: 2;
+    transition: var(--w-transition);
   }
 
   #create-topic {
