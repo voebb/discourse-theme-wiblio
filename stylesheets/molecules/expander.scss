@@ -9,6 +9,7 @@
   &:not(.zlb-community-expander--user-list) {
     gap: 0;
     box-shadow: 4px 4px var(--primary);
+    border: 2px solid var(--primary);
 
     &[open] {
       padding-block-end: var(--zlb-expander-padding);

@@ -5,6 +5,9 @@
 # https://translate.discourse.org/
 
 de:
+  tos: "Nutzungsbedingungen"
+  privacy: "Datenschutz"
+  imprint: "Impressum"
   news: "Neueste Beiträge"
   solved: "Gelöst"
   unsolved: "Ungelöst"
