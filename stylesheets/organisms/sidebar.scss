@@ -1,4 +1,5 @@
 @use "lib/viewport";
+@use "design-tokens/mixins";
 
 :root {
   --d-sidebar-row-horizontal-padding: var(--space-2);
@@ -14,6 +15,7 @@
   --d-sidebar-highlight-color: var(--primary) !important;
   --d-sidebar-header-color: var(--primary) !important;
   --d-sidebar-header-icon-color: var(--primary) !important;
+  --d-sidebar-footer-fade: var(--w-box-background);
 }
 
 .sidebar-container {
@@ -126,12 +128,21 @@
 }
 
 .sidebar-footer-container {
-  &::before {
-    display: none !important;
+  padding: 0 !important;
+
+  @include viewport.from(sm) {
+    &::before {
+      display: none !important;
+    }
+    border-top: 1px solid var(--d-sidebar-link-color);
   }
 
   .sidebar-footer-actions {
     width: 100%;
+
+    @include viewport.until(sm) {
+      background-color: var(--w-box-background);
+    }
 
     .btn {
       display: none;
@@ -139,12 +150,8 @@
 
     .w-sidebar-legal-links {
       column-gap: var(--space-2);
-      margin-left: var(--d-sidebar-row-horizontal-padding);
-      margin-top: 0;
-
-      @include viewport.from(sm) {
-        display: flex;
-      }
+      margin: 0;
+      padding: var(--space-2) 0;
 
       li {
         list-style: none;
@@ -154,7 +161,12 @@
           font-size: var(--font-down-1);
 
           @include viewport.from(sm) {
-            color: var(--w-background-emphazise);
+            color: var(--d-sidebar-link-color);
+            transition: var(--w-transition);
+
+            &:hover {
+              color: var(--d-hover);
+            }
           }
         }
       }
