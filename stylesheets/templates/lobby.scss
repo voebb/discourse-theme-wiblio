@@ -24,29 +24,38 @@ html.keyboard-visible .zlb-community-lobby .chat-channel {
   margin-bottom: var(--space-2);
 }
 
-.qa-lobby-back-to-event {
-  border: var(--w-border) !important;
-}
+.zlb-community-lobby {
+  #main-outlet-wrapper {
+    padding-inline: 0;
+    max-width: 800px;
+  }
 
-@include viewport.until(lg) {
-  .zlb-community-lobby {
-    #main-outlet-wrapper {
-      padding-inline: 0;
+  #main-outlet {
+    margin-block: 0;
+
+    &::after {
+      display: none;
     }
+  }
 
-    #main-outlet {
-      margin-block: 0;
+  .form-kit__container-content {
+    span {
+      width: 100%;
 
-      &::after {
-        display: none;
+      .avatar-uploader__button {
+        width: 100%;
+        background-color: transparent;
+        border: 1px solid var(--primary);
+
+        .d-button-label {
+          width: fit-content;
+        }
       }
     }
+  }
 
-    .discourse-root,
-    #main-outlet-wrapper,
-    #main-outlet {
-      // height: 100dvh;
-    }
+  .all-loaded-message {
+    margin-top: var(--space-4);
   }
 }
 

@@ -2,11 +2,10 @@
 
 $chat-svg: "" !default;
 
-html.has-full-page-chat {
-  @include viewport.until(sm) {
-    background-color: var(--secondary);
-    background-image: none;
-  }
+html.has-full-page-chat,
+html:has(body.zlb-community-lobby) {
+  background-color: var(--secondary) !important;
+  background-image: none;
 
   #main-outlet {
     margin: 0;

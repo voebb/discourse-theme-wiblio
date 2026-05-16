@@ -1,3 +1,14 @@
 .zlb-community-lobby-header {
-  padding-inline: 0;
+  .zlb-community-lobby-header__button {
+    width: var(--space-10);
+    height: var(--space-10);
+    background-color: var(--secondary);
+    border: 1px solid var(--primary) !important;
+    border-radius: var(--w-border-radius-full);
+    box-shadow: 2px 2px var(--primary);
+
+    &:hover {
+      border: 1px solid var(--primary);
+    }
+  }
 }
