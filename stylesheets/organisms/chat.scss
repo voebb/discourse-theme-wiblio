@@ -2,8 +2,19 @@
 
 $chat-svg: "" !default;
 
-.has-full-page-chat {
-  --main-outlet-offset: 13vh;
+html.has-full-page-chat {
+  @include viewport.until(sm) {
+    background-color: var(--secondary);
+    background-image: none;
+  }
+
+  #main-outlet {
+    margin: 0;
+
+    &::after {
+      display: none;
+    }
+  }
 }
 
 .chat-channel-preview-card {

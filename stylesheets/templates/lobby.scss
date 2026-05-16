@@ -1,5 +1,22 @@
 @use "lib/viewport";
 
+// Adds height of community-header to standard full chat height
+html.keyboard-visible .zlb-community-lobby .chat-channel {
+  @include viewport.until(sm) {
+    height: calc(
+      var(--composer-vh, 1vh) * 100 - var(--main-outlet-offset, 0px) -
+        1px - var(--chat-header-offset, 0) - var(--composer-height, 0px) - 160px
+    );
+  }
+
+  @include viewport.from(sm) {
+    height: calc(
+      var(--composer-vh, 1vh) * 100 - var(--main-outlet-offset, 0px) -
+        1px - var(--chat-header-offset, 0) - var(--composer-height, 0px) - 180px
+    );
+  }
+}
+
 .qa-welcome-events {
   display: flex;
   flex-flow: column nowrap;
@@ -28,7 +45,7 @@
     .discourse-root,
     #main-outlet-wrapper,
     #main-outlet {
-      height: 100dvh;
+      // height: 100dvh;
     }
   }
 }
