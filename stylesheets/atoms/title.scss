@@ -1,0 +1,17 @@
+.zlb-community-header__titles {
+  --heading-font-family: "GT Pressura", inter, sans-serif;
+  --zlb-highlighted-title-padding: var(--space-1) var(--space-2);
+
+  * {
+    font-family: var(--heading-font-family);
+  }
+
+  .zlb-community-header__title {
+    font-weight: 900;
+  }
+
+  .zlb-community-header__subtitle {
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+}

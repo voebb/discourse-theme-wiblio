@@ -2,7 +2,7 @@
 
 :root {
   --w-modal-backdrop-opacity: 0.8;
-  --w-modal-offset: 3rem;
+  --w-modal-offset: var(--space-5);
 }
 
 // fade in

@@ -1,0 +1,24 @@
+@use "lib/viewport";
+
+.user-main {
+  .staff-counters {
+    background-color: transparent;
+
+    a {
+      color: var(--primary);
+    }
+  }
+
+  .user-profile-toggle-btn {
+    background-color: transparent;
+    justify-content: center;
+  }
+
+  @include viewport.until(sm) {
+    .collapsed-info {
+      .user-profile-toggle-btn {
+        justify-content: flex-start;
+      }
+    }
+  }
+}

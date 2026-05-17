@@ -68,12 +68,14 @@
   // --d-button-flat-close-bg-color: transparent;
   // --d-button-flat-close-icon-color: var(--primary-high);
   // --d-button-flat-close-icon-color--hover: var(--primary);
-
-  // .btn-transparent
-  // --d-button-transparent-text-color: var(--primary);
-  // --d-button-transparent-text-color--hover: var(--tertiary-hover);
-  // --d-button-transparent-icon-color: var(--primary-high);
-  // --d-button-transparent-icon-color--hover: var(--tertiary-hover);
+  .btn-transparent {
+    // --d-button-transparent-text-color: var(--primary);
+    --d-button-transparent-text-color--hover: var(
+      --d-button-default-bg-color--hover
+    );
+    --d-button-transparent-icon-color: var(--primary);
+    --d-button-transparent-icon-color--hover: var(--primary);
+  }
 }
 
 .btn-primary[disabled]:not(.is-loading) {
@@ -86,6 +88,12 @@
 .btn-icon {
   border-radius: var(--w-border-radius-full);
   background-color: var(--w-button-background-color);
+}
+
+.btn-default.no-text {
+  &:hover {
+    background-color: var(--d-button-default-bg-color--hover);
+  }
 }
 
 .btn-default {

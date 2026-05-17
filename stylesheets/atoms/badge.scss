@@ -1,3 +1,13 @@
+.badge-notification,
+.chat-channel-unread-indicator,
+.c-unread-indicator {
+  background: linear-gradient(
+    to right bottom,
+    var(--tertiary),
+    var(--success)
+  ) !important;
+}
+
 .zlb-community-badge {
   color: var(--primary);
 }
