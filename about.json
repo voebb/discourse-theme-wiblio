@@ -14,7 +14,9 @@
     "water": "assets/water.svg",
     "water_m": "assets/water_m.svg",
     "sun": "assets/sun.svg",
-    "sun_m": "assets/sun_m.svg"
+    "sun_m": "assets/sun_m.svg",
+    "gt_pressura_black": "assets/GT-Pressura-Standard-Black.woff2",
+    "gt_pressura_bold": "assets/GT-Pressura-Standard-Bold.woff2"
   },
  "modifiers": {
       "svg_icons": [
@@ -37,7 +39,8 @@
       "hover": "D1FFFF",
       "selected": "64EEF2",
       "love": "e69bae",
-      "header_primary": "000000"
+      "header_primary": "000000",
+      "success": "00AC81"
     }
   }
 }

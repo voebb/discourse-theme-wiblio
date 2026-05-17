@@ -28,6 +28,7 @@
 @use "atoms/discourse";
 @use "atoms/input";
 @use "atoms/skip-link";
+@use "atoms/title";
 @use "atoms/user-pill";
 
 // Molecules
@@ -57,3 +58,21 @@
 
 // Templates
 @use "templates/lobby";
+@use "templates/user";
+@use "templates/user";
+
+@font-face {
+  font-family: "GT Pressura";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url($gt_pressura_bold) format("woff2");
+}
+
+@font-face {
+  font-family: "GT Pressura";
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url($gt_pressura_black) format("woff2");
+}
