@@ -33,11 +33,6 @@
   @include viewport.until(lg) {
     gap: var(--space-2);
   }
-
-  @include viewport.until(sm) {
-    gap: 0;
-    padding: 0;
-  }
 }
 
 .topic-list.--d-topic-cards .topic-list-body .topic-list-item {
@@ -69,10 +64,16 @@
   box-sizing: border-box;
   padding: 0;
   transition: background-color 0.2s ease;
+  border: 1px solid var(--content-border-color);
+  border-radius: var(--zlb-card-border-radius);
 
   &:hover {
     background-color: var(--d-hover);
     border-color: var(--w-border-color-hover);
+  }
+
+  &.selected {
+    border-color: var(--accent-color);
   }
 
   &.closed {
@@ -90,20 +91,6 @@
     &:hover {
       background: var(--tertiary-medium);
     }
-  }
-
-  @include viewport.from(sm) {
-    border: 1px solid var(--content-border-color);
-    border-radius: var(--zlb-card-border-radius);
-  }
-
-  @include viewport.until(sm) {
-    border-bottom: 1px solid var(--content-border-color);
-    background-color: transparent !important;
-  }
-
-  &.selected {
-    border-color: var(--accent-color);
   }
 
   .bulk-select-enabled & {
@@ -327,11 +314,6 @@
     align-items: center;
     gap: var(--space-3);
 
-    @include viewport.from(sm) {
-      border-top: 1px solid var(--content-border-color);
-      padding-top: var(--space-3);
-    }
-
     @include viewport.until(sm) {
       &::after {
         content: "";
@@ -340,10 +322,10 @@
         pointer-events: none;
         background: linear-gradient(
           to right,
-          var(--secondary) 0,
+          var(--w-box-background) 0,
           transparent 1rem,
           transparent calc(100% - 1rem),
-          var(--secondary) 100%
+          var(--w-box-background) 100%
         );
       }
     }
@@ -395,7 +377,11 @@
     gap: var(--space-1);
     padding: var(--space-1);
     border-radius: var(--w-border-radius-full);
-    background: var(--w-background-emphazise);
+    background: linear-gradient(
+      to right bottom,
+      oklch(from var(--tertiary) calc(l * 1.2) calc(c * 1.2) h / 40%),
+      oklch(from var(--success) calc(l * 1.2) calc(c * 1.5) h / 40%)
+    ) !important;
     font-size: var(--font-down-2-rem);
     color: var(--primary-medium);
 

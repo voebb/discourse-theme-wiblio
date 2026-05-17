@@ -282,11 +282,13 @@
   top: var(--header-offset);
   display: flex;
   flex-flow: column nowrap;
+  gap: 0;
 
   .w-topic-list-title {
     display: block;
     padding-bottom: var(--space-3);
     border-bottom: 1px solid var(--w-border-color);
+    margin: 0;
   }
 
   .zlb-community-dashboard-topic-list__filters {
@@ -296,6 +298,7 @@
   .topic-list-body {
     max-height: 60vh;
     overflow-y: scroll;
+    padding-top: var(--space-3);
   }
 
   .zlb-community-dashboard-topic-list__actions {

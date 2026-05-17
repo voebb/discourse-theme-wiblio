@@ -41,6 +41,11 @@
 
   .directory-table__cell--username {
     grid-area: user;
+
+    .name-line {
+      display: flex;
+      flex-flow: column nowrap;
+    }
   }
 
   .directory-table__cell.group-owner {
