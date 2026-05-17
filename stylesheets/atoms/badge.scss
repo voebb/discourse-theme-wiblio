@@ -8,6 +8,17 @@
   ) !important;
 }
 
+.topic-post-badges .badge-notification {
+  background: transparent !important;
+
+  // quick fix for random appearing "neu" text
+  color: var(--w-box-background) !important;
+
+  &::before {
+    background-color: var(--success);
+  }
+}
+
 .zlb-community-badge {
   color: var(--primary);
 }
