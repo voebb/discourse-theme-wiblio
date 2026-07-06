@@ -11,11 +11,24 @@
     oklch(from var(--category-badge-color) 20% calc(c * 1) h),
     oklch(from var(--category-badge-color) 100% calc(c * 0.9) h)
   );
+  padding-inline: var(--space-2);
+  padding-block: 2px;
+  border-radius: var(--w-border-radius-full);
   border: 1px solid transparent;
+  background-color: var(--badge-category-bg);
 
   &:hover {
     border: 1px solid
       oklch(from var(--category-badge-color) 85% calc(c * 0.3) h) !important;
+  }
+
+  .badge-category__name {
+    color: var(--badge-category-text);
+    font-size: var(--font-down-2);
+
+    @include viewport.from(md) {
+      font-size: var(--font-down-1);
+    }
   }
 }
 
@@ -32,31 +45,51 @@
   }
 }
 
-.badge-category__wrapper {
-  border-radius: var(--w-border-radius-full);
-  padding: 3px 6px;
-  background-color: var(--badge-category-bg);
-
-  @include viewport.until(md) {
-    padding: 2px 6px;
-    font-size: var(--font-down-2);
-  }
-
-  .badge-category__name {
-    color: var(--badge-category-text);
-  }
-}
-
 // undo all the above for the few instances that arent styled like traditional badges
 .category-text-title,
-.select-kit-header-wrapper {
+.select-kit-header-wrapper,
+.quote {
   .badge-category__wrapper {
-    border-radius: 0;
     padding: 0;
+    border-radius: 0;
+    border: none;
     background-color: transparent;
 
     .badge-category__name {
       color: var(--primary);
+    }
+  }
+}
+
+// redo the above for badges on quotes, that have the color on the span element instead of the wrapper ಠ_ಠ
+.quote {
+  .badge-category {
+    --badge-category-bg: light-dark(
+      oklch(from var(--category-badge-color) 97% calc(c * 0.3) h),
+      oklch(from var(--category-badge-color) 45% calc(c * 0.5) h)
+    );
+    --badge-category-text: light-dark(
+      oklch(from var(--category-badge-color) 20% calc(c * 1) h),
+      oklch(from var(--category-badge-color) 100% calc(c * 0.9) h)
+    );
+    padding-inline: var(--space-2);
+    padding-block: 2px;
+    border-radius: var(--w-border-radius-full);
+    border: 1px solid transparent;
+    background-color: var(--badge-category-bg);
+
+    &:hover {
+      border: 1px solid
+        oklch(from var(--category-badge-color) 85% calc(c * 0.3) h) !important;
+    }
+
+    .badge-category__name {
+      color: var(--badge-category-text);
+      font-size: var(--font-down-2);
+
+      @include viewport.from(md) {
+        font-size: var(--font-down-1);
+      }
     }
   }
 }
