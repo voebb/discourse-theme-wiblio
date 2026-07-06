@@ -9,9 +9,6 @@
 
   // Colors: Background
   --w-background: oklch(from var(--tertiary) calc(l * 1.2) calc(c * 1.2) h);
-  --w-background-hover-dark: oklch(
-    from var(--tertiary) calc(l * 0.99) calc(c * 1.4) h
-  );
 
   // Colors: Box
   --w-box-background: #f8f8f8;
