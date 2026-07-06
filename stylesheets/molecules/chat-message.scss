@@ -30,14 +30,11 @@ $chat-svg: "" !default;
 .chat-message {
   position: relative;
   box-sizing: border-box;
+  width: 100%;
   margin-bottom: var(--space-4);
   padding: var(--space-2) var(--space-10) var(--space-2) var(--space-4) !important;
   border-radius: var(--space-4);
   background-color: var(--primary-low);
-
-  @include viewport.from("sm") {
-    width: 400px;
-  }
 
   &::after {
     content: "";
