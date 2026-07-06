@@ -1,0 +1,9 @@
+.quote {
+  --d-post-aside-background: transparent;
+  --d-post-aside-border-left: 5px solid var(--tertiary);
+}
+
+blockquote {
+  background-color: transparent;
+  border-left: 5px solid var(--tertiary);
+}
