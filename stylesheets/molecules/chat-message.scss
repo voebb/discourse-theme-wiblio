@@ -1,0 +1,165 @@
+@use "lib/viewport";
+
+$chat-svg: "" !default;
+
+:root {
+  --message-left-width: var(--space-5);
+}
+
+.chat-message-container {
+  box-sizing: border-box;
+  padding-inline: var(--space-3);
+  background-color: transparent !important;
+
+  // Hides the bubble tail for messages that are not the last in a series of messages from the same user
+  &:has(+ .chat-message-container.-user-info-hidden) {
+    .chat-message {
+      margin-bottom: var(--space-1);
+
+      &::after {
+        display: none;
+      }
+    }
+  }
+
+  &.-deleted {
+    padding-block: 0;
+  }
+}
+
+.chat-message {
+  position: relative;
+  box-sizing: border-box;
+  margin-bottom: var(--space-4);
+  padding: var(--space-2) var(--space-10) var(--space-2) var(--space-4) !important;
+  border-radius: var(--space-4);
+  background-color: var(--primary-low);
+
+  @include viewport.from("sm") {
+    width: 400px;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: var(--space-4);
+    margin-inline-end: -100%;
+    background-color: inherit;
+    inline-size: 0.875rem; // 14px
+    block-size: 0.6875rem; // 11px
+    mask-image: url($chat-svg);
+    transform: scaleX(-1);
+  }
+
+  .chat-message-container:not(.-user-info-hidden) & {
+    padding-top: var(--space-2) !important;
+  }
+
+  .chat-message-container.has-reply & {
+    grid-template-areas:
+      "replyto replyto"
+      "message message" !important;
+
+    .chat-user-avatar {
+      display: none;
+    }
+  }
+
+  .chat-message-container.-deleted & {
+    background-color: var(--danger-low);
+
+    .chat-message-left-gutter__date,
+    .chat-message-info__date,
+    .chat-message-info__username {
+      * {
+        color: var(--danger) !important;
+      }
+    }
+  }
+
+  .is-by-current-user & {
+    margin-left: auto;
+    background-color: var(--w-brand-primary-500);
+
+    &::after {
+      left: auto;
+      right: var(--space-4);
+      margin-inline-start: -100%;
+      margin-inline-end: 0;
+      transform: none;
+    }
+
+    .chat-message-left-gutter__date,
+    .chat-message-info__date,
+    .chat-message-info__username {
+      * {
+        color: var(--d-link-color) !important;
+      }
+    }
+  }
+}
+
+.chat-message-avatar {
+  display: none;
+}
+
+.chat-message-info {
+  align-items: baseline;
+  gap: 0.5em;
+}
+
+.chat-message-info__username {
+  font-size: var(--font-down-1);
+}
+
+.chat-message-left-gutter {
+  width: 0;
+}
+
+.chat-message-left-gutter__date,
+.chat-message-info__date {
+  position: absolute;
+  right: var(--space-2);
+  bottom: 4px;
+  white-space: nowrap;
+  text-align: right;
+
+  a {
+    display: block;
+    width: initial !important;
+  }
+}
+
+.chat-reply {
+  column-gap: var(--space-1);
+
+  .d-icon {
+    color: var(--tertiary);
+  }
+}
+
+.chat-message-text {
+  --table-border-color: var(--primary-medium);
+
+  code,
+  a.mention {
+    margin-inline: -2px;
+  }
+
+  th,
+  td {
+    padding: var(--space-1);
+  }
+
+  ul,
+  ol {
+    padding-left: 0 !important;
+  }
+}
+
+.chat-message-text.-deleted {
+  justify-self: center;
+  margin-block-end: var(--space-4);
+  font-size: var(--font-down-1);
+}

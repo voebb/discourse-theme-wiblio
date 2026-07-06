@@ -33,6 +33,9 @@
 
 // Molecules
 @use "molecules/card";
+@use "molecules/chat-message" with (
+  $chat-svg: $chat
+);
 @use "molecules/dropdown";
 @use "molecules/event-card";
 @use "molecules/expander";
@@ -47,9 +50,7 @@
 
 // Organisms
 @use "organisms/category-header";
-@use "organisms/chat" with (
-  $chat-svg: $chat
-);
+@use "organisms/chat";
 @use "organisms/dashboard-header";
 @use "organisms/group-members";
 @use "organisms/lobby-header";
