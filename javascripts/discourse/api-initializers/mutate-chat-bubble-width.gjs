@@ -10,7 +10,7 @@ const ensureMeasurementContainer = () => {
   measurementContainer = document.createElement("div");
   const style = document.createElement("style");
 
-  measurementContainer.className = "__chat-cooked-measure";
+  measurementContainer.className = "chat-content-measure";
   measurementContainer.style.position = "absolute";
   measurementContainer.style.visibility = "hidden";
   measurementContainer.style.left = "0";
@@ -23,19 +23,19 @@ const ensureMeasurementContainer = () => {
   measurementContainer.style.zIndex = "-1";
 
   style.textContent = `
-    .__chat-cooked-measure,
-    .__chat-cooked-measure * {
+    .chat-content-measure,
+    .chat-content-measure * {
       width: auto !important;
       max-width: none !important;
       min-width: 0 !important;
     }
 
-    .__chat-cooked-measure table {
+    .chat-content-measure table {
       table-layout: auto !important;
     }
 
-    .__chat-cooked-measure pre,
-    .__chat-cooked-measure code {
+    .chat-content-measure pre,
+    .chat-content-measure code {
       white-space: pre !important;
     }
   `;
@@ -47,7 +47,7 @@ const ensureMeasurementContainer = () => {
 };
 
 const measureUnconstrainedWidth = (element) => {
-  if (!(element instanceof HTMLElement) || !document.body) {
+  if (!(element instanceof HTMLElement)) {
     return 0;
   }
 
@@ -62,11 +62,16 @@ const measureUnconstrainedWidth = (element) => {
 };
 
 const updateChatMessageWidths = () => {
-  if (!document.body) {
-    return;
-  }
+  const hasDrawerChatContext = () =>
+    document.documentElement?.classList.contains("has-drawer-chat");
 
-  const maxWidth = window.innerWidth < 600 ? 300 : 400;
+  const maxWidth = hasDrawerChatContext()
+    ? 300
+    : window.innerWidth < 600
+      ? 300
+      : window.innerWidth < 1000
+        ? 400
+        : 500;
 
   document.querySelectorAll(".chat-message").forEach((message) => {
     const content = message.querySelector(".chat-message-content");
@@ -103,7 +108,7 @@ const runUpdates = () => {
 };
 
 export default {
-  name: "chat-bubble-width",
+  name: "mutate-chat-bubble-width",
 
   initialize() {
     withPluginApi((api) => {
