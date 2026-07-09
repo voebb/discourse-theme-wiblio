@@ -36,6 +36,7 @@
 @use "molecules/chat-message" with (
   $chat-svg: $chat
 );
+@use "molecules/chat-welcome-overlay";
 @use "molecules/dropdown";
 @use "molecules/event-card";
 @use "molecules/expander";
