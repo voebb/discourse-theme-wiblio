@@ -10,13 +10,10 @@ const addClassName = () => {
   const isGroupChat = () => {
     const icon = el.querySelector(".chat-channel-icon");
 
-    if (
-      icon.classList.contains("--users-count") ||
-      icon.classList.contains("--icon")
-    ) {
-      return true;
-    } else {
+    if (icon.classList.contains("--avatar")) {
       return false;
+    } else {
+      return true;
     }
   };
   document.body.classList.toggle("has-group-chat", isGroupChat());
