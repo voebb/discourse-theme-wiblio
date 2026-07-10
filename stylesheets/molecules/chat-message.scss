@@ -116,6 +116,28 @@ $chat-svg: "" !default;
   font-size: var(--font-down-1);
 }
 
+.chat-message-left-gutter__bookmark,
+.chat-message-info__bookmark {
+  position: absolute;
+  top: -10px;
+  right: var(--space-1);
+
+  .d-icon {
+    margin: 0;
+    color: var(--tertiary);
+
+    use {
+      filter: drop-shadow(1px 1px 1px #0004);
+    }
+  }
+}
+
+.chat-message-info__pinned {
+  .d-icon {
+    color: var(--tertiary);
+  }
+}
+
 .chat-message-left-gutter {
   width: 0;
 }
@@ -165,7 +187,7 @@ $chat-svg: "" !default;
 
 // Group chat specific styles
 body.has-group-chat {
-  // Reverses the hiding of the bubble tail for messages in a series of messages from the same user
+  // Reverses the hiding of the bubble tail
   .chat-message-container {
     padding-left: var(--space-10);
 
