@@ -1,5 +1,5 @@
 import routeAction from "discourse/helpers/route-action";
-import DButton from "discourse/ui-kit/d-button";
+import DButton from "discourse/components/d-button";
 import LegalLinks from "../../components/legal-links.gjs";
 
 <template>
