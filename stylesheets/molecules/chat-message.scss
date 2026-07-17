@@ -8,17 +8,16 @@ $chat-svg: "" !default;
 
 .chat-message-container {
   box-sizing: border-box;
-  padding-inline: var(--space-3);
+  margin-block-end: var(--space-5);
   background-color: transparent !important;
+  padding-inline: var(--space-4);
 
   // Hides the bubble tail for messages that are not the last in a series of messages from the same user
   &:has(+ .chat-message-container.-user-info-hidden) {
-    .chat-message {
-      margin-bottom: var(--space-1);
+    margin-bottom: var(--space-1);
 
-      &::after {
-        display: none;
-      }
+    .chat-message::after {
+      display: none;
     }
   }
 
@@ -31,7 +30,6 @@ $chat-svg: "" !default;
   position: relative;
   box-sizing: border-box;
   width: 100%;
-  margin-bottom: var(--space-4);
   padding: var(--space-2) var(--space-10) var(--space-2) var(--space-4) !important;
   border-radius: var(--space-4);
   background-color: var(--primary-low);
@@ -57,13 +55,10 @@ $chat-svg: "" !default;
     grid-template-areas:
       "replyto replyto"
       "message message" !important;
-
-    .chat-user-avatar {
-      display: none;
-    }
   }
 
   .chat-message-container.-deleted & {
+    padding-block: 0;
     background-color: var(--danger-low);
 
     .chat-message-left-gutter__date,
@@ -97,17 +92,52 @@ $chat-svg: "" !default;
   }
 }
 
-.chat-message-avatar {
-  display: none;
+.chat-reply {
+  .d-icon {
+    color: var(--tertiary);
+  }
 }
 
-.chat-message-info {
-  align-items: baseline;
-  gap: 0.5em;
+.chat-message-avatar {
+  display: none;
+  position: absolute;
+  left: calc(var(--message-left-width) * -1.7);
+  top: var(--space-1);
+
+  .is-by-current-user & {
+    left: auto;
+    right: 0;
+  }
 }
 
 .chat-message-info__username {
   font-size: var(--font-down-1);
+}
+
+.chat-message-left-gutter__bookmark,
+.chat-message-info__bookmark {
+  position: absolute;
+  top: -10px;
+  right: var(--space-1);
+
+  .d-icon {
+    margin: 0;
+    color: var(--tertiary);
+
+    use {
+      filter: drop-shadow(1px 1px 1px #0004);
+    }
+  }
+}
+
+.chat-message-info__pinned {
+  .d-icon {
+    color: var(--tertiary);
+  }
+}
+
+.chat-pinned-message__pinned-by {
+  padding-bottom: var(--space-1);
 }
 
 .chat-message-left-gutter {
@@ -128,14 +158,6 @@ $chat-svg: "" !default;
   }
 }
 
-.chat-reply {
-  column-gap: var(--space-1);
-
-  .d-icon {
-    color: var(--tertiary);
-  }
-}
-
 .chat-message-text {
   --table-border-color: var(--primary-medium);
 
@@ -153,10 +175,99 @@ $chat-svg: "" !default;
   ol {
     padding-left: 0 !important;
   }
+
+  &.-deleted {
+    justify-self: center;
+    font-size: var(--font-down-1);
+  }
 }
 
-.chat-message-text.-deleted {
-  justify-self: center;
-  margin-block-end: var(--space-4);
-  font-size: var(--font-down-1);
+// Position is not adjustable without huge changes I guess
+.chat-message-actions {
+  .chat-message-reaction:not(.reacted),
+  .btn {
+    &:hover {
+      background-color: var(--d-hover);
+    }
+  }
+
+  .d-icon {
+    color: var(--primary) !important;
+  }
+}
+
+// Group chat specific styles
+body.has-group-chat {
+  // Reverses the hiding of the bubble tail
+  .chat-message-container {
+    &:not(.is-by-current-user) {
+      padding-left: var(--space-10);
+
+      @include viewport.from("lg") {
+        padding-left: var(--space-12);
+      }
+    }
+
+    &.is-by-current-user {
+      // padding-left: unset;
+      padding-right: var(--space-10);
+
+      @include viewport.from("lg") {
+        padding-right: var(--space-12);
+      }
+
+      .chat-message::after {
+        left: auto;
+        right: -0.6857rem;
+        transform: rotate(-90deg);
+      }
+
+      .chat-message-avatar {
+        left: auto;
+        right: calc(var(--message-left-width) * -1.3);
+      }
+    }
+
+    &:has(+ .chat-message-container.-user-info-hidden) {
+      .chat-message {
+        &::after {
+          display: block;
+        }
+      }
+    }
+
+    &.-user-info-hidden {
+      .chat-message {
+        &::after {
+          display: none !important;
+        }
+      }
+    }
+  }
+
+  .chat-message {
+    &::after {
+      top: var(--space-9);
+      left: -0.6875rem;
+      transform: scaleX(-1) rotate(-90deg);
+    }
+
+    .is-by-current-user & {
+      &::after {
+        left: auto;
+        right: -0.6857rem;
+        transform: rotate(-90deg);
+      }
+    }
+
+    .chat-message-avatar {
+      display: block;
+    }
+  }
+}
+
+// Pinned message
+.chat-pinned-message {
+  margin-inline: 0 !important;
+  padding-inline: 0 !important;
 }

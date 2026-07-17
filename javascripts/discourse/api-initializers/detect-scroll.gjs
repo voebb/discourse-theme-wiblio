@@ -1,7 +1,7 @@
 import { withPluginApi } from "discourse/lib/plugin-api";
 
 export default {
-  name: "header-scroll",
+  name: "detect-scroll",
 
   initialize() {
     withPluginApi((api) => {
