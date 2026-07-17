@@ -1,0 +1,14 @@
+.discourse-touch #reply-control,
+.mobile-device #reply-control {
+  box-shadow: none;
+
+  &::after {
+    content: "";
+    position: absolute;
+    background-color: var(--secondary);
+    top: 100%;
+    left: 0;
+    right: 0;
+    height: 150%;
+  }
+}
