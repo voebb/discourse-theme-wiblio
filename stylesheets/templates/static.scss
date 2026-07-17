@@ -1,0 +1,281 @@
+@use "design-tokens/mixins";
+@use "lib/viewport";
+
+body.login-page,
+body.invite-page,
+body.signup-page {
+  background: transparent;
+  font-family: var(--d-font-family);
+
+  .d-header {
+    background-color: transparent !important;
+  }
+
+  #main-outlet-wrapper {
+    max-width: 720px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-inline: var(--d-wrap-padding-x);
+
+    #main-outlet {
+      height: fit-content;
+
+      &::after {
+        min-height: 14rem;
+      }
+    }
+  }
+
+  .login-welcome-header {
+    padding: 0;
+    margin-block: var(--space-8);
+  }
+
+  h1,
+  .zlb-community-your-community {
+    transform: translateX(-1.5rem);
+    display: inline;
+    width: fit-content;
+    text-align: start;
+    line-height: 100%;
+    border: 5px solid var(--primary);
+    border-radius: 4px;
+    text-transform: uppercase;
+    background-color: var(--primary);
+    color: var(--secondary);
+
+    @include viewport.from("sm") {
+      font-size: 2.5em;
+    }
+  }
+
+  .signup-page-cta__signup,
+  .login-page-cta__login,
+  .invitation-cta__accept {
+    @include mixins.special-button-border;
+    width: fit-content !important;
+    padding-inline: var(--space-7);
+  }
+
+  .w-legal-links {
+    flex-flow: row wrap;
+    justify-content: center;
+    padding-block: var(--space-10) var(--space-4);
+  }
+
+  // Welcome
+  .login-welcome {
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-items: start;
+    padding-inline: var(--space-4);
+    border: 0;
+    text-align: start;
+    box-shadow: none;
+
+    .login-content {
+      width: 100%;
+
+      .logo-container {
+        position: absolute;
+        top: -5rem;
+        left: 50%;
+        transform: translate(-50%, 0);
+        margin: 0;
+        padding: 0;
+        border: 0;
+
+        img {
+          min-width: 15rem;
+        }
+      }
+    }
+
+    &__title {
+      width: 100%;
+      display: flex;
+      flex-flow: column nowrap;
+      margin-top: 10vh;
+
+      h1 {
+        margin-bottom: 0;
+      }
+    }
+
+    &__description {
+      align-self: center;
+      max-width: 27.5rem;
+      font-size: var(--font-up-2);
+    }
+
+    .w-welcome {
+      box-sizing: border-box;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: center;
+
+      &__button {
+        @include mixins.special-button-border;
+        width: fit-content;
+        padding-inline: var(--space-7);
+      }
+    }
+
+    .login-button {
+      display: none !important;
+    }
+  }
+
+  // Login
+  .login-fullpage {
+    padding-inline: var(--space-4);
+    min-height: unset;
+
+    .login-body {
+      flex-flow: column nowrap;
+      align-items: center;
+      row-gap: var(--space-6) !important;
+      padding: 0;
+
+      .login-left-side,
+      .login-right-side {
+        overflow: unset;
+        max-width: unset;
+        padding: 0;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+        row-gap: var(--space-4) !important;
+      }
+
+      #login-form {
+        order: 0;
+        max-width: 25rem;
+        margin: 0;
+        padding: 0;
+
+        .input-group {
+          margin-bottom: var(--space-3);
+        }
+
+        > label {
+          font-weight: normal;
+          color: var(--primary);
+
+          input {
+            width: var(--space-4);
+            height: var(--space-4);
+            margin-top: 1px;
+          }
+        }
+      }
+
+      .login-page-cta {
+        padding: 0;
+      }
+    }
+
+    #login-buttons {
+      order: 3;
+      margin: 0;
+      padding: 0;
+    }
+
+    .login-right-side {
+      &::before {
+        display: none;
+      }
+    }
+
+    .passkey-login-button {
+      border-width: 0 !important;
+    }
+  }
+
+  // Signup or Invite
+  .invites-show {
+    width: 100%;
+    max-width: unset;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    padding-inline: var(--space-4);
+
+    .signup-progress-bar__segment {
+      display: none;
+    }
+
+    .login-welcome-header {
+      margin-bottom: var(--space-2);
+    }
+
+    .zlb-community-your-community {
+      margin: 0;
+      align-self: flex-start;
+      font-size: 1.2em !important;
+      font-family: "GT Pressura", sans-serif;
+    }
+
+    .user-info {
+      pointer-events: none;
+    }
+
+    .invite-form {
+      max-width: 25rem;
+      margin-top: var(--space-8);
+
+      div[data-zlb-community-age-verification] {
+        label {
+          margin: 0;
+          font-weight: normal;
+          color: var(--primary);
+          cursor: pointer;
+          user-select: none;
+
+          input {
+            width: 1.2rem;
+            height: 1.2rem;
+            margin: 0;
+            margin-right: var(--space-2);
+          }
+        }
+      }
+
+      .invitation-cta {
+        gap: var(--space-6);
+        margin-block: var(--space-6);
+        align-items: center;
+        text-align: center;
+      }
+
+      .invitation-cta__signed-up {
+        color: var(--primary);
+      }
+
+      .invitation-cta__sign-in,
+      .disclaimer a {
+        padding-inline: 4px;
+        background-color: var(--tertiary-low);
+        border-radius: 4px;
+        color: var(--d-link-color);
+
+        &:hover {
+          background-color: var(--d-hover);
+        }
+      }
+
+      .disclaimer {
+        text-align: center;
+        font-size: var(--font-down-1);
+      }
+    }
+  }
+}

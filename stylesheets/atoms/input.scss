@@ -2,3 +2,8 @@
   --d-input-border-radius: 8px;
   --input-border-color: var(--primary);
 }
+
+input[type="checkbox"],
+input[type="radio"] {
+  accent-color: var(--tertiary-high);
+}

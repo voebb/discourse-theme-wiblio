@@ -17,7 +17,6 @@
   $sun_url: $sun,
   $sun_m_url: $sun_m
 );
-@use "base/login-page";
 @use "base/last-minute-fixes";
 
 // Atoms
@@ -44,6 +43,7 @@
 @use "molecules/header" with (
   $shape_image_url: $rhomb
 );
+@use "molecules/legal-links";
 @use "molecules/list-controls";
 @use "molecules/topic-list";
 @use "molecules/form-kit";
@@ -64,6 +64,7 @@
 // Templates
 @use "templates/group";
 @use "templates/lobby";
+@use "templates/static";
 @use "templates/user";
 
 @font-face {
@@ -80,4 +81,8 @@
   font-weight: 900;
   font-display: swap;
   src: url($gt_pressura_black) format("woff2");
+}
+
+h1 {
+  --heading-font-family: "GT Pressura", "Inter", sans-serif !important;
 }

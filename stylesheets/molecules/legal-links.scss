@@ -1,0 +1,20 @@
+.w-legal-links {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: flex-start;
+  gap: var(--space-2);
+  margin: 0 !important;
+  list-style: none;
+  font-size: var(--font-down-1);
+
+  li {
+    margin: 0 !important;
+    padding-inline: 4px;
+    background-color: var(--tertiary-low);
+    border-radius: 4px;
+
+    &:hover {
+      background-color: var(--d-hover);
+    }
+  }
+}
