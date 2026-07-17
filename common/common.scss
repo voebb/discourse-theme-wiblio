@@ -33,6 +33,7 @@
 
 // Molecules
 @use "molecules/card";
+@use "molecules/chat-composer";
 @use "molecules/chat-message" with (
   $chat-svg: $chat
 );

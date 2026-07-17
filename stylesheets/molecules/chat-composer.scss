@@ -1,0 +1,126 @@
+@use "lib/viewport";
+
+.chat-composer {
+  @include viewport.until("sm") {
+    &__outer-container {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 40px 1fr 40px;
+      align-items: end;
+      padding-inline: var(--space-2);
+      column-gap: var(--space-2);
+    }
+
+    &__inner-container {
+      border-radius: 20px;
+    }
+
+    &__input-container {
+      background: var(--primary-low);
+    }
+
+    &__input {
+      background-color: var(--primary-low);
+    }
+
+    &-button.-send,
+    &-dropdown__menu-trigger {
+      width: 40px;
+      height: 40px;
+      margin: 0;
+      background-color: var(--primary-low);
+
+      .d-icon {
+        width: 18px;
+        height: 18px;
+        padding: 0;
+        background-color: transparent;
+      }
+    }
+
+    // Icon feels visually misaligned
+    &-button.-send .d-icon {
+      transform: translate(-2px, -1px);
+    }
+
+    &-button__wrapper {
+      margin: 0;
+    }
+
+    &-dropdown__list {
+      padding: 0;
+    }
+  }
+
+  @include viewport.from("sm") {
+    &__inner-container {
+      padding-inline-end: var(--space-2);
+    }
+
+    &-dropdown__menu-trigger {
+      // Fixes a hover glitch
+      border: 0 !important;
+
+      .d-icon {
+        background-color: transparent;
+      }
+    }
+
+    &-dropdown__menu-trigger,
+    &-button.--emoji,
+    &-button.-send {
+      svg {
+        transition: var(--w-transition);
+      }
+    }
+
+    &-dropdown__menu-trigger,
+    &-button.--emoji {
+      svg {
+        padding: var(--space-2) !important;
+        border-radius: var(--w-border-radius-full);
+      }
+
+      &:hover {
+        transform: none;
+
+        svg {
+          color: var(--d-button-default-icon-color);
+          background-color: var(--d-button-default-bg-color--hover) !important;
+        }
+      }
+    }
+
+    &-button.--emoji {
+      padding-inline: 0;
+
+      &,
+      .is-focused & {
+        svg {
+          color: var(--d-button-default-icon-color) !important;
+        }
+      }
+    }
+
+    &-separator {
+      display: none !important;
+    }
+
+    &-button.-send {
+      width: 50px;
+      height: 50px;
+
+      &:not(:disabled) {
+        svg {
+          color: var(--d-button-default-icon-color);
+        }
+
+        &:hover {
+          svg {
+            color: var(--d-button-default-icon-color--hover);
+          }
+        }
+      }
+    }
+  }
+}

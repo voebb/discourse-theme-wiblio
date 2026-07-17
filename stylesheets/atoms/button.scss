@@ -6,7 +6,7 @@
   // --d-button-border: 1px solid transparent;
 
   // .btn-default
-  --d-button-default-text-color: var(--primary);
+  // --d-button-default-text-color: var(--primary);
   --d-button-default-text-color--hover: var(--primary);
   --d-button-default-bg-color: var(--w-button-background);
   --d-button-default-bg-color--hover: var(--d-hover);
@@ -70,11 +70,9 @@
   // --d-button-flat-close-icon-color--hover: var(--primary);
   .btn-transparent {
     // --d-button-transparent-text-color: var(--primary);
-    --d-button-transparent-text-color--hover: var(
-      --d-button-default-bg-color--hover
-    );
+    // --d-button-transparent-text-color--hover: var(--tertiary-hover);
     --d-button-transparent-icon-color: var(--primary);
-    --d-button-transparent-icon-color--hover: var(--primary);
+    --d-button-transparent-icon-color--hover: var(--tertiary-hover);
   }
 }
 
@@ -87,7 +85,6 @@
 
 .btn-icon {
   border-radius: var(--w-border-radius-full);
-  background-color: var(--w-button-background-color);
 }
 
 .btn-default.no-text {

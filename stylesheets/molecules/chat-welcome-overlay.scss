@@ -1,17 +1,3 @@
-html.has-full-page-chat,
-html:has(body.zlb-community-lobby) {
-  background-color: var(--secondary) !important;
-  background-image: none;
-
-  #main-outlet {
-    margin: 0;
-
-    &::after {
-      display: none;
-    }
-  }
-}
-
 body.zlb-community-lobby {
   .chat-channel-preview-card {
     position: fixed;

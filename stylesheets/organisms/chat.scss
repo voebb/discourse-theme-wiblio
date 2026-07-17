@@ -1,50 +1,127 @@
 @use "lib/viewport";
 
-.chat-composer {
-  .chat-composer-dropdown__trigger-btn {
-    .d-icon {
-      color: var(--tertiary);
+:root {
+  --d-chat-input-bg-color: var(--secondary);
+}
+
+// Resets
+html.has-full-page-chat,
+html:has(body.zlb-community-lobby) {
+  background-color: var(--secondary) !important;
+  background-image: none;
+
+  #main-outlet {
+    margin: unset;
+
+    &::before,
+    &::after {
+      display: none;
+    }
+
+    .full-page-chat {
+      border: 0 !important;
+    }
+  }
+}
+
+body.has-sidebar-page.has-full-page-chat #main-outlet-wrapper {
+  column-gap: var(--space-4);
+}
+
+// Styles for shadowy chat box view on desktop
+@include viewport.from("sm") {
+  html.has-full-page-chat {
+    background-color: var(--primary-very-low) !important;
+
+    .full-page-chat {
       background-color: transparent;
     }
-
-    &:hover {
-      color: var(--d-hover);
-    }
   }
 
-  &__input-container {
-    @include viewport.until(sm) {
-      border-radius: var(--w-border-radius-full);
-      background: var(chat-composer__input-container);
-      border: 1px solid var(--w-border-color);
-    }
-  }
-
-  &__input {
+  .main-chat-outlet {
+    border-top-left-radius: var(--d-border-radius);
+    border-top-right-radius: var(--d-border-radius);
+    box-shadow: 4px 4px 20px #0004;
     background-color: transparent;
   }
 
-  .chat-composer-button.-send {
-    @include viewport.from(sm) {
-      padding-right: var(--space-5);
+  .c-navbar-container {
+    border-top-left-radius: var(--d-border-radius);
+    border-top-right-radius: var(--d-border-radius);
+    background-color: var(--primary-very-low);
+
+    .has-side-panel-expanded & {
+      border-top-right-radius: 0;
+
+      &:last-of-type {
+        border-radius: var(--d-border-radius);
+      }
     }
   }
 }
 
-.full-page-chat {
-  border: 0 !important;
+.c-navbar {
+  &__channel-title {
+    &:hover * {
+      transition: var(--w-transition);
+      color: var(--link-color);
+    }
+  }
+
+  &__filter,
+  &__open-drawer-button {
+    border-radius: var(--w-border-radius-full);
+    height: var(--space-8) !important;
+    width: var(--space-8) !important;
+
+    &:hover {
+      color: var(--primary) !important;
+      background-color: var(--d-button-default-bg-color--hover) !important;
+    }
+  }
 }
 
-.chat-message-separator-date {
+.chat-side-panel {
+  background-color: var(--primary-very-low);
+  border: 0;
+  padding-inline: 0;
+  border-top-right-radius: var(--d-border-radius) !important;
+
+  @include viewport.from("sm") {
+    max-width: 364px;
+  }
+
+  .chat-pinned-messages-list {
+    padding-inline: 0;
+  }
+}
+
+.chat-channel {
+  .all-loaded-message {
+    height: fit-content;
+    margin-inline: auto;
+    margin-block-start: var(--space-3);
+    padding: var(--space-1) var(--space-3);
+    border-radius: var(--w-border-radius-full);
+    background-color: var(--primary-medium);
+    color: var(--secondary);
+  }
+}
+
+.chat-message-separator {
   & + .chat-message-separator__line-container {
-    padding-inline: 1rem;
-
-    .chat-message-separator__line {
-      border-color: var(--primary-400);
-    }
+    border-color: var(--primary-low-mid);
   }
+}
 
-  .chat-message-separator__text {
-    color: var(--primary-400);
+.chat-message-separator__text {
+  border-radius: var(--w-border-radius-full);
+  color: var(--primary-low-mid);
+  border-color: var(--primary-low-mid);
+}
+
+.chat-scroll-to-bottom {
+  &__button {
+    border-radius: var(--w-border-radius-full);
   }
 }
