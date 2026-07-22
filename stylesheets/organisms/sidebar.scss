@@ -124,7 +124,7 @@
 }
 
 .sidebar__panel-switch-button {
-  @include mixins.special-button-border(1.5rem);
+  @include mixins.special-button-border(1rem);
 }
 
 .sidebar-footer-container {
@@ -134,7 +134,6 @@
     &::before {
       display: none !important;
     }
-    border-top: 1px solid var(--d-sidebar-link-color);
   }
 
   .sidebar-footer-actions {
@@ -148,28 +147,24 @@
       display: none;
     }
 
-    .w-sidebar-legal-links {
-      column-gap: var(--space-2);
-      margin: 0;
-      padding: var(--space-2) 0;
+    .w-legal-links {
+      padding-bottom: var(--space-2);
 
       li {
-        list-style: none;
+        background-color: var(--primary);
+        font-weight: bolder;
 
-        a {
-          color: var(--primary-high);
-          font-size: var(--font-down-1);
-
-          @include viewport.from(sm) {
-            color: var(--d-sidebar-link-color);
+        &:hover a {
+          color: var(--tertiary);
             transition: var(--w-transition);
-
-            &:hover {
-              color: var(--d-hover);
-            }
-          }
         }
       }
     }
+  }
+}
+
+body:not(.zlb-community-sidebar-restricted) {
+  #d-sidebar .w-legal-links {
+    display: none;
   }
 }
