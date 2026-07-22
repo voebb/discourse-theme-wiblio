@@ -10,7 +10,7 @@ jobs:
   ci:
     strategy:
       matrix:
-        core_ref: [main, v2026.5.0-latest]
+        core_ref: [main, v2026.7.0-latest]
     uses: discourse/.github/.github/workflows/discourse-theme.yml@v1
     with:
       core_ref: ${{ matrix.core_ref }}
