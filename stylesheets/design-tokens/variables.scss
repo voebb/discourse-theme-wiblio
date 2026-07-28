@@ -3,26 +3,22 @@
   --w-brand-primary-200: var(--tertiary-200);
   --w-brand-primary-500: var(--tertiary-500);
   --w-brand-secondary-500: var(--quaternary);
-  --w-brand-secondary-800: oklch(
-    from var(--quaternary) calc(l * 0.9) calc(c * 1) h
-  );
+  --w-brand-secondary-800: oklch(from var(--quaternary) calc(l * 0.9) c h);
 
   // Colors: Background
   --w-background: oklch(from var(--tertiary) calc(l * 1.2) calc(c * 1.2) h);
 
   // Colors: Box
   --w-box-background: #f8f8f8;
-  --w-box-background--hover: #e6e6e6;
+  --w-box-background--hover: oklch(from var(--tertiary) calc(l * 1.7) c h);
 
   // Colors: Border
   --w-border-color: #e6e6e6;
-  --w-border-color-hover: oklch(from var(--tertiary) calc(l * 2) calc(c * 1) h);
+  --w-border-color-hover: oklch(from var(--tertiary) calc(l * 2) c h);
 
   // Colors: Text
   --w-link-color: oklch(from var(--tertiary) calc(l * 0.7) calc(c * 2) h);
-  --w-link-color--hover: oklch(
-    from var(--tertiary) calc(l * 0.9) calc(c * 1) h
-  );
+  --w-link-color--hover: oklch(from var(--tertiary) calc(l * 0.9) c h);
   --w-text--disabled: var(--primary-500);
 
   // Colors: Sidebar
@@ -33,7 +29,7 @@
     from var(--tertiary) calc(l * 1.2) calc(c * 1.1) h
   );
   --w-button-background--hover: oklch(
-    from var(--tertiary) calc(l * 1.1) calc(c * 1.7) h
+    from var(--tertiary) calc(l * 1.05) calc(c * 1.3) h
   );
   --w-button-background--disabled: var(--primary-300);
   --w-button-text--disabled: var(--primary-700);
