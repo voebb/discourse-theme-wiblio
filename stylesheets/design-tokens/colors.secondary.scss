@@ -4,6 +4,7 @@
   --d-content-background: oklch(from var(--secondary) l c h / 0.95);
   --accent-color: var(--w-border-color-hover);
   --d-link-color: var(--w-link-color);
+  --d-hover: var(--w-button-background--hover);
 
   // TODO: Probably make better use of these variables
   // --tertiary-very-low: #{$tertiary-very-low};
@@ -19,7 +20,5 @@
   // --tertiary-400: #{$tertiary-400};
   // --tertiary-500: #{$tertiary-500};
   // --tertiary-600: #{$tertiary-600};
-  // --tertiary-700: #{$tertiary-700};
-  // --tertiary-800: #{$tertiary-800};
-  // --tertiary-900: #{$tertiary-900};
+  // --tertiary-700: #{$tertiary-700}; // --tertiary-900: #{$tertiary-900}; // --tertiary-800: #{$tertiary-800};
 }

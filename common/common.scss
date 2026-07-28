@@ -60,8 +60,10 @@
 @use "organisms/lobby-header";
 @use "organisms/modal";
 @use "organisms/sidebar";
+@use "organisms/user-menu";
 
 // Templates
+@use "templates/admin";
 @use "templates/group";
 @use "templates/lobby";
 @use "templates/static";

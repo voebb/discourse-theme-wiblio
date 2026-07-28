@@ -16,16 +16,16 @@
     grid-template-columns:
       [user-start added-start] repeat(4, minmax(0, 1fr))
       [added-end last-posted-start] repeat(2, minmax(0, 1fr))
-      [user-end chat-start actions-start] repeat(2, minmax(0, 1fr))
-      [last-posted-end actions-end last-seen-start status-start] repeat(
+      [user-end actions-start] repeat(2, minmax(0, 1fr))
+      [actions-end chat-start status-start last-posted-end last-seen-start] repeat(
         4,
         minmax(0, 1fr)
       )
-      [status-end last-seen-end chat-end];
+      [chat-end status-end last-seen-end];
     grid-template-rows:
-      [user-start chat-start] auto
-      [actions-start status-start chat-end] auto
-      [user-end actions-end status-end last-posted-start last-seen-start added-start] auto
+      [user-start actions-start chat-start] auto
+      [actions-end chat-end status-start] auto
+      [user-end status-end last-posted-start last-seen-start added-start] auto
       [last-posted-end last-seen-end added-end];
     border: 1px solid var(--zlb-card-border-color);
     border-radius: var(--zlb-card-border-radius);
@@ -79,11 +79,11 @@
   .chat-direct-message-btn {
     grid-area: chat;
     align-self: start;
-    justify-self: end;
   }
 
   .directory-table__cell--member-settings {
     grid-area: actions;
+    height: fit-content;
     justify-content: end;
     align-items: center;
   }

@@ -3,18 +3,18 @@
 
 :root {
   --d-sidebar-row-horizontal-padding: var(--space-2);
-  --d-sidebar-vertical-gap: 4px;
-  --d-sidebar-link-color: var(--primary) !important;
-  --d-sidebar-link-color-hover: var(--w-background-hover-dark) !important;
-  --d-sidebar-link-icon-color: inherit !important;
-  --d-sidebar-active-background: var(--primary) !important;
-  --d-sidebar-active-color: var(--secondary) !important;
-  --d-sidebar-background: transparent !important;
-  --d-sidebar-admin-background: transparent !important;
-  --d-sidebar-highlight-background: var(--w-background-hover-dark) !important;
-  --d-sidebar-highlight-color: var(--primary) !important;
-  --d-sidebar-header-color: var(--primary) !important;
-  --d-sidebar-header-icon-color: var(--primary) !important;
+  --d-sidebar-vertical-gap: var(--space-1);
+  --d-sidebar-link-color: var(--primary);
+  --d-sidebar-link-color-hover: var(--primary);
+  --d-sidebar-link-icon-color: inherit;
+  --d-sidebar-active-background: var(--primary);
+  --d-sidebar-active-color: var(--secondary);
+  --d-sidebar-background: transparent;
+  --d-sidebar-admin-background: transparent;
+  --d-sidebar-highlight-background: var(--d-hover);
+  --d-sidebar-highlight-color: var(--primary);
+  --d-sidebar-header-color: var(--primary);
+  --d-sidebar-header-icon-color: var(--primary);
   --d-sidebar-footer-fade: var(--w-box-background);
 }
 
@@ -26,6 +26,13 @@
   background-color: var(--w-box-background);
   border-color: var(--w-border-color);
   padding-top: var(--space-10);
+}
+
+.sidebar-section-link,
+.sidebar-section-header-wrapper {
+  &:focus {
+    outline: 2px solid var(--primary);
+  }
 }
 
 .sidebar-section {
@@ -83,9 +90,10 @@
   &[data-section-name="forum"] {
     --d-sidebar-vertical-gap: 0;
     border-radius: var(--d-border-radius);
+    transition: background-color 0.2s ease;
 
     &:hover {
-      background-color: var(--w-background-hover-dark) !important;
+      background-color: var(--d-hover) !important;
     }
 
     .sidebar-section-link {
@@ -124,7 +132,7 @@
 }
 
 .sidebar__panel-switch-button {
-  @include mixins.special-button-border(1.5rem);
+  @include mixins.special-button-border(1rem);
 }
 
 .sidebar-footer-container {
@@ -134,7 +142,6 @@
     &::before {
       display: none !important;
     }
-    border-top: 1px solid var(--d-sidebar-link-color);
   }
 
   .sidebar-footer-actions {
@@ -148,28 +155,24 @@
       display: none;
     }
 
-    .w-sidebar-legal-links {
-      column-gap: var(--space-2);
-      margin: 0;
-      padding: var(--space-2) 0;
+    .w-legal-links {
+      padding-bottom: var(--space-2);
 
       li {
-        list-style: none;
+        background-color: var(--primary);
+        font-weight: bolder;
 
-        a {
-          color: var(--primary-high);
-          font-size: var(--font-down-1);
-
-          @include viewport.from(sm) {
-            color: var(--d-sidebar-link-color);
-            transition: var(--w-transition);
-
-            &:hover {
-              color: var(--d-hover);
-            }
-          }
+        &:hover a {
+          color: var(--tertiary);
+          transition: var(--w-transition);
         }
       }
     }
+  }
+}
+
+body:not(.zlb-community-sidebar-restricted) {
+  #d-sidebar .w-legal-links {
+    display: none;
   }
 }

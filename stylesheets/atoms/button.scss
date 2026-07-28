@@ -87,20 +87,19 @@
   border-radius: var(--w-border-radius-full);
 }
 
-.btn-default.no-text {
-  &:hover {
-    background-color: var(--d-button-default-bg-color--hover);
-  }
-}
+// .btn-default.no-text {
+//   &:hover {
+//     background-color: var(--d-button-default-bg-color--hover);
+//   }
+// }
 
-.btn-default {
-  &.no-text {
-    &:hover {
-      background-color: var(--w-button-outline-hover-color);
-    }
-  }
-}
-
+// .btn-default {
+//   &.no-text {
+//     &:hover {
+//       background-color: var(--d-button-outline-hover-color);
+//     }
+//   }
+// }
 .btn-social {
   border-radius: var(--d-button-border-radius);
 }

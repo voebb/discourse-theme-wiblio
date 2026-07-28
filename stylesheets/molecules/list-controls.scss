@@ -53,9 +53,13 @@
   }
 
   #create-topic {
-    border-top-left-radius: var(--w-button-border-radius-large);
-    border-bottom-left-radius: var(--w-button-border-radius-large);
+    border-radius: var(--w-button-border-radius-large);
     background-color: var(--d-button-default-bg-color);
+
+    &:has(+ button.topic-drafts-menu-trigger) {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
 
     &:hover {
       background-color: var(--d-button-default-bg-color--hover) !important;
