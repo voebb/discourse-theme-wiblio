@@ -109,16 +109,17 @@
 }
 
 .select-kit {
-  --d-nav-border-color--active: var(--primary);
+  --input-border-color: var(--primary);
 
   &.is-expanded {
     .select-kit-body {
       border-radius: var(--d-border-radius);
-      background-color: var(--d-content-background);
+
+      // background-color: var(--d-content-background);
     }
 
     .select-kit-header:not(.btn) {
-      background-color: var(--d-hover);
+      // background-color: var(--d-hover);
       border-color: var(--primary);
 
       .d-icon {
@@ -155,12 +156,17 @@
 }
 
 .select-kit-row[data-value="no-tags"],
-.select-kit-row[data-value="no-categories"],
 .select-kit-row[data-value="all-categories"] {
   display: flex;
   font-weight: 500 !important;
 }
 
+.select-kit-row[data-value="no-categories"] {
+  display: none;
+}
+
+.select-kit-row-label,
+.select-kit-row-label,
 .nav-pills > li > a:hover,
 .nav-pills > li button:hover {
   .discourse-no-touch & {
