@@ -1,13 +1,13 @@
+// Wiblio Design tokens
+@use "design-tokens/variables";
+@use "design-tokens/mixins";
+
 // Design tokens - primary
 @use "design-tokens/colors.primary" as primary-colors;
 @use "design-tokens/border-radius.primary";
 
 // Design tokens - secondary
 @use "design-tokens/colors.secondary";
-
-// Other Design tokens
-@use "design-tokens/variables";
-@use "design-tokens/mixins";
 
 // Base
 @use "base/html" with (
@@ -17,7 +17,6 @@
   $sun_url: $sun,
   $sun_m_url: $sun_m
 );
-@use "base/last-minute-fixes";
 
 // Atoms
 @use "atoms/badge";

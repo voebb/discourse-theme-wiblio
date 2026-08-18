@@ -7,7 +7,7 @@
   --d-sidebar-link-color: var(--primary);
   --d-sidebar-link-color-hover: var(--primary);
   --d-sidebar-link-icon-color: inherit;
-  --d-sidebar-active-background: var(--primary);
+  --d-sidebar-active-background: var(--d-hover);
   --d-sidebar-active-color: var(--secondary);
   --d-sidebar-background: transparent;
   --d-sidebar-admin-background: transparent;
@@ -133,6 +133,7 @@
 
 .sidebar__panel-switch-button {
   @include mixins.special-button-border(1rem);
+  background-color: var(--tertiary);
 }
 
 .sidebar-footer-container {
@@ -175,4 +176,10 @@ body:not(.zlb-community-sidebar-restricted) {
   #d-sidebar .w-legal-links {
     display: none;
   }
+}
+
+.sidebar-section-link-wrapper .sidebar-section-link--active,
+.sidebar-section-link-wrapper .sidebar-section-link.active,
+.sidebar-section-link-wrapper .sidebar-section-link.exact-url-match {
+  --d-sidebar-active-background: var(--d-hover);
 }

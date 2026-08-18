@@ -1,0 +1,34 @@
+.zlb-community-grid {
+  margin-bottom: var(--space-1);
+
+  .topic-list {
+    margin-bottom: 0;
+  }
+}
+
+.zlb-community-card {
+  background-color: transparent;
+
+  // TODO gehört ins Plugin, außerdem geht das hier doch sicher eleganter
+  .zlb-community-grid--forum {
+    @media screen and (width >= 600px) and (width < 768px) {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    @media screen and (width >= 768px) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    @media screen and (width >= 800px) and (width < 1024px) {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    @media screen and (width >= 1024px) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    @media screen and (width >= 1300px) {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+}

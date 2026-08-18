@@ -7,9 +7,10 @@
   margin-bottom: $margin-bottom !important;
 
   &:hover {
-    border: 2px solid var(--primary) !important;
-    box-shadow: 4px 6px var(--primary);
     margin-top: -2px !important;
     margin-bottom: calc($margin-bottom + 2px) !important;
+    border: 2px solid var(--primary) !important;
+    box-shadow: 4px 6px var(--primary);
+    background-color: var(--d-hover) !important;
   }
 }

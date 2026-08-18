@@ -114,4 +114,9 @@
     block-size: 6.25rem;
     inline-size: 6.25rem;
   }
+
+  .group-member-dropdown summary {
+    border: 0 !important;
+    background-color: transparent;
+  }
 }
