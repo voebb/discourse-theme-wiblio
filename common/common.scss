@@ -40,7 +40,7 @@
 @use "molecules/dropdown";
 @use "molecules/event-card";
 @use "molecules/expander";
-@use "molecules/header" with (
+@use "molecules/community-header" with (
   $shape_image_url: $rhomb
 );
 @use "molecules/legal-links";
@@ -55,8 +55,8 @@
 // Organisms
 @use "organisms/category-header";
 @use "organisms/chat";
-@use "organisms/dashboard-header";
 @use "organisms/group-members";
+@use "organisms/header";
 @use "organisms/lobby-header";
 @use "organisms/modal";
 @use "organisms/sidebar";
@@ -64,6 +64,8 @@
 
 // Templates
 @use "templates/admin";
+@use "templates/calendar";
+@use "templates/dashboard";
 @use "templates/group";
 @use "templates/lobby";
 @use "templates/static";

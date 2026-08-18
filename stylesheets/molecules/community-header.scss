@@ -1,5 +1,41 @@
 @use "lib/viewport";
 
+$shape_image_url: "" !default;
+
+.zlb-community-header {
+  position: relative;
+  padding-inline-start: var(--main-outlet-padding-x);
+  margin-block-start: calc(-1 * var(--main-outlet-padding-top));
+  margin-block-end: var(--w-header-titles-offset);
+  margin-inline: calc(-1 * (var(--main-outlet-padding-x)));
+  overflow: visible;
+  background-color: var(--secondary);
+
+  &:not(.zlb-community-header--dashboard)::before {
+    content: "";
+    position: absolute;
+    top: calc(-1 * var(--w-header-padding-top));
+    left: 0;
+    width: calc(100% + 0.25px); // rounding differences
+    height: var(--w-header-padding-top);
+    background: url($shape_image_url) left 0 bottom -1px no-repeat; // -1px is to avoid a sub-pixel tear at the bottom of the element
+    background-size: 100%;
+  }
+}
+
+.zlb-community-header__titles {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-2);
+  top: var(--w-header-titles-offset);
+  padding-inline-start: 0;
+}
+
+.zlb-community-header__subtitle {
+  font-size: var(--font-0);
+}
+
 .zlb-community-header--dashboard {
   width: auto;
   box-sizing: content-box;

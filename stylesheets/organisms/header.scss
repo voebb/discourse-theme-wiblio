@@ -1,7 +1,5 @@
 @use "lib/viewport";
 
-$shape_image_url: "" !default;
-
 :root {
   --shadow-header: none;
   --d-header-icon-color: var(--primary);
@@ -45,9 +43,8 @@ body.scrolled {
 
   &.current-user {
     img.avatar {
-      border: 1px solid var(--primary);
-      width: calc(100% + 2px);
-      height: calc(100% + 2px);
+      width: calc(100% + 7px);
+      height: calc(100% + 7px);
     }
   }
 }
@@ -55,7 +52,7 @@ body.scrolled {
 .header-sidebar-toggle {
   .btn-sidebar-toggle {
     background-color: var(--secondary);
-    padding: 0;
+    padding: 0.2143em !important;
     border: 1px solid var(--primary);
     border-radius: var(--w-border-radius-full);
     box-shadow: 2px 2px var(--primary);
@@ -91,36 +88,12 @@ body.scrolled {
   --w-header-titles-offset: -2rem;
 }
 
-.zlb-community-header {
-  position: relative;
-  padding-inline-start: var(--main-outlet-padding-x);
-  margin-block-start: calc(-1 * var(--main-outlet-padding-top));
-  margin-block-end: var(--w-header-titles-offset);
-  margin-inline: calc(-1 * (var(--main-outlet-padding-x)));
-  overflow: visible;
-  background-color: var(--secondary);
+.language-switcher {
+  .btn {
+    padding: 8px;
 
-  &:not(.zlb-community-header--dashboard)::before {
-    content: "";
-    position: absolute;
-    top: calc(-1 * var(--w-header-padding-top));
-    left: 0;
-    width: calc(100% + 0.25px); // rounding differences
-    height: var(--w-header-padding-top);
-    background: url($shape_image_url) left 0 bottom -1px no-repeat; // -1px is to avoid a sub-pixel tear at the bottom of the element
-    background-size: 100%;
+    &:hover {
+      border-color: var(--primary) !important;
+    }
   }
-}
-
-.zlb-community-header__titles {
-  position: relative;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: var(--space-2);
-  top: var(--w-header-titles-offset);
-  padding-inline-start: 0;
-}
-
-.zlb-community-header__subtitle {
-  font-size: var(--font-0);
 }
