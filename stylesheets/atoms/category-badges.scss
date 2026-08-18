@@ -32,9 +32,15 @@
   }
 }
 
+// TODO unschön validiert
 .select-kit-header {
   .badge-category__wrapper {
+    border: 0 !important;
     border-color: transparent !important;
+
+    &:hover {
+      border: 0 !important;
+    }
   }
 }
 

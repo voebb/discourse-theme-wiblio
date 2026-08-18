@@ -1,13 +1,13 @@
+// Wiblio Design tokens
+@use "design-tokens/variables";
+@use "design-tokens/mixins";
+
 // Design tokens - primary
 @use "design-tokens/colors.primary" as primary-colors;
 @use "design-tokens/border-radius.primary";
 
 // Design tokens - secondary
 @use "design-tokens/colors.secondary";
-
-// Other Design tokens
-@use "design-tokens/variables";
-@use "design-tokens/mixins";
 
 // Base
 @use "base/html" with (
@@ -17,7 +17,6 @@
   $sun_url: $sun,
   $sun_m_url: $sun_m
 );
-@use "base/last-minute-fixes";
 
 // Atoms
 @use "atoms/badge";
@@ -40,7 +39,7 @@
 @use "molecules/dropdown";
 @use "molecules/event-card";
 @use "molecules/expander";
-@use "molecules/header" with (
+@use "molecules/community-header" with (
   $shape_image_url: $rhomb
 );
 @use "molecules/legal-links";
@@ -55,8 +54,8 @@
 // Organisms
 @use "organisms/category-header";
 @use "organisms/chat";
-@use "organisms/dashboard-header";
 @use "organisms/group-members";
+@use "organisms/header";
 @use "organisms/lobby-header";
 @use "organisms/modal";
 @use "organisms/sidebar";
@@ -64,6 +63,8 @@
 
 // Templates
 @use "templates/admin";
+@use "templates/calendar";
+@use "templates/dashboard";
 @use "templates/group";
 @use "templates/lobby";
 @use "templates/static";

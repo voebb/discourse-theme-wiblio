@@ -76,6 +76,13 @@
   }
 }
 
+// TODO ABFUUCK
+:where(.uc-modernize-foundation-theme) {
+  --d-button-default-bg-color--hover: var(--d-hover) !important;
+  --d-button-default-border: 1px solid transparent !important;
+  --d-button-default-border--hover: 1px solid transparent !important;
+}
+
 .btn-primary[disabled]:not(.is-loading) {
   color: var(--w-button-text--disabled);
   background-color: var(--w-button-background--disabled);
