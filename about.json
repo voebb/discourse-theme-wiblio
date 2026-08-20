@@ -2,19 +2,15 @@
   "name": "wiblio",
   "authors": "enstef",
   "about_url": "https://github.com/enstef/discourse-theme-wiblio",
-  "license_url": "TODO: Put your theme's LICENSE URL here",
-  "learn_more": "TODO Learn more",
-  "theme_version": "0.0.1",
+  "license_url": "TODO",
+  "learn_more": "TODO",
+  "theme_version": "1.0.0",
   "minimum_discourse_version": null,
   "maximum_discourse_version": null,
-  
   "assets": {
     "chat": "assets/chat.svg",
     "rhomb": "assets/rhomb.svg",
-    "water": "assets/water.svg",
-    "water_m": "assets/water_m.svg",
-    "sun": "assets/sun.svg",
-    "sun_m": "assets/sun_m.svg",
+    "bg": "assets/bg.svg",
     "gt_pressura_black": "assets/GT-Pressura-Standard-Black.woff2",
     "gt_pressura_bold": "assets/GT-Pressura-Standard-Bold.woff2"
   },

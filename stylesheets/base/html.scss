@@ -5,6 +5,7 @@ $water_url: "" !default;
 $water_m_url: "" !default;
 $sun_url: "" !default;
 $sun_m_url: "" !default;
+$bg_url: "" !default;
 
 :root {
   --main-outlet-padding-x: var(--space-3);
@@ -26,20 +27,19 @@ $sun_m_url: "" !default;
 
 html {
   background-color: var(--w-background);
-  background-image: url($sun_url), url($water_url);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: bottom;
-  background-attachment: fixed;
 
-  @include viewport.until(sm) {
-    background-image: url($sun_m_url), url($water_m_url);
+  &:has(> body.zlb-community-sidebar-restricted) {
+    background-image: url($bg_url);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-attachment: fixed;
   }
 }
 
 #main-outlet-wrapper {
   grid-template-rows: 1fr;
-  min-height: calc(92dvh - var(--header-offset, 0px));
+  min-height: calc(100dvh - var(--header-offset));
 }
 
 #main-outlet {

@@ -12,10 +12,7 @@
 // Base
 @use "base/html" with (
   $shape_image_url: $rhomb,
-  $water_url: $water,
-  $water_m_url: $water_m,
-  $sun_url: $sun,
-  $sun_m_url: $sun_m
+  $bg_url: $bg
 );
 
 // Atoms
