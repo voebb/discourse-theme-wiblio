@@ -1,31 +1,49 @@
 @use "lib/viewport";
 @use "design-tokens/mixins";
 
-:root {
+:root,
+:where(.uc-modernize-foundation-theme) {
   --d-sidebar-row-horizontal-padding: var(--space-2);
   --d-sidebar-vertical-gap: var(--space-1);
   --d-sidebar-link-color: var(--primary);
   --d-sidebar-link-color-hover: var(--primary);
   --d-sidebar-link-icon-color: inherit;
   --d-sidebar-active-background: var(--d-hover);
-  --d-sidebar-active-color: var(--secondary);
+  --d-sidebar-active-color: var(--primary);
   --d-sidebar-background: transparent;
   --d-sidebar-admin-background: transparent;
   --d-sidebar-highlight-background: var(--d-hover);
   --d-sidebar-highlight-color: var(--primary);
   --d-sidebar-header-color: var(--primary);
   --d-sidebar-header-icon-color: var(--primary);
-  --d-sidebar-footer-fade: var(--w-box-background);
 }
 
-.sidebar-container {
-  border-right: 0 !important;
-}
-
+// Mobile
 .menu-panel {
+  --d-sidebar-footer-fade: var(--w-box-background);
   background-color: var(--w-box-background);
   border-color: var(--w-border-color);
   padding-top: var(--space-10);
+
+  .panel-body-contents {
+    height: 100%;
+  }
+
+  .sidebar-hamburger-dropdown {
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+  }
+
+  .w-legal-links li {
+    background-color: transparent !important;
+  }
+}
+
+// Desktop
+.sidebar-container {
+  border-right: 0 !important;
 }
 
 .sidebar-section-link,
@@ -33,13 +51,37 @@
   &:focus {
     outline: 2px solid var(--primary);
   }
+
+  &:hover {
+    font-weight: 600;
+  }
+}
+
+.sidebar-section-link {
+  transition: var(--d-button-transition);
+  border-radius: var(--w-border-radius-full) !important;
 }
 
 .sidebar-section {
   border-color: transparent;
 
-  &[data-section-name="forum"] {
+  &[data-section-name="forum"],
+  &[data-section-name="general-nav"] {
+    --d-sidebar-vertical-gap: 0;
     margin-top: var(--space-2);
+    border-radius: var(--d-border-radius);
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: var(--d-hover) !important;
+    }
+
+    .sidebar-section-link {
+      &:hover {
+        background-color: transparent;
+        color: var(---background-hover-dark);
+      }
+    }
 
     .sidebar-section-header-wrapper {
       &:focus-within {
@@ -48,11 +90,11 @@
     }
 
     .sidebar-section-header-button {
+      background-color: transparent;
       position: relative;
       z-index: 1;
       width: 70%;
       text-align: start;
-      background-color: transparent;
 
       &:hover,
       &:active,
@@ -85,32 +127,19 @@
         font-weight: 600;
       }
     }
-  }
 
-  &[data-section-name="forum"] {
-    --d-sidebar-vertical-gap: 0;
-    border-radius: var(--d-border-radius);
-    transition: background-color 0.2s ease;
-
-    &:hover {
-      background-color: var(--d-hover) !important;
+    &[data-section-name="general-nav"] .sidebar-section-header-collapsable {
+      margin-left: 4px;
     }
 
-    .sidebar-section-link {
-      &:hover {
-        background-color: transparent;
-        color: var(---background-hover-dark);
-      }
+    .sidebar-section-header-text picture {
+      display: flex;
     }
   }
 }
 
-.sidebar-section-link {
-  transition: var(--d-button-transition);
-  border-radius: var(--w-border-radius-full) !important;
-}
-
-#sidebar-section-content-forum {
+#sidebar-section-content-forum,
+#sidebar-section-content-general-nav {
   margin-left: calc(
     0.5em + var(--font-down-1) +
       var(--d-sidebar-section-link-prefix-margin-right)
@@ -124,11 +153,6 @@
       font-weight: 600;
     }
   }
-}
-
-// TODO: make this with static pages
-.sidebar-section[data-section-name="general-nav"] {
-  display: none !important;
 }
 
 .sidebar__panel-switch-button {
