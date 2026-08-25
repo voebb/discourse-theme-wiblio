@@ -14,8 +14,8 @@
     "gt_pressura_black": "assets/GT-Pressura-Standard-Black.woff2",
     "gt_pressura_bold": "assets/GT-Pressura-Standard-Bold.woff2"
   },
- "modifiers": {
-      "svg_icons": [
+  "modifiers": {
+    "svg_icons": [
       "fire",
       "far-square-check",
       "far-square",
@@ -26,7 +26,7 @@
     ],
     "serialize_topic_is_hot": true
   },
-   "color_schemes": {
+  "color_schemes": {
     "wiblio Light": {
       "primary": "000000",
       "secondary": "ffffff",
@@ -38,5 +38,9 @@
       "header_primary": "000000",
       "success": "00AC81"
     }
+  },
+  "theme_site_settings": {
+    "enable_welcome_banner": false,
+    "search_experience": "search_field"
   }
 }
