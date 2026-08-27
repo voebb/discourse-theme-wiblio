@@ -5,8 +5,7 @@
 # https://translate.discourse.org/
 
 de:
-  tos+: "Impressum & AGB"
-  tos: "Nutzungsbedingungen"
+  tos: "AGB"
   privacy: "Datenschutz"
   imprint: "Impressum"
   news: "Neueste Beiträge"
