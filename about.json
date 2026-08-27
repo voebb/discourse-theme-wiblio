@@ -40,7 +40,6 @@
     }
   },
   "theme_site_settings": {
-    "enable_welcome_banner": false,
-    "search_experience": "search_field"
+    "enable_welcome_banner": false
   }
 }
