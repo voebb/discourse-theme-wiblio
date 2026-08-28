@@ -83,6 +83,6 @@
   src: url($gt_pressura_black) format("woff2");
 }
 
-h1 {
+h1:not(.d-page-header__title) h1:not(.topic-title) {
   --heading-font-family: "GT Pressura", "Inter", sans-serif !important;
 }
