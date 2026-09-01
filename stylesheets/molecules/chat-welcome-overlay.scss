@@ -1,18 +1,25 @@
 body.zlb-community-lobby {
   .chat-channel-preview-card {
     position: fixed;
+    z-index: 1;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
     display: flex;
+    flex-flow: column nowrap;
     align-items: center;
     justify-content: center;
     margin: 0;
+    border: 0;
+    border-radius: 0;
     background-color: oklch(from var(--primary) l c h / 0.9);
     color: var(--secondary);
 
-    .chat-channel-title {
+    &__icon,
+    &__title,
+    &__body,
+    &__browse-all {
       display: none;
     }
 
@@ -25,10 +32,6 @@ body.zlb-community-lobby {
       justify-content: center;
       text-align: center;
       gap: var(--space-6);
-    }
-
-    .chat-channel-preview-card__browse-all {
-      display: none;
     }
   }
 }

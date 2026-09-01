@@ -28,25 +28,26 @@
 
 // Molecules
 @use "molecules/card";
+@use "molecules/chat-channel-preview-card";
 @use "molecules/chat-composer";
 @use "molecules/chat-message" with (
   $chat-svg: $chat
 );
 @use "molecules/chat-welcome-overlay";
-@use "molecules/dropdown";
-@use "molecules/event-card";
-@use "molecules/expander";
 @use "molecules/community-header" with (
   $shape_image_url: $rhomb
 );
+@use "molecules/create-topic";
+@use "molecules/dropdown";
+@use "molecules/event-card";
+@use "molecules/expander";
 @use "molecules/legal-links";
-@use "molecules/list-controls";
-@use "molecules/topic-list";
 @use "molecules/form-kit";
+@use "molecules/list-controls";
 @use "molecules/quote";
 @use "molecules/topic-cards";
+@use "molecules/topic-list";
 @use "molecules/topic";
-@use "molecules/create-topic";
 
 // Organisms
 @use "organisms/category-header";
