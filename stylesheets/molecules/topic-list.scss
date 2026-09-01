@@ -1,5 +1,4 @@
 @use "lib/viewport";
-@use "design-tokens/mixins";
 
 // TODO: Quick fix
 .w-topic-list-title {
@@ -265,46 +264,4 @@
 
 .d-editor-preview-wrapper {
   outline: 2px solid var(--background-color);
-}
-
-// ZLB
-.zlb-community-dashboard-topic-list {
-  position: sticky;
-  top: var(--header-offset);
-  display: flex;
-  flex-flow: column nowrap;
-  gap: 0;
-
-  .w-topic-list-title {
-    display: block;
-    padding-bottom: var(--space-3);
-    border-bottom: 1px solid var(--w-border-color);
-    margin: 0;
-  }
-
-  .zlb-community-dashboard-topic-list__filters {
-    display: none !important;
-  }
-
-  .topic-list-body {
-    max-height: 60vh;
-    overflow-y: scroll;
-    padding-top: var(--space-3);
-  }
-
-  .zlb-community-dashboard-topic-list__actions {
-    padding: var(--space-3) 0 4px 0;
-    display: flex;
-    flex-flow: row-reverse;
-    justify-content: space-between;
-    border-top: 1px solid var(--w-border-color);
-
-    a {
-      background-color: transparent;
-    }
-
-    button {
-      @include mixins.special-button-border;
-    }
-  }
 }
