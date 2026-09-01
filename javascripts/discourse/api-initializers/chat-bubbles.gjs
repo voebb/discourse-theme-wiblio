@@ -2,6 +2,10 @@ import { withPluginApi } from "discourse/lib/plugin-api";
 
 let measurementContainer = null;
 
+const hasChatContext = () =>
+  document.documentElement?.classList.contains("has-chat") ||
+  document.body.classList.contains("zlb-community-lobby");
+
 const ensureMeasurementContainer = () => {
   if (measurementContainer) {
     return measurementContainer;
@@ -41,7 +45,7 @@ const ensureMeasurementContainer = () => {
   `;
 
   measurementContainer.appendChild(style);
-  document.body?.appendChild(measurementContainer);
+  document.body.appendChild(measurementContainer);
 
   return measurementContainer;
 };
@@ -61,11 +65,21 @@ const measureUnconstrainedWidth = (element) => {
   return width;
 };
 
-const updateChatMessageWidths = () => {
-  const hasDrawerChatContext = () =>
-    document.documentElement?.classList.contains("has-drawer-chat");
+const updateGroupChatClass = () => {
+  const icon = document.querySelector(".c-navbar .chat-channel-icon");
 
-  const maxWidth = hasDrawerChatContext()
+  if (!icon) {
+    return;
+  }
+
+  document.body.classList.toggle(
+    "has-group-chat",
+    !icon.classList.contains("--avatar"),
+  );
+};
+
+const updateChatMessageWidths = () => {
+  const maxWidth = document.documentElement.classList.contains("has-drawer-chat")
     ? 300
     : window.innerWidth < 600
       ? 300
@@ -81,7 +95,7 @@ const updateChatMessageWidths = () => {
     }
 
     const contentWidth = measureUnconstrainedWidth(content);
-    const naturalWidth = contentWidth + 56; //Adds .chat-message padding
+    const naturalWidth = contentWidth + 56;
     const targetWidth = Math.min(Math.ceil(naturalWidth), maxWidth);
 
     if (naturalWidth <= maxWidth) {
@@ -94,41 +108,31 @@ const updateChatMessageWidths = () => {
   });
 };
 
-const hasChatContext = () =>
-  document.documentElement?.classList.contains("has-chat");
-
 const runUpdates = () => {
   if (!document.body || !hasChatContext()) {
     return;
   }
 
-  if (document.querySelector(".chat-message")) {
-    updateChatMessageWidths();
-  }
+  updateGroupChatClass();
+  updateChatMessageWidths();
 };
 
+const containsRelevantChatNode = (node) =>
+  node instanceof HTMLElement &&
+  (node.matches(".chat-message, .chat-channel-icon") ||
+    node.querySelector(".chat-message, .chat-channel-icon"));
+
 export default {
-  name: "mutate-chat-bubble-width",
+  name: "update-chat-context",
 
   initialize() {
     withPluginApi((api) => {
       requestAnimationFrame(runUpdates);
 
       const observer = new MutationObserver((mutations) => {
-        const shouldUpdate = mutations.some((mutation) => {
-          const addedNodes = Array.from(mutation.addedNodes);
-
-          return addedNodes.some((node) => {
-            if (!(node instanceof HTMLElement)) {
-              return false;
-            }
-
-            return (
-              node.matches?.(".chat-message") ||
-              node.querySelector?.(".chat-message")
-            );
-          });
-        });
+        const shouldUpdate = mutations.some((mutation) =>
+          Array.from(mutation.addedNodes).some(containsRelevantChatNode),
+        );
 
         if (shouldUpdate) {
           requestAnimationFrame(runUpdates);
@@ -143,10 +147,7 @@ export default {
       }
 
       window.addEventListener("resize", runUpdates, { passive: true });
-
-      api.onPageChange(() => {
-        requestAnimationFrame(runUpdates);
-      });
+      api.onPageChange(() => requestAnimationFrame(runUpdates));
     });
   },
 };
