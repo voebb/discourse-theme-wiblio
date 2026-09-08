@@ -9,10 +9,10 @@ function setTopicListHeight() {
     .querySelectorAll(".zlb-community-grid--dashboard")
     .forEach((dashboard) => {
       const communityGrid = dashboard.querySelector(
-        ":scope > .zlb-community-grid",
+        ":scope > .zlb-community-grid"
       );
       const topicList = dashboard.querySelector(
-        ":scope > .zlb-community-dashboard-topic-list",
+        ":scope > .zlb-community-dashboard-topic-list"
       );
 
       if (!communityGrid || !topicList) {
@@ -29,7 +29,7 @@ function observeCommunityGridHeight() {
   resizeObserver?.disconnect();
 
   const communityGrids = document.querySelectorAll(
-    ".zlb-community-grid--dashboard > .zlb-community-grid",
+    ".zlb-community-grid--dashboard > .zlb-community-grid"
   );
 
   if (!communityGrids.length) {
@@ -37,7 +37,9 @@ function observeCommunityGridHeight() {
   }
 
   resizeObserver = new ResizeObserver(setTopicListHeight);
-  communityGrids.forEach((communityGrid) => resizeObserver.observe(communityGrid));
+  communityGrids.forEach((communityGrid) =>
+    resizeObserver.observe(communityGrid)
+  );
   setTopicListHeight();
 }
 
