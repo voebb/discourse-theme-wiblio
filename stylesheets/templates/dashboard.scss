@@ -33,6 +33,7 @@
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
   }
+  grid-template-rows: auto;
 }
 
 // ZLB
@@ -42,14 +43,16 @@
   min-block-size: 0;
   gap: var(--zlb-community-stack-gap);
 
+    &__filters {
+    display: none !important;
+  }
+
   &__scroller {
     flex: 1 1 0;
     min-block-size: 0;
+    overflow-x: hidden;
     overflow-y: auto;
-  }
-
-  &__filters {
-    display: none !important;
+    contain: size paint;
   }
 
   &__actions {
