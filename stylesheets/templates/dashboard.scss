@@ -1,3 +1,5 @@
+@use "design-tokens/mixins";
+
 .zlb-community-grid {
   margin-bottom: var(--space-1);
 
@@ -31,4 +33,35 @@
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
   }
+}
+
+// ZLB
+.zlb-community-dashboard-topic-list {
+  display: flex;
+  flex-direction: column;
+  min-block-size: 0;
+  gap: var(--zlb-community-stack-gap);
+
+  &__scroller {
+    flex: 1 1 0;
+    min-block-size: 0;
+    overflow-y: auto;
+  }
+
+  &__filters {
+    display: none !important;
+  }
+
+  &__actions {
+    order: -1;
+    flex: none;
+  }
+
+  .w-topic-list-title {
+    display: none;
+  }
+}
+
+body.zlb-community-dashboard #main-outlet::after {
+  display: none;
 }
