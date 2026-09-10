@@ -10,7 +10,9 @@
 
   // Colors: Box
   --w-box-background: #f8f8f8;
-  --w-box-background--hover: oklch(from var(--tertiary) calc(l * 1.7) c h);
+  --w-box-background--hover: oklch(
+    from var(--tertiary) calc(l * 1.78) calc(c * 0.5) h
+  );
 
   // Colors: Border
   --w-border-color: #e6e6e6;
