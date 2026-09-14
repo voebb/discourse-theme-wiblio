@@ -1,4 +1,5 @@
 @use "design-tokens/mixins";
+@use "lib/viewport";
 
 .zlb-community-grid {
   margin-bottom: var(--space-1);
@@ -43,16 +44,18 @@
   min-block-size: 0;
   gap: var(--zlb-community-stack-gap);
 
-    &__filters {
+  &__filters {
     display: none !important;
   }
 
   &__scroller {
-    flex: 1 1 0;
-    min-block-size: 0;
-    overflow-x: hidden;
-    overflow-y: auto;
-    contain: size paint;
+    @include viewport.from(lg) {
+      flex: 1 1 0;
+      min-block-size: 0;
+      overflow-x: hidden;
+      overflow-y: auto;
+      contain: size paint;
+    }
   }
 
   &__actions {
