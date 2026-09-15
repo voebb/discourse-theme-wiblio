@@ -1,0 +1,22 @@
+$title_font_family_bold: "" !default;
+$title_font_family_black: "" !default;
+
+@font-face {
+  font-family: "GT Pressura";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url($title_font_family_bold) format("woff2");
+}
+
+@font-face {
+  font-family: "GT Pressura";
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url($title_font_family_black) format("woff2");
+}
+
+h1:not(.d-page-header__title) h1:not(.topic-title) {
+  --heading-font-family: "GT Pressura", "Inter", sans-serif !important;
+}

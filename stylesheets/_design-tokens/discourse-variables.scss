@@ -1,0 +1,11 @@
+:root {
+  --primary-low-mid: #e6e6e6;
+  --primary-low: #f5f5f5;
+  --primary-very-low: #fafafa;
+  --content-border-color: var(--w-border-color) !important;
+  --d-content-background: oklch(from var(--secondary) l c h / 0.95);
+  --accent-color: var(--w-border-color-hover);
+  --d-link-color: var(--w-link-color);
+  --d-hover: var(--w-button-background--hover);
+  --d-border-radius: 16px;
+}

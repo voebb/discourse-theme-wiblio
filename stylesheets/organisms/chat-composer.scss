@@ -55,6 +55,7 @@
   @include viewport.from("sm") {
     &__inner-container {
       padding-inline-end: var(--space-2);
+      align-items: flex-end;
     }
 
     &-dropdown__menu-trigger {
@@ -122,5 +123,9 @@
         }
       }
     }
+  }
+
+  &-dropdown__item.local-dates {
+    display: none !important;
   }
 }
