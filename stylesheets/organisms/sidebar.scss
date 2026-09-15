@@ -1,5 +1,5 @@
 @use "lib/viewport";
-@use "design-tokens/mixins";
+@use "_design-tokens/mixins";
 
 :root,
 :where(.uc-modernize-foundation-theme) {

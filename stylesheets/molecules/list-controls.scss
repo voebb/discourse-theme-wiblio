@@ -1,5 +1,5 @@
 @use "lib/viewport";
-@use "design-tokens/mixins";
+@use "_design-tokens/mixins";
 
 :root {
   --d-nav-color--active: var(--w-link-color);
