@@ -1,3 +1,6 @@
+@use "design-tokens/mixins";
+@use "lib/viewport";
+
 .zlb-community-grid {
   margin-bottom: var(--space-1);
 
@@ -29,6 +32,60 @@
 
     @media screen and (width >= 1300px) {
       grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+  grid-template-rows: auto;
+}
+
+.zlb-community-dashboard-topic-list {
+  &__actions {
+    z-index: 1;
+    order: -1;
+    position: sticky;
+    inset-block-start: var(--header-offset);
+    padding-block: var(--space-3);
+    margin-block: calc(var(--space-3) * -1);
+    gap: var(--space-2);
+    flex: none;
+    background-color: oklch(from var(--secondary) l c h/0.8);
+
+    a,
+    button {
+      background-color: transparent;
+
+      &:hover {
+        background-color: var(--d-hover);
+      }
+    }
+  }
+
+  &__filters {
+    display: none !important;
+  }
+}
+
+@include viewport.from(lg) {
+  .zlb-community-grid--dashboard {
+    align-items: stretch;
+  }
+
+  .zlb-community-dashboard-topic-list {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    min-block-size: 0;
+    gap: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    contain: size paint;
+
+    & > .topic-list {
+      flex: none;
+    }
+
+    &__actions {
+      inset-block-start: 0;
+      padding-block-start: 0;
     }
   }
 }

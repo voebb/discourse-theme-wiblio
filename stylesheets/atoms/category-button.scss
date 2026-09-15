@@ -3,14 +3,20 @@
   --zlb-category-button-hover-border-color: var(--w-border-color-hover);
 }
 
-.zlb-community-category-button {
-  transition: background-color 0.2s ease;
+.zlb-community-grid--forum {
+  li {
+    height: 100%;
+  }
 }
 
 .zlb-community-category-button {
+  place-self: stretch;
   height: 100%;
-}
+  grid-template-rows: min-content;
+  transition: background-color 0.2s ease;
 
-.zlb-community-category-button__description {
-  display: none !important;
+  &__description {
+    font-size: var(--font-down-1);
+    display: none;
+  }
 }
