@@ -1,7 +1,7 @@
 // Design tokens
 @use "_design-tokens/variables";
 @use "_design-tokens/mixins";
-@use "_design-tokens/discourse-variables";
+@use "_design-tokens/variables-discourse";
 
 // Base
 @use "_base/html" with (
@@ -15,9 +15,9 @@
 
 // Atoms
 @use "atoms/badge";
+@use "atoms/badge-category";
 @use "atoms/button";
-@use "atoms/category-badges";
-@use "atoms/category-button";
+@use "atoms/button-category";
 @use "atoms/input";
 @use "atoms/skip-link";
 @use "atoms/title";
@@ -26,14 +26,14 @@
 // Molecules
 @use "molecules/card";
 @use "molecules/category-chooser";
-@use "molecules/community-header" with (
-  $shape_image_url: $rhomb
-);
 @use "molecules/create-topic";
-@use "molecules/dashboard-header";
 @use "molecules/dropdown";
 @use "molecules/event-card";
 @use "molecules/expander";
+@use "molecules/header-community" with (
+  $shape_image_url: $rhomb
+);
+@use "molecules/header-dashboard";
 @use "molecules/legal-links";
 @use "molecules/form-kit";
 @use "molecules/list-controls";
@@ -44,13 +44,13 @@
 @use "molecules/topic-type-selection-popup";
 
 // Organisms
-@use "organisms/category-header";
 @use "organisms/chat-composer";
 @use "organisms/chat-message" with (
   $chat-svg: $chat
 );
 @use "organisms/composer";
 @use "organisms/group-members";
+@use "organisms/header-category";
 @use "organisms/header";
 @use "organisms/lobby-header";
 @use "organisms/sidebar";

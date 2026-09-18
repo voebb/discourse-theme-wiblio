@@ -29,7 +29,13 @@ $shape_image_url: "" !default;
     padding-inline-start: 0;
   }
 
+  &__title {
+    font-weight: 900;
+  }
+
   &__subtitle {
     font-size: var(--font-0);
+    font-weight: 700;
+    letter-spacing: 0.02em;
   }
 }
