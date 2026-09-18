@@ -5,6 +5,34 @@
 }
 
 .post-stream {
+  .post-notice {
+    margin-bottom: var(--space-3);
+    border: 1px solid var(--w-border-color-hover);
+
+    .d-icon {
+      color: var(--tertiary-high);
+    }
+
+    &,
+    .post-notice-message {
+      color: var(--tertiary-hover);
+
+      &.custom {
+        background-color: var(--highlight-low);
+        border-color: var(--highlight-medium);
+
+        .d-icon {
+          color: var(--highlight-high);
+        }
+
+        &,
+        .post-notice-message {
+          color: var(--highlight-high);
+        }
+      }
+    }
+  }
+
   .contents {
     font-size: var(--font-up-1);
     line-height: 1.25;
@@ -41,7 +69,6 @@
   }
 }
 
-// should probably get rid of this extra specificity class in core?
 .timeline-container.timeline-fullscreen {
   @include viewport.until(lg) {
     .topic-timeline
