@@ -1,0 +1,15 @@
+#banner {
+  border-radius: var(--d-border-radius);
+  border: 1px solid var(--highlight-medium);
+  background-color: var(--highlight-low);
+  color: var(--highlight-high);
+
+  .floated-buttons {
+    gap: var(--space-1);
+
+    * {
+      padding: 0;
+      color: var(--primary) !important;
+    }
+  }
+}
