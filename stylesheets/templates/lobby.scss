@@ -26,8 +26,9 @@ html.keyboard-visible .zlb-community-lobby .chat-channel {
 
 .zlb-community-lobby {
   #main-outlet-wrapper {
+    max-width: unset;
+    margin-inline: 0;
     padding-inline: 0;
-    max-width: 800px;
   }
 
   #main-outlet {
@@ -40,22 +41,6 @@ html.keyboard-visible .zlb-community-lobby .chat-channel {
 
   .chat-retention-reminder {
     display: none;
-  }
-
-  .form-kit__container-content {
-    span {
-      width: 100%;
-
-      .avatar-uploader__button {
-        width: 100%;
-        background-color: transparent;
-        border: 1px solid var(--primary);
-
-        .d-button-label {
-          width: fit-content;
-        }
-      }
-    }
   }
 
   .all-loaded-message {

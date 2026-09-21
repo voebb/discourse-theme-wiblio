@@ -1,0 +1,117 @@
+@use "lib/viewport";
+
+.zlb-community-lobby-header {
+  --zlb-badge-size: var(--space-4);
+  --zlb-badge-font-size: var(--font-down-1);
+  --zlb-expander-gap: 0;
+  --zlb-expander-padding: var(--space-2);
+  --zlb-expander-user-list-background-color: var(--zlb-card-background-color);
+  --zlb-lobby-header-padding-inline: 0;
+  --zlb-lobby-header-padding-block: var(--space-2);
+  border-radius: 0 0 var(--d-border-radius) var(--d-border-radius);
+  outline: 1px solid var(--content-border-color);
+
+  &__title {
+    font-weight: 900;
+  }
+
+  &__subtitle {
+    font-weight: 700;
+    letter-spacing: 0.03em;
+  }
+
+  &__button {
+    width: var(--space-10);
+    height: var(--space-10);
+    margin-right: var(--space-4);
+    background-color: var(--secondary);
+    border: 1px solid var(--primary) !important;
+    border-radius: var(--w-border-radius-full);
+    box-shadow: 2px 2px var(--primary);
+
+    &:hover {
+      border: 1px solid var(--primary);
+    }
+
+    .d-icon {
+      color: var(--primary);
+    }
+  }
+
+  .zlb-community-expander--user-list {
+    margin-block-start: var(--space-3);
+    padding: 0;
+    border-block-start: 1px solid var(--content-border-color);
+    border-radius: unset;
+    border-radius: 0 0 var(--d-border-radius) var(--d-border-radius);
+
+    @include viewport.from(lg) {
+      margin-block-start: var(--space-4);
+    }
+
+    .zlb-community-expander {
+      padding: var(--zlb-expander-padding);
+
+      &__summary {
+        padding-block-end: var(--zlb-expander-padding);
+      }
+
+      &__state {
+        font-size: var(--font-down-1);
+
+        .zlb-community-badge {
+          width: var(--space-5);
+          height: var(--space-5);
+        }
+
+        &--expanded {
+          padding-block: var(--space-2);
+        }
+      }
+
+      &__content {
+        padding-inline: var(--zlb-expander-padding);
+        max-block-size: 50vh;
+        overflow-y: auto;
+        position: relative;
+
+        // Covers hide the scroll shadows when the corresponding edge is reached.
+        background:
+          linear-gradient(var(--zlb-card-background-color) 30%, transparent)
+            center top,
+          linear-gradient(transparent, var(--zlb-card-background-color) 70%)
+            center bottom,
+          radial-gradient(
+              farthest-side at 50% 0,
+              rgb(var(--primary-rgb), 0.2),
+              transparent
+            )
+            center top,
+          radial-gradient(
+              farthest-side at 50% 100%,
+              rgb(var(--primary-rgb), 0.2),
+              transparent
+            )
+            center bottom;
+        background-repeat: no-repeat;
+        background-size:
+          100% 40px,
+          100% 40px,
+          100% 14px,
+          100% 14px;
+        background-attachment: local, local, scroll, scroll;
+
+        .zlb-community-user-pill-list {
+          padding-block: var(--space-2);
+        }
+      }
+    }
+
+    // Spacing within button
+    &[open] {
+      .zlb-community-expander__state--expanded {
+        display: flex;
+      }
+    }
+  }
+}
