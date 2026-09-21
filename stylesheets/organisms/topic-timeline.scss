@@ -1,0 +1,57 @@
+@use "_design-tokens/mixins";
+@use "lib/viewport";
+
+.timeline-container .topic-timeline {
+  .timeline-controls,
+  .timeline-footer-controls {
+    .btn.no-text {
+      @include mixins.icon-button-circle;
+    }
+  }
+
+  .timeline-scrollarea {
+    border-left: 1px solid var(--content-border-color);
+
+    .timeline-scroller {
+      @include viewport.from(lg) {
+        margin-left: -4.5px;
+        height: 40px !important; // height is coming from element style have no other choice
+      }
+
+      .timeline-replies,
+      .timeline-ago {
+        line-height: 1;
+      }
+    }
+
+    .timeline-handle {
+      background-color: var(--primary-low-mid);
+      outline: 3px solid var(--d-content-background);
+
+      @include viewport.from(lg) {
+        width: 8px;
+        border-radius: 10px;
+        height: calc(100% - 6px);
+      }
+    }
+  }
+
+  .timeline-scroller-content {
+    overflow: unset;
+  }
+}
+
+.timeline-container.timeline-fullscreen {
+  @include viewport.until(lg) {
+    .topic-timeline
+      .timeline-scrollarea
+      .timeline-scroller
+      .timeline-scroller-content {
+      padding-right: 0.5em;
+    }
+  }
+
+  .timeline-scrollarea {
+    border-color: var(--content-border-color) !important;
+  }
+}

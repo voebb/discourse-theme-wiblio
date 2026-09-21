@@ -1,0 +1,8 @@
+.archetype-private_message {
+  --pm-border-radius: var(--d-border-radius);
+
+  #topic-footer-buttons {
+    padding: 0;
+    margin-inline-start: var(--space-6);
+  }
+}

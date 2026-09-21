@@ -14,3 +14,9 @@
     background-color: var(--d-hover) !important;
   }
 }
+
+@mixin icon-button-circle($size: var(--space-10)) {
+  border-radius: var(--w-border-radius-full);
+  height: $size;
+  width: $size;
+}

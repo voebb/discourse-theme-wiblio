@@ -28,7 +28,6 @@
 @use "molecules/category-chooser";
 @use "molecules/create-topic";
 @use "molecules/dropdown";
-@use "molecules/event-card";
 @use "molecules/expander";
 @use "molecules/header-community" with (
   $shape_image_url: $rhomb
@@ -55,6 +54,7 @@
 @use "organisms/lobby-header";
 @use "organisms/sidebar";
 @use "organisms/topic-list";
+@use "organisms/topic-timeline";
 @use "organisms/user-menu";
 
 // Templates
@@ -65,5 +65,6 @@
 @use "templates/group";
 @use "templates/lobby";
 @use "templates/static";
+@use "templates/topic-pm";
 @use "templates/topic";
 @use "templates/user";
