@@ -1,0 +1,6 @@
+.zlb-community-expander:not(.zlb-community-expander--user-list) {
+  border-radius: var(--d-border-radius);
+  border: 2px solid var(--primary);
+  background-color: transparent;
+  box-shadow: 4px 4px var(--primary);
+}

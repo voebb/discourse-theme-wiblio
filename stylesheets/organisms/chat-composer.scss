@@ -12,7 +12,14 @@
     }
 
     &__inner-container {
+      --d-input-focus-color: var(--content-border-color);
       border-radius: 20px;
+      border: 1px solid var(--content-border-color);
+
+      &,
+      .is-focused & {
+        box-shadow: none !important;
+      }
     }
 
     &__input-container {
@@ -29,6 +36,7 @@
       height: 40px;
       margin: 0;
       background-color: var(--primary-low);
+      border: 1px solid var(--content-border-color);
 
       .d-icon {
         width: 18px;
@@ -56,6 +64,13 @@
     &__inner-container {
       padding-inline-end: var(--space-2);
       align-items: flex-end;
+      border: 1px solid var(--content-border-color);
+      background-color: var(--primary-low);
+      box-shadow: none !important ;
+    }
+
+    &__input {
+      background-color: transparent !important;
     }
 
     &-dropdown__menu-trigger {
@@ -92,6 +107,10 @@
       }
     }
 
+    &-dropdown__item.local-dates {
+      display: none !important;
+    }
+
     &-button.--emoji {
       padding-inline: 0;
 
@@ -123,9 +142,5 @@
         }
       }
     }
-  }
-
-  &-dropdown__item.local-dates {
-    display: none !important;
   }
 }

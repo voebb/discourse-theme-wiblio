@@ -1,0 +1,29 @@
+.zlb-community-user-profile-modal {
+  --modal-max-width: 420px;
+
+  .zlb-community-modal {
+    &__user-pill {
+      pointer-events: none;
+    }
+
+    &__form {
+      .form-kit__container-content {
+        width: 100%;
+      }
+
+      span {
+        width: 100%;
+
+        .avatar-uploader__button {
+          width: 100%;
+          background-color: transparent;
+          border: 1px solid var(--primary);
+
+          .d-button-label {
+            width: fit-content;
+          }
+        }
+      }
+    }
+  }
+}
