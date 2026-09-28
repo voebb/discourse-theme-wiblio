@@ -13,3 +13,17 @@
     }
   }
 }
+
+.category-input {
+  .select-kit {
+    .name {
+      .badge-category__wrapper {
+        display: none;
+      }
+
+      .badge-category__wrapper:last-of-type {
+        display: flex;
+      }
+    }
+  }
+}

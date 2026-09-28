@@ -4,8 +4,14 @@
 .zlb-community-grid {
   margin-bottom: var(--space-1);
 
-  .topic-list {
-    margin-bottom: 0;
+  .zlb-community-dashboard-topic-list {
+    .topic-list {
+      margin-bottom: 0;
+
+      .topic-list-body {
+        padding-block-start: var(--space-6);
+      }
+    }
   }
 }
 
