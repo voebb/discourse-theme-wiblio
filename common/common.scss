@@ -20,7 +20,6 @@
 @use "atoms/button-category";
 @use "atoms/input";
 @use "atoms/skip-link";
-@use "atoms/title";
 @use "atoms/user-pill";
 
 // Molecules
@@ -39,6 +38,7 @@
 @use "molecules/list-controls";
 @use "molecules/lobby-overlay";
 @use "molecules/modal";
+@use "molecules/modal-user-profile";
 @use "molecules/quote";
 @use "molecules/topic-cards";
 @use "molecules/topic-type-selection-popup";

@@ -39,6 +39,11 @@ html.keyboard-visible .zlb-community-lobby .chat-channel {
     }
   }
 
+  .chat-user-avatar__container {
+    pointer-events: none;
+    cursor: default;
+  }
+
   .chat-retention-reminder {
     display: none;
   }
@@ -53,6 +58,12 @@ html.keyboard-visible .zlb-community-lobby .chat-channel {
     #main-outlet {
       height: calc(100dvh - var(--space-4));
       margin-block-start: var(--space-4);
+    }
+
+    .chat-messages-scroller {
+      align-self: center;
+      width: 100%;
+      max-width: 1000px;
     }
   }
 }

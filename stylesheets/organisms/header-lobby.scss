@@ -10,21 +10,23 @@
   --zlb-lobby-header-padding-block: var(--space-2);
   border-radius: 0 0 var(--d-border-radius) var(--d-border-radius);
   outline: 1px solid var(--content-border-color);
+  background-color: var(--zlb-card-background-color);
 
   &__title {
-    font-weight: 900;
+    display: block !important;
   }
 
   &__subtitle {
-    font-weight: 700;
-    letter-spacing: 0.03em;
+    font-size: var(--font-up-1);
   }
 
   &__button {
     width: var(--space-10);
     height: var(--space-10);
     margin-right: var(--space-4);
-    background-color: var(--secondary);
+    background-color: var(
+      --quaternary
+    ) !important; // transparent button by default
     border: 1px solid var(--primary) !important;
     border-radius: var(--w-border-radius-full);
     box-shadow: 2px 2px var(--primary);
