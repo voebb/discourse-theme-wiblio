@@ -12,12 +12,11 @@
   outline: 1px solid var(--content-border-color);
 
   &__title {
-    font-weight: 900;
+    display: block !important;
   }
 
   &__subtitle {
-    font-weight: 700;
-    letter-spacing: 0.03em;
+    font-size: var(--font-up-1);
   }
 
   &__button {

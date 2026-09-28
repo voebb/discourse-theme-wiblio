@@ -32,7 +32,7 @@ body.signup-page {
     margin-block: var(--space-8);
   }
 
-  h1,
+  h1:not(.d-modal__title-text),
   .zlb-community-your-community {
     transform: translateX(-1.5rem);
     display: inline;

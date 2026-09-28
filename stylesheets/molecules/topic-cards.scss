@@ -52,7 +52,6 @@
 
 .topic-list-body:has(.--high-context) {
   --title-color--read: var(--primary);
-  --topic-title-font-weight--visited: 600;
 
   @include viewport.from(sm) {
     gap: var(--space-4);
