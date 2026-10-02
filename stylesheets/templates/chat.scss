@@ -10,6 +10,10 @@ html:has(body.zlb-community-lobby) {
   background-color: var(--secondary) !important;
   background-image: none;
 
+  .chat-panel .sidebar-section {
+    display: initial;
+  }
+
   #main-outlet {
     margin: unset;
 

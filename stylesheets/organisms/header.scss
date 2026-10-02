@@ -43,7 +43,7 @@ body.scrolled {
 
   &.current-user {
     img.avatar {
-      width: calc(100% + 7px);
+      width: 48px; // TODO - make this a variable
       height: calc(100% + 7px);
     }
   }
@@ -52,6 +52,7 @@ body.scrolled {
 .header-sidebar-toggle {
   .btn-sidebar-toggle {
     background-color: var(--secondary);
+    margin-inline-end: var(--space-3);
     padding: 0.2143em !important;
     border: 1px solid var(--primary);
     border-radius: var(--w-border-radius-full);
@@ -73,10 +74,23 @@ body.scrolled {
   }
 }
 
+.home-logo-wrapper-outlet {
+  overflow: visible;
+
+  .title {
+    --d-logo-height: 50px !important; // modernize thing
+    padding-top: 4px;
+  }
+}
+
 .header-search--enabled {
-  .search-input {
-    border-color: var(--w-border-color);
+  .search-input,
+  .floating-search-input {
+    border-color: var(--primary);
     border-radius: var(--w-border-radius-full) !important;
+    box-shadow: 2px 2px var(--primary);
+    height: 39px;
+    max-width: 480px;
   }
 }
 
@@ -90,7 +104,9 @@ body.scrolled {
 
 .language-switcher {
   .btn {
+    height: 40px;
     padding: 8px;
+    margin: 0;
 
     &:hover {
       border-color: var(--primary) !important;
