@@ -8,6 +8,7 @@
   $shape_image_url: $rhomb,
   $bg_url: $bg
 );
+@use "_base/ios-pwa-fix";
 @use "_base/typography" with (
   $title_font_family_bold: $gt_pressura_bold,
   $title_font_family_black: $gt_pressura_black

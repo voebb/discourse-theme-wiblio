@@ -1,0 +1,12 @@
+@use "lib/viewport";
+
+@include viewport.until(md) {
+  .ios-pwa-fix {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 6px;
+    width: 100%;
+    background-color: var(--w-background);
+  }
+}
