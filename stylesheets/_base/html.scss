@@ -1,11 +1,7 @@
 @use "lib/viewport";
 
 $shape_image_url: "" !default;
-$water_url: "" !default;
-$water_m_url: "" !default;
-$sun_url: "" !default;
-$sun_m_url: "" !default;
-$bg_url: "" !default;
+$bg_image_url: "" !default;
 
 :root {
   --main-outlet-padding-x: var(--space-3);
@@ -29,7 +25,7 @@ html {
   background-color: var(--w-background);
 
   &:has(> body.zlb-community-sidebar-restricted) {
-    background-image: url($bg_url);
+    background-image: url($bg_image_url);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: bottom;

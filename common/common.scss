@@ -6,7 +6,7 @@
 // Base
 @use "_base/html" with (
   $shape_image_url: $rhomb,
-  $bg_url: $bg
+  $bg_image_url: $bg
 );
 @use "_base/ios-pwa-fix";
 @use "_base/typography" with (
