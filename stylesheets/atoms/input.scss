@@ -1,5 +1,8 @@
 :root {
   --d-input-border-radius: 8px;
+}
+
+:where(.uc-modernize-foundation-theme) {
   --input-border-color: var(--primary);
 }
 

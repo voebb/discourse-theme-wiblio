@@ -7,11 +7,6 @@
 
   // .btn-default
   // --d-button-default-text-color: var(--primary);
-  --d-button-default-text-color--hover: var(--primary);
-  --d-button-default-bg-color: var(--w-button-background);
-  --d-button-default-bg-color--hover: var(--d-hover);
-  --d-button-default-icon-color: var(--primary);
-  --d-button-default-icon-color--hover: var(--primary);
 
   // --d-button-default-border: var(--d-button-border);
   // --d-button-default-border--hover: var(--d-button-border);
@@ -76,8 +71,11 @@
   }
 }
 
-// TODO ABFUUCK
 :where(.uc-modernize-foundation-theme) {
+  --d-button-default-text-color--hover: var(--primary);
+  --d-button-default-bg-color: var(--w-button-background);
+  --d-button-default-icon-color: var(--primary);
+  --d-button-default-icon-color--hover: var(--primary);
   --d-button-default-bg-color--hover: var(--d-hover) !important;
   --d-button-default-border: 1px solid transparent !important;
   --d-button-default-border--hover: 1px solid transparent !important;
