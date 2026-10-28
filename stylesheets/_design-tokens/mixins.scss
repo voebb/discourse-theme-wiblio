@@ -1,16 +1,23 @@
-@mixin special-button-border($margin-bottom: 0px) {
-  height: var(--w-button-size-large);
-  border-radius: var(--w-button-border-radius-large);
-  border: 2px solid var(--primary);
-  box-shadow: 4px 4px var(--primary);
+@mixin button-special($margin-bottom: 0px) {
+  border-radius: var(--w-border-radius-lg);
+  border: 1px solid var(--w-box-shadow-color);
+  box-shadow: 2px 3px var(--w-box-shadow-color);
   margin-top: 0 !important;
   margin-bottom: $margin-bottom !important;
+  transition: var(--w-transition);
 
   &:hover {
     margin-top: -2px !important;
     margin-bottom: calc($margin-bottom + 2px) !important;
-    border: 2px solid var(--primary) !important;
-    box-shadow: 4px 6px var(--primary);
+    border: 1px solid var(--w-box-shadow-color) !important;
+    box-shadow: 3px 5px var(--w-box-shadow-color);
+    background-color: var(--d-hover) !important;
+  }
+
+  &:active {
+    margin-top: 2px !important;
+    margin-bottom: calc($margin-bottom - 2px) !important;
+    box-shadow: 1px 1px var(--w-box-shadow-color);
     background-color: var(--d-hover) !important;
   }
 }
@@ -19,4 +26,42 @@
   border-radius: var(--w-border-radius-full);
   height: $size;
   width: $size;
+}
+
+@mixin link {
+  width: fit-content;
+  margin: 0;
+  padding-inline: 4px;
+  border-radius: var(--w-border-radius-sm);
+  color: var(--d-link-color);
+  font-weight: 500;
+  transition: var(--w-transition);
+
+  &:hover {
+    color: var(--w-link-color-hover);
+    background-color: var(--tertiary-low);
+  }
+
+  &:disabled {
+    color: initial;
+    background-color: transparent;
+  }
+}
+
+@mixin link-highlight {
+  @include link;
+  color: var(--highlight-high);
+  background-color: var(--highlight-low);
+
+  &:hover {
+    color: var(--highlight-high);
+    background-color: var(--highlight-medium);
+  }
+
+  &:disabled {
+    &:hover {
+      pointer-events: none;
+      background-color: initial;
+    }
+  }
 }

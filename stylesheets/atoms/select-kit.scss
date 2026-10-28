@@ -1,0 +1,72 @@
+// .select-kit {
+//   &.is-expanded {
+//     .select-kit-body {
+//       border-radius: var(--d-border-radius);
+//     }
+
+//     .select-kit-header:not(.btn) {
+//       // background-color: var(--d-hover);
+//       border-color: var(--primary);
+
+//       .d-icon {
+//         color: var(--primary);
+//         width: 0.8em;
+//       }
+//     }
+//   }
+// }
+
+// .combo-box {
+//   --category-badge-title-color: var(--primary);
+
+//   // needs more specificity than just in the button file
+//   background-color: var(--secondary);
+//   border-radius: var(--d-border-radius);
+
+//   .combo-box-header {
+//     background: transparent;
+//     transition: all 0.2s ease;
+//     color: var(--primary);
+
+//     &:hover {
+//       background-color: var(--d-hover);
+//       border-color: var(--primary);
+//     }
+//   }
+// }
+
+// .select-kit.combo-box.category-drop .angle-icon {
+//   color: var(--primary);
+//   width: 0.8em;
+//   height: 0.8em;
+// }
+
+// .select-kit-row[data-value="no-tags"],
+// .select-kit-row[data-value="all-categories"] {
+//   display: flex;
+//   font-weight: 500 !important;
+// }
+
+// .select-kit-row[data-value="no-categories"] {
+//   display: none;
+// }
+
+// .select-kit-row-label,
+// .select-kit-row-label,
+// .nav-pills > li > a:hover,
+// .nav-pills > li button:hover {
+//   .discourse-no-touch & {
+//     background: transparent;
+//     color: var(--d-nav-color--hover);
+
+//     &::after {
+//       content: "";
+//       position: absolute;
+//       left: 0;
+//       bottom: 0;
+//       right: 0;
+//       height: var(--d-nav-underline-height);
+//       background: var(--d-nav-color--hover);
+//     }
+//   }
+// }

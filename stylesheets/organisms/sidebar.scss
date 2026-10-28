@@ -1,30 +1,28 @@
 @use "lib/viewport";
 @use "_design-tokens/mixins";
 
-:root {
+:root,
+:where(.uc-modernize-foundation-theme) {
   --d-sidebar-row-horizontal-padding: var(--space-2);
   --d-sidebar-vertical-gap: var(--space-1);
   --d-sidebar-link-color-hover: var(--primary);
   --d-sidebar-background: transparent;
   --d-sidebar-admin-background: transparent;
-  --d-sidebar-highlight-background: var(--d-hover);
+  --d-sidebar-highlight-background: var(--tertiary-low-mid);
   --d-sidebar-highlight-color: var(--primary);
   --d-sidebar-header-color: var(--primary);
   --d-sidebar-header-icon-color: var(--primary);
-}
-
-:where(.uc-modernize-foundation-theme) {
   --d-sidebar-link-color: var(--primary);
-  --d-sidebar-link-icon-color: inherit;
-  --d-sidebar-active-background: var(--d-hover);
+  --d-sidebar-link-icon-color: var(--primary);
+  --d-sidebar-active-background: var(--tertiary-low);
   --d-sidebar-active-color: var(--primary);
 }
 
 // Mobile
-.menu-panel {
-  --d-sidebar-footer-fade: var(--w-box-background);
-  background-color: var(--w-box-background);
-  border-color: var(--w-border-color);
+.hamburger-panel .menu-panel {
+  --d-sidebar-footer-fade: var(--primary-very-low);
+  background-color: var(--primary-very-low);
+  border-color: var(--content-border-color);
   padding-top: var(--space-10);
 
   .panel-body-contents {
@@ -36,6 +34,16 @@
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-between;
+  }
+
+  .sidebar-section-content {
+    display: flex !important; // modernize thing
+    flex-flow: column nowrap;
+  }
+
+  .sidebar-section-link-wrapper {
+    // outline cut off
+    padding: 2px;
   }
 
   .w-legal-links li {
@@ -75,7 +83,7 @@
     transition: background-color 0.2s ease;
 
     &:hover {
-      background-color: var(--d-hover) !important;
+      background-color: var(--d-sidebar-highlight-background) !important;
     }
 
     .sidebar-section-link {
@@ -158,8 +166,9 @@
 }
 
 .sidebar__panel-switch-button {
-  @include mixins.special-button-border(1rem);
-  background-color: var(--tertiary);
+  @include mixins.button-special(1rem);
+  height: var(--space-11);
+  background-color: var(--w-html-background);
 }
 
 .sidebar-footer-container {
@@ -175,25 +184,16 @@
     width: 100%;
 
     @include viewport.until(sm) {
-      background-color: var(--w-box-background);
+      background-color: var(--primary-very-low);
     }
 
-    .btn {
+    .add-section,
+    &-keyboard-shortcuts {
       display: none;
     }
 
     .w-legal-links {
       padding-bottom: var(--space-2);
-
-      li {
-        background-color: var(--primary);
-        font-weight: bolder;
-
-        &:hover a {
-          color: var(--tertiary);
-          transition: var(--w-transition);
-        }
-      }
     }
   }
 }
@@ -204,8 +204,8 @@ body:not(.zlb-community-sidebar-restricted) {
   }
 }
 
-.sidebar-section-link-wrapper .sidebar-section-link--active,
-.sidebar-section-link-wrapper .sidebar-section-link.active,
-.sidebar-section-link-wrapper .sidebar-section-link.exact-url-match {
-  --d-sidebar-active-background: var(--d-hover);
-}
+// .sidebar-section-link-wrapper .sidebar-section-link--active,
+// .sidebar-section-link-wrapper .sidebar-section-link.active,
+// .sidebar-section-link-wrapper .sidebar-section-link.exact-url-match {
+//   --d-sidebar-active-background: var(--d-hover);
+// }

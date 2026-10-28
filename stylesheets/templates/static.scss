@@ -22,7 +22,11 @@ body.signup-page {
       height: fit-content;
 
       &::after {
-        min-height: 14rem;
+        min-height: 15.5rem;
+      }
+
+      .login-body {
+        overflow: unset;
       }
     }
   }
@@ -35,15 +39,6 @@ body.signup-page {
   h1:not(.d-modal__title-text),
   .zlb-community-your-community {
     transform: translateX(-1.5rem);
-    display: inline;
-    width: fit-content;
-    text-align: start;
-    line-height: 100%;
-    border: 5px solid var(--primary);
-    border-radius: 4px;
-    text-transform: uppercase;
-    background-color: var(--primary);
-    color: var(--secondary);
 
     @include viewport.from("sm") {
       font-size: 2.5em;
@@ -53,14 +48,12 @@ body.signup-page {
   .signup-page-cta__signup,
   .login-page-cta__login,
   .invitation-cta__accept {
-    @include mixins.special-button-border;
+    @include mixins.button-special;
     width: fit-content !important;
     padding-inline: var(--space-7);
   }
 
   .w-legal-links {
-    flex-flow: row wrap;
-    justify-content: center;
     padding-block: var(--space-10) var(--space-4);
   }
 
@@ -99,10 +92,6 @@ body.signup-page {
       display: flex;
       flex-flow: column nowrap;
       margin-top: 10vh;
-
-      h1 {
-        margin-bottom: 0;
-      }
     }
 
     &__description {
@@ -120,7 +109,7 @@ body.signup-page {
       align-items: center;
 
       &__button {
-        @include mixins.special-button-border;
+        @include mixins.button-special;
         width: fit-content;
         padding-inline: var(--space-7);
       }
@@ -135,6 +124,23 @@ body.signup-page {
   .login-fullpage {
     padding-inline: var(--space-4);
     min-height: unset;
+
+    .alert {
+      width: fit-content;
+      padding: var(--space-2) var(--space-3);
+      border-radius: var(--d-border-radius);
+      border: 1px solid var(--content-border-color-hover);
+
+      &-success {
+        border-color: var(--success-medium);
+        color: var(--success);
+      }
+
+      &-error {
+        border-color: var(--danger-low-mid);
+        color: var(--danger);
+      }
+    }
 
     .login-body {
       flex-flow: column nowrap;
@@ -156,23 +162,15 @@ body.signup-page {
 
       #login-form {
         order: 0;
-        max-width: 25rem;
+        width: 100%;
+        max-width: 30rem;
         margin: 0;
         padding: 0;
 
-        .input-group {
-          margin-bottom: var(--space-3);
-        }
-
-        > label {
-          font-weight: normal;
-          color: var(--primary);
-
-          input {
-            width: var(--space-4);
-            height: var(--space-4);
-            margin-top: 1px;
-          }
+        // no unusual white space if link always visible TODO: (mimick) disabled state?
+        #email-login-link {
+          visibility: visible;
+          opacity: 1;
         }
       }
 
@@ -194,7 +192,12 @@ body.signup-page {
     }
 
     .passkey-login-button {
-      border-width: 0 !important;
+      border-radius: var(--w-border-radius-lg);
+      border: 2px solid transparent !important;
+
+      &:hover {
+        background-color: var(--tertiary-low) !important;
+      }
     }
   }
 
@@ -264,7 +267,7 @@ body.signup-page {
       .disclaimer a {
         padding-inline: 4px;
         background-color: var(--tertiary-low);
-        border-radius: 4px;
+        border-radius: var(--w-border-radius-sm);
         color: var(--d-link-color);
 
         &:hover {

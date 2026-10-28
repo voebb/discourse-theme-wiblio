@@ -1,4 +1,14 @@
-.user-menu .quick-access-panel li:hover,
-.user-notifications-list li:hover {
-  background-color: var(--w-box-background--hover);
+.user-menu {
+  .quick-access-panel li:hover,
+  .user-notifications-list li:hover {
+    background-color: var(--primary-very-low);
+  }
+
+  .tabs-list .d-icon {
+    color: var(--primary) !important; // modernize thing
+  }
+
+  .profile-tab-btn {
+    border-radius: 0;
+  }
 }

@@ -1,73 +1,97 @@
-@use "lib/viewport";
+// @use "lib/viewport";
 
-:root {
-  --w-modal-backdrop-opacity: 0.8;
-  --w-modal-offset: var(--space-5);
-}
+// :root {
+//   --w-modal-backdrop-opacity: 0.8;
+//   --w-modal-offset: var(--space-5);
+// }
 
-// fade in
-@keyframes fade {
-  from {
-    opacity: 0;
+// // fade in
+// @keyframes fade {
+//   from {
+//     opacity: 0;
+//   }
+
+//   to {
+//     opacity: var(--w-modal-backdrop-opacity);
+//   }
+// }
+
+// @keyframes backdrop-fade-out {
+//   from {
+//     opacity: var(--w-modal-backdrop-opacity);
+//   }
+
+//   to {
+//     opacity: 0;
+//   }
+// }
+.d-modal {
+  &__header {
+    border-block-end: 0;
   }
 
-  to {
-    opacity: var(--w-modal-backdrop-opacity);
-  }
-}
-
-@keyframes backdrop-fade-out {
-  from {
-    opacity: var(--w-modal-backdrop-opacity);
+  &__body {
+    padding: var(--space-2);
   }
 
-  to {
-    opacity: 0;
-  }
-}
-
-.d-modal__container {
-  padding: var(--space-4);
-  border-radius: var(--zlb-card-border-radius);
-
-  html:not(.keyboard-visible).mobile-device & {
-    padding-bottom: max(env(safe-area-inset-bottom), var(--space-4));
-  }
-
-  @include viewport.until(sm) {
-    width: calc(100% - var(--w-modal-offset) * 2);
-    left: var(--w-modal-offset);
-    right: var(--w-modal-offset);
-
-    html:not(.keyboard-visible).mobile-device & {
-      bottom: var(--w-modal-offset);
-    }
+  #modal-alert {
+    margin: 0 1.5rem;
   }
 }
 
-.d-modal__footer,
-.d-modal__header:not(.--has-primary-action) {
-  border: 0;
-  padding: 0;
-}
+// .d-modal,
+// .fk-d-menu-modal {
+//   &__container {
+//     padding: 0;
+//     border-radius: var(--d-border-radius);
 
-.d-modal__body {
-  padding-inline: 0;
+//     html:not(.keyboard-visible).mobile-device & {
+//       padding-bottom: max(env(safe-area-inset-bottom), 0);
+//     }
 
-  @include viewport.until(sm) {
-    align-items: stretch;
-  }
-}
+//     @include viewport.until(sm) {
+//       width: calc(100% - var(--w-modal-offset) * 2);
+//       left: var(--w-modal-offset);
+//       right: var(--w-modal-offset);
 
-.d-modal__footer {
-  flex-wrap: nowrap;
+//       html:not(.keyboard-visible).mobile-device & {
+//         bottom: var(--w-modal-offset);
+//       }
+//     }
+//   }
 
-  > * {
-    display: flex;
-    flex: 1 1 50%;
-  }
-}
+//   &__footer,
+//   &__header:not(.--has-primary-action) {
+//     border: 0;
+//     padding: 0;
+//   }
 
-.zlb-community-modal__user-pill {
-  margin-inline: auto;
-}
+//   &__body {
+//     padding: 0;
+
+//     @include viewport.until(sm) {
+//       align-items: stretch;
+//     }
+
+//     .dropdown-menu {
+//       padding: 0;
+
+//       li a {
+//         border-radius: 0;
+
+//         &.active {
+//           font-weight: normal;
+//         }
+//       }
+//     }
+//   }
+
+//   &__footer {
+//     flex-wrap: nowrap;
+
+//     > * {
+//       display: flex;
+//       flex: 1 1 50%;
+//     }
+//   }
+// }

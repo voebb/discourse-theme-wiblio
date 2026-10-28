@@ -12,7 +12,7 @@
   background: transparent !important;
 
   // TODO quick fix for random appearing "neu" text
-  color: var(--w-box-background) !important;
+  color: var(--primary-very-low) !important;
 
   &::before {
     background-color: var(--success);

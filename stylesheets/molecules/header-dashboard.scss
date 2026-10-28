@@ -28,6 +28,9 @@
       inset: 0;
       top: auto;
       margin-block-start: -1rem;
+      display: flex;
+      flex-flow: column nowrap;
+      gap: var(--space-1);
 
       @include viewport.from(md) {
         padding-block-end: var(--main-outlet-padding-x);
@@ -67,8 +70,8 @@
         position: absolute;
         inset: var(--main-outlet-padding-x);
         background-image: linear-gradient(
-          var(--w-brand-secondary-500),
-          var(--w-brand-secondary-800)
+          var(--quaternary),
+          var(--quaternary-high)
         );
         z-index: -1;
       }

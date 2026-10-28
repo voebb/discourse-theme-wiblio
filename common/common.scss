@@ -1,74 +1,86 @@
 // Design tokens
-@use "_design-tokens/variables";
 @use "_design-tokens/mixins";
-@use "_design-tokens/variables-discourse";
+@use "_design-tokens/color-mappings";
+@use "_design-tokens/color-transformations";
+@use "_design-tokens/variables";
 
 // Base
+@use "_base/font" with (
+  $title_font_family_bold: $gt_pressura_bold,
+  $title_font_family_black: $gt_pressura_black
+);
 @use "_base/html" with (
   $shape_image_url: $rhomb,
   $bg_image_url: $bg
 );
 @use "_base/ios-pwa-fix";
-@use "_base/typography" with (
-  $title_font_family_bold: $gt_pressura_bold,
-  $title_font_family_black: $gt_pressura_black
-);
 
 // Atoms
+@use "atoms/alert";
 @use "atoms/badge";
 @use "atoms/badge-category";
 @use "atoms/button";
 @use "atoms/button-category";
+@use "atoms/button-create-topic";
+@use "atoms/card";
+@use "atoms/dropdown";
 @use "atoms/input";
-@use "atoms/skip-link";
+@use "atoms/link";
+@use "atoms/nav-pill";
 @use "atoms/user-pill";
+@use "atoms/select-kit";
+@use "atoms/skip-link";
+@use "atoms/title";
 
 // Molecules
 @use "molecules/banner";
-@use "molecules/card";
+@use "molecules/breadcrumps-category";
 @use "molecules/category-chooser";
-@use "molecules/create-topic";
-@use "molecules/dropdown";
-@use "molecules/expander";
-@use "molecules/header-community" with (
-  $shape_image_url: $rhomb
+@use "molecules/chat-message" with (
+  $chat-svg: $chat
 );
+@use "molecules/create-topic";
+@use "molecules/expander";
+@use "molecules/expander-forum";
+@use "molecules/header-category";
 @use "molecules/header-dashboard";
-@use "molecules/legal-links";
 @use "molecules/form-kit";
-@use "molecules/list-controls";
+@use "molecules/language-switcher";
+@use "molecules/link-share-container";
 @use "molecules/lobby-overlay";
 @use "molecules/modal";
 @use "molecules/modal-user-profile";
+@use "molecules/modal-forgot-password";
+@use "molecules/pinned-options";
+@use "molecules/notifications-tracking";
 @use "molecules/quote";
+@use "molecules/topic-navigation";
 @use "molecules/topic-cards";
 @use "molecules/topic-type-selection-popup";
 
 // Organisms
 @use "organisms/chat-composer";
-@use "organisms/chat-message" with (
-  $chat-svg: $chat
-);
 @use "organisms/composer";
+@use "organisms/editor";
+@use "organisms/grid";
 @use "organisms/group-members";
-@use "organisms/header-category";
 @use "organisms/header-lobby";
-@use "organisms/header";
+@use "organisms/list-controls";
+@use "organisms/navbar";
 @use "organisms/sidebar";
 @use "organisms/topic-list";
 @use "organisms/topic-timeline";
 @use "organisms/user-menu";
+@use "organisms/user-card";
 
 // Templates
-@use "templates/admin";
 @use "templates/calendar";
 @use "templates/categories";
-@use "templates/category";
 @use "templates/chat";
-@use "templates/dashboard";
 @use "templates/group";
 @use "templates/lobby";
 @use "templates/static";
+@use "templates/styleguide";
 @use "templates/topic-pm";
 @use "templates/topic";
 @use "templates/user";

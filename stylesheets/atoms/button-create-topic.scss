@@ -1,0 +1,41 @@
+@use "lib/viewport";
+@use "_design-tokens/mixins";
+
+.topic-create-button__combo {
+  border-radius: var(--w-border-radius-full);
+  border: 1px solid var(--primary);
+
+  &:hover {
+    border-color: var(--content-border-color-hover);
+  }
+
+  #create-topic,
+  #zlb-topic-type-selection-new {
+    border-radius: var(--w-border-radius-full);
+    background-color: transparent;
+
+    &:has(+ button.topic-drafts-menu-trigger) {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    &:hover {
+      background-color: var(--d-hover);
+    }
+
+    @include viewport.until(sm) {
+      padding-inline-end: var(--space-1);
+
+      .d-icon {
+        margin-inline-end: var(--space-2);
+      }
+    }
+  }
+
+  .topic-drafts-menu-trigger {
+    margin-left: 0 !important;
+    border-top-right-radius: var(--w-border-radius-full);
+    border-bottom-right-radius: var(--w-border-radius-full);
+    background-color: transparent;
+  }
+}

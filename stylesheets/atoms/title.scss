@@ -1,0 +1,70 @@
+@use "lib/viewport";
+
+:root {
+  --zlb-highlighted-title-padding: 0;
+  --zlb-highlighted-title-border-radius: 0;
+  --zlb-highlighted-title-background-color: unset;
+  --zlb-highlighted-title-color: initial;
+  --zlb-highlighted-title-text-transform: initial;
+  --zlb-header-title-line-height: 100%;
+  --zlb-header-subtitle-font-weight: 700;
+}
+
+@mixin title-highlighted {
+  width: fit-content;
+  display: inline;
+  margin: 0;
+  padding-block: var(--space-1) 0;
+  padding-inline: var(--space-1);
+  border-radius: var(--w-border-radius-sm);
+  color: var(--secondary);
+  background-color: var(--w-secondary-soft);
+  font-family: "GT Pressura", inter, sans-serif;
+  line-height: 100%;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+:root {
+  --topic-title-font-weight--visited: 600;
+}
+
+h1:not(
+  .d-page-header__title,
+  .topic-title,
+  #discourse-modal-title,
+  .d-modal__title,
+  [data-topic-id],
+  .header-title,
+  .d-modal__title-text,
+  .zlb-community-header__title,
+  .zlb-community-lobby-header__title
+),
+.login-welcome-title h1:not(.d-modal__title-text),
+.zlb-community-highlighted-title,
+.zlb-community-your-community {
+  @include title-highlighted;
+
+  div {
+    display: inline;
+  }
+}
+
+.zlb-community-header__title,
+.zlb-community-lobby-header__title {
+  font-weight: 900;
+}
+
+.zlb-community-header__subtitle,
+.zlb-community-lobby-header__subtitle {
+  font-size: var(--font-0);
+
+  @include viewport.from(sm) {
+    font-size: var(--font-1);
+  }
+}
+
+// .about__header > h1,
+// .d-editor-input > h1 {
+//   font-family: inter, sans-serif !important;
+// }

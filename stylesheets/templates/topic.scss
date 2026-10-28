@@ -16,7 +16,7 @@
 
     &.past {
       border-color: var(--content-border-color);
-      background-color: var(--w-box-background);
+      background-color: var(--primary-very-low);
       color: var(--primary-medium);
     }
   }
@@ -63,7 +63,7 @@ body:not(.d-toc-installed) {
   .post-notice {
     margin-bottom: var(--space-3);
     border-radius: var(--d-border-radius);
-    border: 1px solid var(--w-border-color-hover);
+    border: 1px solid var(--content-border-color-hover);
 
     .d-icon {
       color: var(--tertiary-high);
@@ -127,6 +127,10 @@ body:not(.d-toc-installed) {
 
     .topic-footer-main-buttons__actions {
       gap: var(--space-1);
+    }
+
+    .btn {
+      @include mixins.icon-button-circle;
     }
   }
 

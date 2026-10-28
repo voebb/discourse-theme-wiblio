@@ -9,8 +9,10 @@
     oklch(from var(--category-badge-color) 20% calc(c * 1) h),
     oklch(from var(--category-badge-color) 100% calc(c * 0.9) h)
   );
-  height: fit-content !important;
+  height: var(--space-5);
   width: fit-content !important;
+  justify-content: center;
+  align-items: center;
   padding-inline: var(--space-2);
   border-radius: var(--w-border-radius-full);
   border: 1px solid transparent;
@@ -82,5 +84,29 @@
     &:hover {
       border: 0 !important;
     }
+  }
+}
+
+// For badges in forum
+.zlb-community-category-icon {
+  --badge-category-bg: light-dark(
+    oklch(from var(--category-badge-color) 97% calc(c * 0.3) h),
+    oklch(from var(--category-badge-color) 45% calc(c * 0.5) h)
+  );
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: var(--space-4);
+  width: var(--space-4);
+  padding: 6px;
+  margin-block-start: -2px;
+  border-radius: var(--w-border-radius-md);
+  background-color: var(--badge-category-bg);
+  box-shadow: var(--shadow-card);
+
+  img,
+  svg {
+    height: 100%;
+    width: 100%;
   }
 }

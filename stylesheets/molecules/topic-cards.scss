@@ -1,8 +1,5 @@
 @use "lib/viewport";
 
-// Figure out why this does not work, until then, mixin below
-// @use "common/foundation/mixins";
-
 @mixin ellipsis {
   overflow: hidden;
   white-space: nowrap;
@@ -10,10 +7,8 @@
 }
 
 :root {
-  --topic-list-item-background-color: var(--w-box-background) !important;
-  --topic-list-item-background-color--visited: var(
-    --w-box-background
-  ) !important;
+  --topic-list-item-background-color: var(--primary-very-low);
+  --topic-list-item-background-color--visited: var(--primary-very-low);
 }
 
 .topic-list.--d-topic-cards .topic-list-header .topic-list-data {
@@ -64,11 +59,11 @@
   padding: 0;
   transition: background-color 0.2s ease;
   border: 1px solid var(--content-border-color);
-  border-radius: var(--zlb-card-border-radius);
+  border-radius: var(--d-border-radius);
 
   &:hover {
-    background-color: var(--w-box-background--hover);
-    border-color: var(--w-border-color-hover);
+    background-color: light-dark(var(--primary-low), transparent);
+    border-color: var(--content-border-color-hover);
   }
 
   &.selected {
@@ -159,7 +154,7 @@
     gap: var(--space-1);
     border-radius: var(--d-border-radius);
     white-space: nowrap;
-    border: 1px solid var(--w-border-color);
+    border: 1px solid var(--content-border-color);
     font-weight: 700;
 
     @include viewport.from(sm) {
@@ -288,14 +283,14 @@
     .discourse-tag {
       padding: var(--space-half) var(--space-2);
       border-radius: var(--w-border-radius-full);
-      border: 1px solid var(--w-border-color);
+      border: 1px solid var(--content-border-color);
       background: var(--secondary);
       color: var(--primary-high);
       white-space: nowrap;
       font-size: var(--font-down-2-rem);
 
       &:hover {
-        border-color: var(--w-border-color-hover);
+        border-color: var(--content-border-color-hover);
         color: var(--tertiary);
       }
 
@@ -321,10 +316,10 @@
         pointer-events: none;
         background: linear-gradient(
           to right,
-          var(--w-box-background) 0,
+          var(--primary-very-low) 0,
           transparent 1rem,
           transparent calc(100% - 1rem),
-          var(--w-box-background) 100%
+          var(--primary-very-low) 100%
         );
       }
     }
@@ -400,5 +395,13 @@
 
   &__time {
     color: var(--primary-medium);
+  }
+}
+
+.topic-list > .topic-list-body > .topic-list-item.last-visit {
+  border-bottom: 1px solid var(--content-border-color);
+
+  &:hover {
+    border-bottom: 1px solid currentcolor;
   }
 }

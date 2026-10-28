@@ -11,30 +11,24 @@
     padding-block-end: var(--zlb-expander-padding);
 
     .zlb-community-expander__summary {
-      padding-bottom: 0;
-
-      .zlb-community-expander__state--expanded .d-icon {
-        transform: rotate(180deg);
-      }
+      padding-bottom: var(--space-3);
     }
   }
 
   &__summary {
     padding: var(--zlb-expander-padding);
-    transition: color 0.2s ease;
 
     * {
       user-select: none;
     }
-
-    &:hover,
-    &:focus-visible {
-      color: var(--tertiary);
-    }
   }
 
-  &__title {
-    color: var(--primary);
+  &__title:hover {
+    cursor: pointer;
+  }
+
+  &__state span {
+    display: none;
   }
 
   &__content {

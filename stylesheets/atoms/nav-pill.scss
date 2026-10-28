@@ -1,0 +1,26 @@
+// :root,
+// :where(.uc-modernize-foundation-theme) {
+//   --d-nav-color: var(--primary-high);
+//   --d-nav-bg-color: transparent;
+//   --d-nav-color--active: var(--secondary);
+//   --d-nav-bg-color--active: var(--primary);
+//   --d-nav-color--hover: light-dark(var(--w-link-color-hover), var(--primary));
+//   --d-nav-underline-height: 0;
+// }
+
+// .nav-pills {
+//   height: 40px;
+//   gap: 0;
+//   border-radius: var(--w-border-radius-full);
+//   border: 1px solid var(--primary);
+
+//   li a {
+//     min-height: unset;
+//     height: 100%;
+//     border-radius: var(--w-border-radius-full);
+
+//     &.active:hover {
+//       background-color: var(--d-nav-bg-color--active) !important;
+//     }
+//   }
+// }

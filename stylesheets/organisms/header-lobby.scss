@@ -27,12 +27,12 @@
     background-color: var(
       --quaternary
     ) !important; // transparent button by default
-    border: 1px solid var(--primary) !important;
+    border: 1px solid var(--w-box-shadow-color) !important;
     border-radius: var(--w-border-radius-full);
-    box-shadow: 2px 2px var(--primary);
+    box-shadow: 2px 2px var(--w-box-shadow-color);
 
     &:hover {
-      border: 1px solid var(--primary);
+      border: 1px solid var(--w-box-shadow-color);
     }
 
     .d-icon {

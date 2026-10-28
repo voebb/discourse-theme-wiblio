@@ -1,12 +1,39 @@
-:root {
-  --d-input-border-radius: 8px;
-}
-
+:root,
 :where(.uc-modernize-foundation-theme) {
+  --d-input-border-radius: 8px;
+  --d-input-border: 1px solid var(--input-border-color);
   --input-border-color: var(--primary);
+  --d-input-focused-color: var(--primary);
 }
 
 input[type="checkbox"],
 input[type="radio"] {
   accent-color: var(--tertiary-high);
+}
+
+input:not(.filter-input, .search-term__input, .admin-search__input-field):focus,
+.select-kit.multi-select.is-expanded .multi-select-header,
+.multi-select-header:focus {
+  box-shadow: none !important;
+  outline: 1px solid var(--primary) !important;
+  outline-offset: 0 !important;
+}
+
+.input-group {
+  input {
+    margin-block-end: var(--space-3);
+
+    &:focus {
+      caret-color: var(--tertiary-high) !important;
+
+      + label {
+        font-weight: normal;
+        color: var(--primary) !important;
+      }
+    }
+  }
+}
+
+.search-input:focus-within {
+  outline-offset: 0 !important;
 }

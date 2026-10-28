@@ -16,6 +16,8 @@ html:has(body.zlb-community-lobby) {
 
   #main-outlet {
     margin: unset;
+    border-top-left-radius: var(--d-border-radius);
+    border-top-right-radius: var(--d-border-radius);
 
     &::before,
     &::after {

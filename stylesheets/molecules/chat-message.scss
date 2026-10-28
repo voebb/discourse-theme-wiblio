@@ -72,7 +72,7 @@ $chat-svg: "" !default;
 
   .is-by-current-user & {
     margin-left: auto;
-    background-color: var(--w-brand-primary-500);
+    background-color: var(--tertiary-low-mid);
 
     &::after {
       left: auto;

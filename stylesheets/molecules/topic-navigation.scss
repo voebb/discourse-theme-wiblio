@@ -1,0 +1,12 @@
+@use "_design-tokens/mixins";
+
+.topic-navigation {
+  .d-toc-mini__button,
+  .topic-admin-menu-trigger {
+    @include mixins.button-special;
+  }
+
+  #topic-progress-wrapper {
+    gap: var(--space-4);
+  }
+}

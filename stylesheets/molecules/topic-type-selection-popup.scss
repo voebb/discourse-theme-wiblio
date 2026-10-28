@@ -18,8 +18,8 @@
       background-color: var(--topic-list-item-background-color--visited);
 
       &:hover {
-        background-color: var(--w-box-background--hover);
-        border-color: var(--w-border-color-hover);
+        background-color: var(--primary-very-low--hover);
+        border-color: var(--content-border-color-hover);
       }
 
       &__emoji {

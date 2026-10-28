@@ -24,20 +24,35 @@
       "heart",
       "user-plus"
     ],
-    "serialize_topic_is_hot": true
+    "serialize_topic_is_hot": true,
+    "only_theme_color_schemes": true
   },
   "color_schemes": {
-    "wiblio Light": {
+    "Wiblio Light": {
       "primary": "000000",
       "secondary": "ffffff",
-      "tertiary": "3CD6DB",
+      "tertiary": "3cd6db",
       "quaternary": "e69bae",
-      "highlight": "f8a70c",
-      "hover": "D1FFFF",
-      "selected": "64EEF2",
+      "highlight": "efcf71",
+      "hover": "d1ffff",
+      "selected": "64eef2",
       "love": "e69bae",
       "header_primary": "000000",
-      "success": "00AC81"
+      "success": "8AFFB6",
+      "danger": "f4776a"
+    },
+    "Wiblio Dark": {
+      "primary": "f2f2f2",
+      "secondary": "2c2c2c",
+      "tertiary": "3cd6db",
+      "quaternary": "e69bae",
+      "highlight": "efcf71",
+      "hover": "d1ffff",
+      "selected": "64eef2",
+      "love": "e69bae",
+      "header_primary": "f2f2f2",
+      "success": "8AFFB6",
+      "danger": "f4776a"
     }
   },
   "theme_site_settings": {

@@ -1,8 +1,3 @@
-:root {
-  --zlb-category-button-hover-background-color: var(--w-box-background--hover);
-  --zlb-category-button-hover-border-color: var(--w-border-color-hover);
-}
-
 .zlb-community-grid--forum {
   li {
     height: 100%;
@@ -10,13 +5,22 @@
 }
 
 .zlb-community-category-button {
+  --zlb-card-background-color: var(--primary-very-low) !important;
+  --zlb-category-button-hover-background-color: var(--w-hover-neutral);
+  --zlb-category-button-active-background-color: var(--tertiary-very-low);
+  --zlb-category-button-hover-border-color: var(--content-border-color-hover);
   place-self: stretch;
   height: 100%;
   grid-template-rows: min-content;
   transition: background-color 0.2s ease;
 
   &__description {
-    font-size: var(--font-down-1);
-    display: none;
+    font-size: var(--font-down-2);
+  }
+
+  &.is-active {
+    background-color: var(--d-selected);
+    border-color: var(--content-border-color-hover);
+    cursor: default;
   }
 }

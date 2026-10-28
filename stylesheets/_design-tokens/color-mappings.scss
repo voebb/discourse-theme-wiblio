@@ -1,0 +1,44 @@
+:root {
+  // custom
+  --w-html-background: light-dark(
+    var(--tertiary-400),
+    oklch(from var(--tertiary) calc(l * 0.15) calc(c * 0.7) h)
+  );
+  --w-box-shadow-color: light-dark(var(--primary), var(--primary-medium));
+  --w-overlay: oklch(from var(--secondary) l c h / 0.8);
+  --w-link-color-hover: light-dark(
+    oklch(from var(--tertiary) calc(l * 0.97) calc(c * 1.2) h),
+    oklch(from var(--tertiary) calc(l * 0.15) calc(c * 0.7) h)
+  );
+  --w-hover-neutral: light-dark(var(--primary-low), transparent);
+  --w-secondary-soft: light-dark(var(--primary), var(--primary-very-high));
+
+  // general
+  --d-hover: var(--tertiary-low-mid);
+  --d-selected: var(--tertiary-very-low);
+  --d-content-background: var(--secondary);
+  --d-link-color: light-dark(
+    oklch(from var(--tertiary) calc(l * 0.92) calc(c * 1.2) h),
+    oklch(from var(--tertiary) calc(l * 0.7) calc(c * 1.2) h)
+  );
+  --content-border-color: var(--primary-low-mid);
+  --content-border-color-hover: var(--tertiary-high);
+
+  // primary
+  --primary-very-low: light-dark(#fafafa, #383838);
+  --primary-low: light-dark(#f5f5f5, #515151);
+  --primary-low-mid: light-dark(#e6e6e6, #6e6e6e);
+
+  // tertiary
+  --tertiary-very-low: var(--tertiary-50);
+  --tertiary-low: var(--tertiary-100);
+  --tertiary-low-mid: var(--tertiary-200);
+  --tertiary-medium: var(--tertiary-600);
+  --tertiary-high: var(--tertiary-900);
+
+  // danger & success
+  --danger-hover: light-dark(
+    oklch(from var(--danger) calc(l * 0.8) calc(c * 1.1) h),
+    oklch(from var(--danger) calc(0.8 + l * 0.24) calc(c * 1.7) h)
+  );
+}

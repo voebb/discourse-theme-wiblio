@@ -1,0 +1,35 @@
+#user-card {
+  --card-width: fit-content;
+
+  .user-card-avatar {
+    margin-block-end: var(--space-2);
+  }
+
+  .names {
+    padding: 0;
+    margin-bottom: var(--space-2);
+
+    .name-username-wrapper {
+      font-size: var(--font-down-5);
+    }
+  }
+
+  .card-row {
+    margin: 0;
+  }
+
+  .first-row {
+    flex-flow: column nowrap;
+  }
+
+  .compose-pm,
+  .profile-hidden,
+  .badge-section,
+  .metadata-row {
+    display: none;
+  }
+
+  .chat-direct-message-btn {
+    margin: 0;
+  }
+}

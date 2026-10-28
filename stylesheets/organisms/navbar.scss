@@ -1,0 +1,132 @@
+@use "lib/viewport";
+
+:root {
+  --shadow-header: none;
+  --d-header-icon-color: var(--primary);
+  --d-header-icon-color--hover: var(--primary);
+  --d-header-icon-color--active: var(--primary);
+  --w-header-icon-background: var(--d-content-background);
+  --d-header-icon-background--hover: light-dark(
+    var(--w-html-background),
+    var(--d-hover)
+  );
+  --w-header-button-size: 2.5rem;
+}
+
+.d-header {
+  background-color: transparent;
+  transition: background-color 0.5s ease;
+
+  &-icons {
+    column-gap: var(--space-2);
+    align-items: center;
+    padding-inline-end: var(--space-4);
+  }
+}
+
+body.scrolled {
+  .d-header {
+    background-color: var(--w-overlay);
+  }
+}
+
+// All them buttons
+.d-header-icons .language-switcher .language-switcher-trigger,
+.d-header-icons
+  > .header-color-scheme-toggle
+  > .interface-color-selector-trigger,
+.header-sidebar-toggle .btn-sidebar-toggle,
+#search-button,
+.chat-header-icon .btn,
+#toggle-current-user,
+#toggle-hamburger-menu {
+  box-sizing: border-box;
+  height: var(--w-header-button-size);
+  width: var(--w-header-button-size);
+  margin-top: 0;
+  padding: 0;
+  border: 1px solid var(--w-box-shadow-color) !important; // language switcher modernize thing
+  border-radius: var(--w-border-radius-full);
+  color: var(--d-header-icon-color);
+  background-color: var(--w-header-icon-background);
+  box-shadow: 2px 2px var(--w-box-shadow-color);
+
+  &:hover {
+    margin-top: -2px;
+    margin-bottom: 2px;
+    background-color: var(--d-header-icon-background--hover) !important;
+    border-color: var(--w-box-shadow-color) !important;
+    box-shadow: 2px 4px var(--w-box-shadow-color);
+
+    span {
+      color: var(--d-header-icon-color--hover);
+    }
+  }
+
+  &:active {
+    margin-top: 2px;
+    margin-bottom: -2px;
+    box-shadow: 1px 1px var(--w-box-shadow-color);
+    background-color: var(--d-header-icon-background--hover) !important;
+  }
+
+  svg {
+    width: var(--space-4);
+  }
+}
+
+.btn-sidebar-toggle {
+  margin-inline-end: var(--space-2);
+
+  svg {
+    fill: var(--d-header-icon-color);
+  }
+
+  &:hover {
+    svg {
+      fill: var(--d-header-icon-color--hover);
+    }
+  }
+}
+
+#toggle-current-user {
+  img.avatar {
+    width: 100%;
+    height: 100%;
+    transition: filter 0.5s ease;
+
+    &:hover {
+      filter: brightness(120%) saturate(150%);
+    }
+  }
+}
+
+// Logo
+.home-logo-wrapper-outlet {
+  overflow: visible;
+
+  .title {
+    --d-logo-height: 48px !important; // modernize thing
+    padding-top: 6px;
+
+    &--minimized {
+      --d-logo-height: 42px !important; // modernize thing
+      padding-top: 2px;
+    }
+  }
+}
+
+// Login button on static
+.login-button {
+  border-radius: 12px;
+  border: 2px solid var(--w-box-shadow-color);
+  background-color: var(--secondary);
+  box-shadow: 3px 3px var(--w-box-shadow-color);
+  transition: var(--w-transition);
+
+  &:hover {
+    margin-block-start: -2px;
+    border: 2px solid var(--w-box-shadow-color) !important;
+    background-color: var(--d-hover);
+  }
+}

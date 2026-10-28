@@ -1,0 +1,16 @@
+// TODO scoping
+.d-header-icons .language-switcher {
+  .language-switcher-trigger {
+    margin: 0;
+    gap: 0;
+
+    svg {
+      margin-inline-end: -3px;
+    }
+  }
+
+  &__locale {
+    color: inherit !important;
+    transition: var(--w-transition);
+  }
+}
