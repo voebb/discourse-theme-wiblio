@@ -1,5 +1,5 @@
-import icon from "discourse/helpers/d-icon";
-import number from "discourse/helpers/number";
+import icon from "discourse/ui-kit/helpers/d-icon";
+import number from "discourse/ui-kit/helpers/d-number";
 
 const TopicRepliesColumn = <template>
   {{#if @topic.replyCount}}
