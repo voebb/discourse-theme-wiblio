@@ -16,6 +16,7 @@
   },
   "modifiers": {
     "svg_icons": [
+      "arrow-right",
       "fire",
       "far-square-check",
       "far-square",

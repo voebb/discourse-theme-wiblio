@@ -5,6 +5,10 @@
 # https://translate.discourse.org/
 
 de:
+  clear_category_selection: "Auswahl aufheben"
+  hide_subcategories: "Unterkategorien ausblenden"
+  show_subcategories: "Unterkategorien einblenden"
+  hot_nav_label: "Meist diskutiert"
   tos: "AGB"
   privacy: "Datenschutz"
   imprint: "Impressum"

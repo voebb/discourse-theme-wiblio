@@ -1,4 +1,8 @@
 en:
+  clear_category_selection: "Clear selection"
+  hide_subcategories: "Hide subcategories"
+  show_subcategories: "Show subcategories"
+  hot_nav_label: "Most discussed"
   tos: "Terms"
   privacy: "Privacy"
   imprint: "Imprint"
