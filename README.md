@@ -63,6 +63,10 @@ When successful, you’ll see the messages below (your URL may differ). Visit th
 i Preview: http://localhost:4200/?preview_theme_id=1
 ```
 
+The theme’s `back-to-top.gjs` shows a floating scroll-to-top button after 300px
+on community category topic lists and, below the `md` viewport breakpoint, on
+the community dashboard. It respects reduced motion and uses translated labels.
+
 `forum-list-scroll.js` positions the topic list below the sticky header, list
 controls, and breadcrumbs after same-tab link navigation from forum controls,
 breadcrumbs, or the category expander. Direct visits and browser history navigation
