@@ -1,69 +1,68 @@
-@use "lib/viewport";
-
-// Fixing bulk select (only needed for desktop) // from horizon
-.bulk-select-enabled {
-  body:not(.user-messages-page) & {
-    .topic-list-header {
-      position: sticky;
-      top: calc(var(--header-offset) + var(--space-10) + var(--space-4));
-      height: 0;
-      z-index: 1;
-    }
-
-    .topic-author-avatar-data {
-      display: none;
-    }
-
-    .bulk-select.topic-list-data {
-      grid-area: bulk-select;
-
-      @media screen and (width <= 576px) {
-        margin-top: 0;
-
-        label {
-          padding-block: 0.345em;
-        }
+.topic-list.--d-topic-cards {
+  &.bulk-select-enabled {
+    body:not(.user-messages-page) & {
+      .topic-list-header {
+        position: sticky;
+        top: calc(var(--header-offset) + var(--space-10) + var(--space-4));
+        height: 0;
+        z-index: 1;
       }
 
-      input {
-        transform: scale(1.5);
-      }
-    }
-  }
-}
-
-.topic-list-header {
-  body:not(.user-messages-page) & {
-    tr {
-      border: none;
-    }
-
-    .topic-list-data {
-      padding: 0;
-
-      &:not(.default) {
+      .topic-author-avatar-data {
         display: none;
       }
 
-      &.default {
-        .bulk-select,
-        span:not(.bulk-select-topics, .d-button-label) {
-          display: none;
+      .bulk-select.topic-list-data {
+        grid-area: bulk-select;
+
+        @media screen and (width <= 576px) {
+          margin-top: 0;
+
+          label {
+            padding-block: 0.345em;
+          }
+        }
+
+        input {
+          transform: scale(1.5);
         }
       }
+    }
+  }
 
-      .bulk-select-topics {
-        position: absolute;
-        right: 0;
-        top: -var(--space-10);
-        background: transparent;
-        border-radius: var(--d-border-radius);
-        display: flex;
-        gap: 0.5rem;
+  .topic-list-header {
+    body:not(.user-messages-page) & {
+      tr {
+        border: none;
+      }
 
-        button {
-          white-space: nowrap;
-          margin: 0;
+      .topic-list-data {
+        padding: 0;
+
+        &:not(.default) {
+          display: none;
+        }
+
+        &.default {
+          .bulk-select,
+          span:not(.bulk-select-topics, .d-button-label) {
+            display: none;
+          }
+        }
+
+        .bulk-select-topics {
+          position: absolute;
+          right: 0;
+          top: -var(--space-10);
+          background: transparent;
+          border-radius: var(--d-border-radius);
+          display: flex;
+          gap: 0.5rem;
+
+          button {
+            white-space: nowrap;
+            margin: 0;
+          }
         }
       }
     }

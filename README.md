@@ -56,6 +56,17 @@ Community topic-list filters use segmented navigation styled in
 `list-controls.scss`. `community-topic-navigation.js` keeps the links visible on
 mobile as well, with horizontal scrolling when space is limited.
 
+`topic-card-context.js` defines which lists use Wiblio topic cards. The topic-list
+transformers and desktop bulk-selection placement share that check. Bulk
+selection is moved into navigation controls on discovery topic lists, excluding
+documentation categories; other routes retain the incoming transformer value.
+Header and bulk-selection styles in `organisms/topic-list.scss` are scoped to
+`.topic-list.--d-topic-cards`, leaving standard tables' headers and controls intact.
+
+When the community plugin is enabled, `back-to-community-button.gjs` replaces
+the mobile chat header's forum label with the translated community label. It
+preserves the link, icon, and rendering markers and leaves other links unchanged.
+
 **Theme Summary**
 
 For more information working with and installing Discourse, please see the [Discourse documentation](https://meta.discourse.org/t/introduction-to-discourse-development).
