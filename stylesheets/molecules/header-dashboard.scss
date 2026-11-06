@@ -11,6 +11,7 @@
   border-radius: 0;
   top: auto;
   background-color: transparent;
+  overflow: visible;
 
   @include viewport.from(md) {
     height: 8rem;

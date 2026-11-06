@@ -10,7 +10,6 @@
   }
 
   .user-profile-toggle-btn {
-    background-color: transparent;
     justify-content: center;
   }
 
@@ -21,4 +20,8 @@
       }
     }
   }
+}
+
+body.hide-members-group-navigation .user-primary-navigation {
+  display: initial;
 }

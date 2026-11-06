@@ -93,3 +93,17 @@ for anonymous visitors on login-required sites.
 controls, and breadcrumbs after same-tab link navigation from forum controls,
 breadcrumbs, or the category expander. Direct visits and browser history navigation
 retain the normal scroll behavior.
+
+Button appearance belongs in `stylesheets/atoms/button.scss`; positioning, width,
+and surrounding layout stay in their component stylesheets. The shared
+`button-special($margin-bottom: 0px, $size: md)` mixin sets only height for its
+size variants: `sm` uses `--space-8`, `md` uses `--space-10`, and `lg` uses
+`--space-12` (2rem, 2.5rem, and 3rem with the default spacing scale). It leaves
+font size and padding unchanged. Use `@include mixins.button-special($size: sm)`
+or combine it with the existing margin argument, for example
+`@include mixins.button-special($margin-bottom: 1rem, $size: lg)`.
+
+`button-shadow($offset-y: 3px, $hover-background: var(--d-hover))` shares the
+raised shadow and hover/active colors between special buttons and navbar controls.
+It leaves sizing, borders, rounding, and positioning to the caller; navbar margin
+animation remains in `stylesheets/organisms/navbar.scss`.

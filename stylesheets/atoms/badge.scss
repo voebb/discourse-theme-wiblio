@@ -10,8 +10,6 @@
 
 .topic-post-badges .badge-notification {
   background: transparent !important;
-
-  // TODO quick fix for random appearing "neu" text
   color: var(--primary-very-low) !important;
 
   &::before {

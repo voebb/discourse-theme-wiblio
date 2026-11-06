@@ -1,8 +1,7 @@
-@use "_design-tokens/mixins";
 @use "lib/viewport";
 
 .zlb-community-grid {
-  padding-bottom: 1px; // Quick fix for invisible border
+  padding-bottom: 1px; // Keep the grid's bottom border visible.
 
   &--dashboard {
     .qa-dashboard-pinned-topic {
@@ -15,6 +14,10 @@
   }
 
   .zlb-community-dashboard-topic-list {
+    &__empty {
+      padding-block-start: var(--space-8);
+    }
+
     &__actions {
       z-index: 1;
       order: -1;
@@ -26,13 +29,8 @@
       flex: none;
       background-color: oklch(from var(--secondary) l c h/0.8);
 
-      a,
-      button {
-        background-color: transparent;
-
-        &:hover {
-          background-color: var(--d-hover);
-        }
+      .qa-dashboard-topic-list-forum-link {
+        display: none;
       }
     }
 
@@ -71,7 +69,6 @@
     }
   }
 
-  // TODO gehört ins Plugin, außerdem geht das hier doch sicher eleganter
   &--forum {
     .zlb-community-category-button__description {
       display: none;

@@ -1,33 +1,29 @@
 @use "lib/viewport";
 
-.badge-category__wrapper {
+// Resolve category colors on each badge; quote badges carry them on a span.
+.badge-category__wrapper,
+.quote .badge-category,
+.zlb-community-category-icon {
   --badge-category-bg: light-dark(
     oklch(from var(--category-badge-color) 97% calc(c * 0.3) h),
     oklch(from var(--category-badge-color) 45% calc(c * 0.5) h)
   );
+}
+
+.badge-category__wrapper,
+.quote .badge-category {
   --badge-category-text: light-dark(
     oklch(from var(--category-badge-color) 20% calc(c * 1) h),
     oklch(from var(--category-badge-color) 100% calc(c * 0.9) h)
   );
-  height: var(--space-5);
-  width: fit-content !important;
-  justify-content: center;
-  align-items: center;
   padding-inline: var(--space-2);
   border-radius: var(--w-border-radius-full);
   border: 1px solid transparent;
   background-color: var(--badge-category-bg);
 
-  &:hover {
-    border: 1px solid
-      oklch(from var(--category-badge-color) 85% calc(c * 0.3) h) !important;
-  }
-
   .badge-category__name {
     color: var(--badge-category-text);
     font-size: var(--font-down-2);
-    line-height: 180%;
-    font-weight: 400;
 
     @include viewport.from(md) {
       font-size: var(--font-down-1);
@@ -35,47 +31,41 @@
   }
 }
 
-// Redo the above for badges on quotes, that have the color on the span element instead of the wrapper ಠ_ಠ
+.badge-category__wrapper {
+  height: var(--space-5);
+  width: fit-content !important;
+  justify-content: center;
+  align-items: center;
+  transition: border-color 0.2s ease;
+
+  &:hover {
+    border: 1px solid
+      oklch(from var(--category-badge-color) 65% calc(c * 0.5) h) !important;
+  }
+
+  .badge-category__name {
+    line-height: 180%;
+    font-weight: 400;
+  }
+}
+
 .quote {
   .badge-category {
-    --badge-category-bg: light-dark(
-      oklch(from var(--category-badge-color) 97% calc(c * 0.3) h),
-      oklch(from var(--category-badge-color) 45% calc(c * 0.5) h)
-    );
-    --badge-category-text: light-dark(
-      oklch(from var(--category-badge-color) 20% calc(c * 1) h),
-      oklch(from var(--category-badge-color) 100% calc(c * 0.9) h)
-    );
-    padding-inline: var(--space-2);
     padding-block: 2px;
-    border-radius: var(--w-border-radius-full);
-    border: 1px solid transparent;
-    background-color: var(--badge-category-bg);
 
     &:hover {
       border: 1px solid
         oklch(from var(--category-badge-color) 85% calc(c * 0.3) h) !important;
     }
-
-    .badge-category__name {
-      color: var(--badge-category-text);
-      font-size: var(--font-down-2);
-
-      @include viewport.from(md) {
-        font-size: var(--font-down-1);
-      }
-    }
   }
 }
 
-// Hides lock icon on closed category
 .restricted {
   .d-icon-lock {
     display: none !important;
   }
 }
 
-// For selected categories in dropdown
 .select-kit-header {
   .badge-category__wrapper {
     border: 0 !important;
@@ -87,12 +77,7 @@
   }
 }
 
-// For badges in forum
 .zlb-community-category-icon {
-  --badge-category-bg: light-dark(
-    oklch(from var(--category-badge-color) 97% calc(c * 0.3) h),
-    oklch(from var(--category-badge-color) 45% calc(c * 0.5) h)
-  );
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -108,5 +93,11 @@
   svg {
     height: 100%;
     width: 100%;
+  }
+}
+
+.categories-wrapper {
+  .badge-category__wrapper {
+    display: none;
   }
 }

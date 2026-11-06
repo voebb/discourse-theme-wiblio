@@ -1,4 +1,3 @@
-@use "_design-tokens/mixins";
 @use "lib/viewport";
 
 body.login-page,
@@ -48,9 +47,7 @@ body.signup-page {
   .signup-page-cta__signup,
   .login-page-cta__login,
   .invitation-cta__accept {
-    @include mixins.button-special;
     width: fit-content !important;
-    padding-inline: var(--space-7);
   }
 
   .w-legal-links {
@@ -109,9 +106,7 @@ body.signup-page {
       align-items: center;
 
       &__button {
-        @include mixins.button-special;
         width: fit-content;
-        padding-inline: var(--space-7);
       }
     }
 
@@ -167,7 +162,6 @@ body.signup-page {
         margin: 0;
         padding: 0;
 
-        // no unusual white space if link always visible TODO: (mimick) disabled state?
         #email-login-link {
           visibility: visible;
           opacity: 1;
@@ -188,15 +182,6 @@ body.signup-page {
     .login-right-side {
       &::before {
         display: none;
-      }
-    }
-
-    .passkey-login-button {
-      border-radius: var(--w-border-radius-lg);
-      border: 2px solid transparent !important;
-
-      &:hover {
-        background-color: var(--tertiary-low) !important;
       }
     }
   }

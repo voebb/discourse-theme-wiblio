@@ -1,5 +1,4 @@
 @use "lib/viewport";
-@use "_design-tokens/mixins";
 
 :root,
 :where(.uc-modernize-foundation-theme) {
@@ -8,13 +7,19 @@
   --d-sidebar-link-color-hover: var(--primary);
   --d-sidebar-background: transparent;
   --d-sidebar-admin-background: transparent;
-  --d-sidebar-highlight-background: var(--tertiary-low-mid);
+  --d-sidebar-highlight-background: light-dark(
+    var(--tertiary-high),
+    var(--primary-very-low)
+  );
   --d-sidebar-highlight-color: var(--primary);
   --d-sidebar-header-color: var(--primary);
   --d-sidebar-header-icon-color: var(--primary);
   --d-sidebar-link-color: var(--primary);
   --d-sidebar-link-icon-color: var(--primary);
-  --d-sidebar-active-background: var(--tertiary-low);
+  --d-sidebar-active-background: light-dark(
+    var(--tertiary-high),
+    var(--primary-very-low)
+  );
   --d-sidebar-active-color: var(--primary);
 }
 
@@ -37,13 +42,26 @@
   }
 
   .sidebar-section-content {
-    display: flex !important; // modernize thing
+    display: flex !important;
     flex-flow: column nowrap;
   }
 
   .sidebar-section-link-wrapper {
-    // outline cut off
+    // Keep room for the focus outline.
     padding: 2px;
+
+    .sidebar-section-link {
+      &:focus {
+        outline: 2px solid var(--primary);
+      }
+
+      &.active {
+        background-color: light-dark(
+          var(--primary-low-mid),
+          var(--primary-low-mid)
+        ) !important;
+      }
+    }
   }
 
   .w-legal-links li {
@@ -82,7 +100,8 @@
     border-radius: var(--d-border-radius);
     transition: background-color 0.2s ease;
 
-    &:hover {
+    &:hover,
+    &.active {
       background-color: var(--d-sidebar-highlight-background) !important;
     }
 
@@ -100,22 +119,10 @@
     }
 
     .sidebar-section-header-button {
-      background-color: transparent;
       position: relative;
       z-index: 1;
       width: 70%;
       text-align: start;
-
-      &:hover,
-      &:active,
-      &:focus {
-        outline-width: 0;
-        background-color: transparent;
-
-        .d-icon {
-          color: var(--primary) !important;
-        }
-      }
     }
 
     .sidebar-section-header-collapsable {
@@ -132,18 +139,20 @@
       &:focus {
         background-color: transparent;
       }
+    }
 
-      &:has(+ .sidebar-section-header-button:hover) {
-        font-weight: 600;
+    &[data-section-name="general-nav"] {
+      .sidebar-section-header-wrapper {
+        flex-direction: row-reverse;
       }
-    }
 
-    &[data-section-name="general-nav"] .sidebar-section-header-collapsable {
-      margin-left: 4px;
-    }
+      .sidebar-section-header-button {
+        opacity: 1;
+      }
 
-    .sidebar-section-header-text picture {
-      display: flex;
+      .sidebar-section-header-text picture {
+        display: none;
+      }
     }
   }
 }
@@ -165,12 +174,6 @@
   }
 }
 
-.sidebar__panel-switch-button {
-  @include mixins.button-special(1rem);
-  height: var(--space-11);
-  background-color: var(--w-html-background);
-}
-
 .sidebar-footer-container {
   padding: 0 !important;
 
@@ -182,9 +185,10 @@
 
   .sidebar-footer-actions {
     width: 100%;
+    background-color: var(--primary-very-low);
 
-    @include viewport.until(sm) {
-      background-color: var(--primary-very-low);
+    @include viewport.from(md) {
+      background-color: transparent;
     }
 
     .add-section,
@@ -203,9 +207,3 @@ body:not(.zlb-community-sidebar-restricted) {
     display: none;
   }
 }
-
-// .sidebar-section-link-wrapper .sidebar-section-link--active,
-// .sidebar-section-link-wrapper .sidebar-section-link.active,
-// .sidebar-section-link-wrapper .sidebar-section-link.exact-url-match {
-//   --d-sidebar-active-background: var(--d-hover);
-// }

@@ -5,22 +5,19 @@
 }
 
 .zlb-community-category-button {
-  --zlb-card-background-color: var(--primary-very-low) !important;
-  --zlb-category-button-hover-background-color: var(--w-hover-neutral);
-  --zlb-category-button-active-background-color: var(--tertiary-very-low);
-  --zlb-category-button-hover-border-color: var(--content-border-color-hover);
   place-self: stretch;
   height: 100%;
   grid-template-rows: min-content;
-  transition: background-color 0.2s ease;
+}
 
-  &__description {
-    font-size: var(--font-down-2);
-  }
-
-  &.is-active {
-    background-color: var(--d-selected);
-    border-color: var(--content-border-color-hover);
-    cursor: default;
+.zlb-community-grid--category-expander {
+  .zlb-community-category-button {
+    & > .w-forum-category-reset {
+      position: absolute;
+      inset-block-start: var(--space-2);
+      inset-inline-end: var(--space-2);
+      max-width: calc(100% - var(--space-4));
+      pointer-events: none;
+    }
   }
 }

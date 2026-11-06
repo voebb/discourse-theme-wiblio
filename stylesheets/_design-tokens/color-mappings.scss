@@ -16,6 +16,7 @@
   // general
   --d-hover: var(--tertiary-low-mid);
   --d-selected: var(--tertiary-very-low);
+  --d-selected-hover: var(--tertiary-medium);
   --d-content-background: var(--secondary);
   --d-link-color: light-dark(
     oklch(from var(--tertiary) calc(l * 0.92) calc(c * 1.2) h),

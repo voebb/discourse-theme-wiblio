@@ -1,29 +1,52 @@
-@mixin button-special($margin-bottom: 0px) {
+@use "sass:map";
+
+$button-heights: (
+  sm: var(--space-8),
+  md: var(--space-10),
+  lg: var(--space-12),
+);
+
+@mixin button-shadow($offset-y: 3px, $hover-background: var(--d-hover)) {
+  box-shadow: 2px $offset-y var(--w-box-shadow-color);
+  transition: var(--w-transition);
+
+  &:hover {
+    box-shadow: 2px ($offset-y + 2px) var(--w-box-shadow-color);
+    background-color: $hover-background !important;
+  }
+
+  &:active {
+    box-shadow: 1px 1px var(--w-box-shadow-color);
+    background-color: $hover-background !important;
+  }
+}
+
+@mixin button-special($margin-bottom: 0px, $size: md) {
+  @if not map.has-key($button-heights, $size) {
+    @error "Unknown button size `#{$size}`. Use sm, md, or lg.";
+  }
+  height: map.get($button-heights, $size);
   border-radius: var(--w-border-radius-lg);
   border: 1px solid var(--w-box-shadow-color);
-  box-shadow: 2px 3px var(--w-box-shadow-color);
   margin-top: 0 !important;
   margin-bottom: $margin-bottom !important;
-  transition: var(--w-transition);
+
+  @include button-shadow;
 
   &:hover {
     margin-top: -2px !important;
     margin-bottom: calc($margin-bottom + 2px) !important;
     border: 1px solid var(--w-box-shadow-color) !important;
-    box-shadow: 3px 5px var(--w-box-shadow-color);
-    background-color: var(--d-hover) !important;
   }
 
   &:active {
     margin-top: 2px !important;
     margin-bottom: calc($margin-bottom - 2px) !important;
-    box-shadow: 1px 1px var(--w-box-shadow-color);
-    background-color: var(--d-hover) !important;
   }
 }
 
 @mixin icon-button-circle($size: var(--space-10)) {
-  border-radius: var(--w-border-radius-full);
+  border-radius: var(--w-border-radius-full) !important;
   height: $size;
   width: $size;
 }
@@ -39,7 +62,7 @@
 
   &:hover {
     color: var(--w-link-color-hover);
-    background-color: var(--tertiary-low);
+    background-color: light-dark(var(--d-hover), var(--tertiary-medium));
   }
 
   &:disabled {

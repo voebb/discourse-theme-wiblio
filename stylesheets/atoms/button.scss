@@ -1,3 +1,12 @@
+@use "lib/viewport";
+@use "_design-tokens/mixins";
+
+.w-back-to-top {
+  padding: 0;
+
+  @include mixins.button-special;
+}
+
 :root,
 :where(.uc-modernize-foundation-theme) {
   --d-button-border-radius: 8px;
@@ -53,12 +62,349 @@
   border-radius: var(--d-button-border-radius);
 }
 
-.zlb-community-stack {
-  .btn {
-    border-radius: var(--d-button-border-radius);
-  }
+.zlb-community-stack .btn {
+  border-radius: var(--d-button-border-radius);
 }
 
 .btn-transparent.--danger {
   color: var(--d-button-danger-text-color) !important;
+}
+
+// Dashboard
+.zlb-community-dashboard-topic-list__actions {
+  inset-block-start: var(--space-2);
+  padding-block-start: var(--space-2);
+
+  .qa-dashboard-topic-list-create-topic {
+    @include mixins.button-special;
+    width: 100%;
+  }
+}
+
+// Events
+.fc-createEvent-button {
+  @include mixins.button-special;
+}
+
+// button-category
+.zlb-community-category-button {
+  --zlb-card-background-color: var(--primary-very-low) !important;
+  --zlb-category-button-hover-background-color: var(--w-hover-neutral);
+  --zlb-category-button-active-background-color: var(--tertiary-very-low);
+  --zlb-category-button-hover-border-color: var(--content-border-color-hover);
+  transition: background-color 0.2s ease;
+
+  &__description {
+    font-size: var(--font-down-2);
+  }
+
+  &.is-active {
+    background-color: var(--d-selected);
+    border-color: var(--content-border-color-hover);
+    cursor: default;
+  }
+}
+
+.zlb-community-grid--category-expander {
+  .zlb-community-category-button.is-active {
+    cursor: pointer;
+  }
+
+  .zlb-community-category-button {
+    & > .w-forum-category-reset {
+      font-weight: 500;
+      color: var(--tertiary-low-mid);
+    }
+
+    &:hover > .w-forum-category-reset {
+      color: var(--tertiary);
+    }
+  }
+}
+
+// button-create-topic
+.topic-create-button__combo {
+  border-radius: var(--w-border-radius-full);
+  border: 1px solid var(--primary);
+  transition: var(--w-transition);
+
+  &:hover {
+    border-color: var(--content-border-color-hover);
+  }
+
+  #create-topic,
+  #zlb-topic-type-selection-new {
+    border-radius: var(--w-border-radius-full);
+    background-color: transparent;
+
+    &:has(+ button.topic-drafts-menu-trigger) {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    &:hover {
+      background-color: var(--d-hover);
+    }
+
+    @include viewport.until(sm) {
+      padding-inline-end: var(--space-1);
+
+      .d-icon {
+        margin-inline-end: var(--space-2);
+      }
+    }
+  }
+
+  .topic-drafts-menu-trigger {
+    border-top-right-radius: var(--w-border-radius-full);
+    border-bottom-right-radius: var(--w-border-radius-full);
+    background-color: transparent;
+    margin-left: 0 !important;
+  }
+}
+
+// link
+.btn-link {
+  @include mixins.link;
+
+  &.btn-hover {
+    background-color: var(--tertiary-low) !important;
+  }
+}
+
+// modal-user-profile
+.zlb-community-user-profile-modal
+  .zlb-community-modal__form
+  span
+  .avatar-uploader__button {
+  background-color: transparent;
+  border: 1px solid var(--primary);
+}
+
+// header-lobby
+.zlb-community-lobby-header {
+  &__button {
+    height: var(--space-10);
+    background-color: var(--quaternary) !important;
+    border: 1px solid var(--w-box-shadow-color) !important;
+    border-radius: var(--w-border-radius-full);
+    box-shadow: 2px 2px var(--w-box-shadow-color);
+
+    &:hover {
+      border: 1px solid var(--w-box-shadow-color);
+    }
+
+    .d-icon {
+      color: var(--primary);
+    }
+  }
+}
+
+// navbar
+.d-header-icons .language-switcher .language-switcher-trigger,
+.d-header-icons
+  > .header-color-scheme-toggle
+  > .interface-color-selector-trigger,
+.header-sidebar-toggle .btn-sidebar-toggle,
+#search-button,
+.chat-header-icon .btn,
+#toggle-current-user,
+#toggle-hamburger-menu,
+#site-logo {
+  height: var(--w-header-button-size);
+  padding: 0;
+  border: 1px solid var(--w-box-shadow-color) !important;
+  border-radius: var(--w-border-radius-full);
+  color: var(--d-header-icon-color);
+  background-color: var(--w-header-icon-background);
+
+  @include mixins.button-shadow(
+    $offset-y: 2px,
+    $hover-background: var(--d-header-icon-background--hover)
+  );
+
+  &:hover {
+    border-color: var(--w-box-shadow-color) !important;
+
+    span {
+      color: var(--d-header-icon-color--hover);
+    }
+  }
+}
+
+.header-sidebar-toggle .btn-sidebar-toggle {
+  .d-icon {
+    fill: var(--d-header-icon-color);
+  }
+
+  &:hover {
+    svg {
+      fill: var(--d-header-icon-color--hover);
+    }
+  }
+}
+
+#toggle-current-user {
+  img.avatar {
+    height: 100%;
+    transition: filter 0.5s ease;
+
+    &:hover {
+      filter: brightness(120%) saturate(150%);
+    }
+  }
+}
+
+.login-button {
+  border-radius: 12px;
+  border: 2px solid var(--w-box-shadow-color);
+  background-color: var(--secondary);
+  box-shadow: 3px 3px var(--w-box-shadow-color);
+  transition: var(--w-transition);
+
+  &:hover {
+    border: 2px solid var(--w-box-shadow-color) !important;
+    background-color: var(--d-hover);
+  }
+}
+
+// sidebar
+.sidebar-section {
+  &[data-section-name="forum"],
+  &[data-section-name="general-nav"] {
+    .sidebar-section-header-button {
+      background-color: transparent;
+
+      &:hover,
+      &:active,
+      &:focus {
+        outline-width: 0;
+        background-color: transparent;
+
+        .d-icon {
+          color: var(--primary) !important;
+        }
+      }
+    }
+
+    .sidebar-section-header-collapsable {
+      &:has(+ .sidebar-section-header-button:hover) {
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+.sidebar__panel-switch-button {
+  @include mixins.button-special(1rem);
+  background-color: var(--w-html-background);
+}
+
+// topic-timeline
+.timeline-container .topic-timeline {
+  .timeline-controls,
+  .timeline-footer-controls {
+    .btn.no-text {
+      @include mixins.icon-button-circle;
+      @include mixins.button-special;
+    }
+  }
+}
+
+// user-menu
+.user-menu .profile-tab-btn {
+  border-radius: 0;
+}
+
+// Static pages
+#login-button {
+  @include mixins.button-special($size: lg);
+}
+
+#login-buttons .passkey-login-button {
+  height: var(--space-12);
+  padding: 0;
+  border: 0;
+  border-radius: var(--w-border-radius-lg);
+  color: var(--primary);
+  background-color: transparent;
+
+  .d-icon {
+    color: currentcolor;
+  }
+
+  &:hover {
+    background-color: var(--d-button-default-bg-color--hover);
+  }
+}
+
+body.login-page,
+body.invite-page,
+body.signup-page {
+  .login-welcome .w-welcome__button {
+    @include mixins.button-special;
+    padding-inline: var(--space-7);
+  }
+
+  .signup-page-cta__signup,
+  .login-page-cta__login,
+  .invitation-cta__accept {
+    @include mixins.button-special($size: lg);
+    padding-inline: var(--space-7);
+  }
+}
+
+// Topic
+.post__menu-area {
+  .double-button {
+    --d-post-control-border-radius: var(--w-border-radius-full);
+  }
+
+  .post-action-menu__reply {
+    border-radius: var(--w-border-radius-full);
+  }
+}
+
+.small-action-buttons .btn.no-text {
+  @include mixins.icon-button-circle(var(--space-7));
+}
+
+#topic-footer-buttons {
+  .btn.no-text {
+    @include mixins.icon-button-circle;
+  }
+
+  @include viewport.until(sm) {
+    .btn {
+      @include mixins.icon-button-circle;
+    }
+  }
+
+  @include viewport.from(sm) {
+    .pinned-button,
+    .topic-notifications-button {
+      padding-inline: var(--space-2);
+
+      .reason {
+        .btn {
+          border: 1px solid var(--primary);
+          border-radius: var(--d-button-border-radius);
+        }
+
+        .text {
+          font-size: var(--font-down-1);
+        }
+      }
+    }
+  }
+}
+
+// user
+.user-main .user-profile-toggle-btn {
+  background-color: transparent;
+}
+
+.group-members .group-member-dropdown summary {
+  border: 0 !important;
+  background-color: transparent;
 }

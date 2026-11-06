@@ -30,6 +30,7 @@
 }
 
 h1:not(
+  html.admin-area h1,
   .d-page-header__title,
   .topic-title,
   #discourse-modal-title,
@@ -63,8 +64,3 @@ h1:not(
     font-size: var(--font-1);
   }
 }
-
-// .about__header > h1,
-// .d-editor-input > h1 {
-//   font-family: inter, sans-serif !important;
-// }

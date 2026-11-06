@@ -19,11 +19,3 @@ p > a,
 #email-login-link {
   @include mixins.link;
 }
-
-.btn-link {
-  @include mixins.link;
-
-  &.btn-hover {
-    background-color: var(--tertiary-low) !important;
-  }
-}

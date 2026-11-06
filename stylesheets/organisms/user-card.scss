@@ -11,6 +11,11 @@
 
     .name-username-wrapper {
       font-size: var(--font-down-5);
+
+      .name {
+        display: block;
+        width: max-content;
+      }
     }
   }
 

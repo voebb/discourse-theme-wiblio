@@ -22,14 +22,11 @@
 @use "atoms/badge-category";
 @use "atoms/button";
 @use "atoms/button-category";
-@use "atoms/button-create-topic";
 @use "atoms/card";
 @use "atoms/dropdown";
 @use "atoms/input";
 @use "atoms/link";
-@use "atoms/nav-pill";
 @use "atoms/user-pill";
-@use "atoms/select-kit";
 @use "atoms/skip-link";
 @use "atoms/title";
 
@@ -46,13 +43,11 @@
 @use "molecules/language-switcher";
 @use "molecules/link-share-container";
 @use "molecules/lobby-overlay";
-@use "molecules/modal";
 @use "molecules/modal-user-profile";
 @use "molecules/modal-forgot-password";
 @use "molecules/pinned-options";
 @use "molecules/notifications-tracking";
 @use "molecules/quote";
-@use "molecules/topic-navigation";
 @use "molecules/topic-cards";
 @use "molecules/topic-type-selection-popup";
 
