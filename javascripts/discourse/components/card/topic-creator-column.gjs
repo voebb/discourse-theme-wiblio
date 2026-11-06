@@ -1,5 +1,5 @@
 import Component from "@glimmer/component";
-import avatar from "discourse/helpers/avatar";
+import avatar from "discourse/ui-kit/helpers/d-avatar";
 
 export default class TopicCreatorColumn extends Component {
   get topicCreator() {

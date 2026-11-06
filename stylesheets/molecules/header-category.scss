@@ -1,0 +1,16 @@
+.zlb-community-category-header {
+  width: 100%;
+  padding-block-end: var(--space-3);
+
+  .zlb-community-header {
+    overflow: visible;
+
+    .zlb-community-category-icon {
+      position: absolute;
+      top: calc(var(--space-11) * -1);
+      left: 0;
+      height: var(--space-6);
+      width: var(--space-6);
+    }
+  }
+}

@@ -1,17 +1,7 @@
 import HeaderTopicCell from "discourse/components/topic-list/header/topic-cell";
 import { withPluginApi } from "discourse/lib/plugin-api";
 import HighContextTopicCard from "../components/card/high-context-topic-card";
-
-const TOPIC_CARD_CONTEXTS = [
-  "discovery",
-  "suggested",
-  "related",
-  "group-activity",
-  "user-activity",
-];
-
-const isTopicCardContext = ({ listContext, category }) =>
-  TOPIC_CARD_CONTEXTS.includes(listContext) && !category?.doc_index_topic_id;
+import isTopicCardContext from "../lib/topic-card-context";
 
 const HighContextCard = <template>
   <HighContextTopicCard
@@ -40,15 +30,22 @@ export default {
     }
 
     withPluginApi((api) => {
-      api.registerValueTransformer("topic-list-class", ({ value: classes }) => {
-        classes.push("--d-topic-cards");
-        return classes;
-      });
+      api.registerValueTransformer(
+        "topic-list-class",
+        ({ value: classes, context }) => {
+          if (isTopicCardContext(context)) {
+            classes.push("--d-topic-cards");
+          }
+          return classes;
+        }
+      );
 
       api.registerValueTransformer(
         "topic-list-columns",
-        ({ value: columns }) => {
-          applyHighContextLayout(columns);
+        ({ value: columns, context }) => {
+          if (isTopicCardContext(context)) {
+            applyHighContextLayout(columns);
+          }
           return columns;
         }
       );
@@ -56,6 +53,10 @@ export default {
       api.registerValueTransformer(
         "topic-list-item-class",
         ({ value: classes, context }) => {
+          if (!isTopicCardContext(context)) {
+            return classes;
+          }
+
           classes.push("--high-context");
 
           if (context.topic.replyCount) {
@@ -74,22 +75,17 @@ export default {
         }
       );
 
-      // Disable mobile layout for topic card contexts
-      api.registerValueTransformer("topic-list-item-mobile-layout", () => {
-        return false;
-      });
+      api.registerValueTransformer(
+        "topic-list-item-mobile-layout",
+        ({ value, context }) => (isTopicCardContext(context) ? false : value)
+      );
 
       api.registerBehaviorTransformer(
         "topic-list-item-click",
         ({ context, next }) => {
-          const { event, topic, listContext } = context;
+          const { event } = context;
 
-          if (
-            !isTopicCardContext({
-              listContext,
-              category: topic?.category,
-            })
-          ) {
+          if (!isTopicCardContext(context)) {
             return next();
           }
 

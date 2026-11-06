@@ -1,0 +1,24 @@
+.alert {
+  border-radius: var(--d-border-radius);
+  border: 1px solid var(--content-border-color);
+
+  &-warning {
+    border: 1px solid var(--highlight-medium);
+    color: var(--highlight-hover);
+    background-color: var(--highlight-low);
+  }
+
+  &-warn {
+    border: 1px solid var(--danger-medium);
+    color: var(--danger-hover);
+    background-color: var(--danger-low);
+
+    .close {
+      color: inherit;
+
+      .d-icon {
+        color: inherit;
+      }
+    }
+  }
+}

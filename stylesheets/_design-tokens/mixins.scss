@@ -1,22 +1,90 @@
-@mixin special-button-border($margin-bottom: 0px) {
-  height: var(--w-button-size-large);
-  border-radius: var(--w-button-border-radius-large);
-  border: 2px solid var(--primary);
-  box-shadow: 4px 4px var(--primary);
+@use "sass:map";
+
+$button-heights: (
+  sm: var(--space-8),
+  md: var(--space-10),
+  lg: var(--space-12),
+);
+
+@mixin button-shadow($offset-y: 3px, $hover-background: var(--d-hover)) {
+  box-shadow: 2px $offset-y var(--w-box-shadow-color);
+  transition: var(--w-transition);
+
+  &:hover {
+    box-shadow: 2px ($offset-y + 2px) var(--w-box-shadow-color);
+    background-color: $hover-background !important;
+  }
+
+  &:active {
+    box-shadow: 1px 1px var(--w-box-shadow-color);
+    background-color: $hover-background !important;
+  }
+}
+
+@mixin button-special($margin-bottom: 0px, $size: md) {
+  @if not map.has-key($button-heights, $size) {
+    @error "Unknown button size `#{$size}`. Use sm, md, or lg.";
+  }
+  height: map.get($button-heights, $size);
+  border-radius: var(--w-border-radius-lg);
+  border: 1px solid var(--w-box-shadow-color);
   margin-top: 0 !important;
   margin-bottom: $margin-bottom !important;
+
+  @include button-shadow;
 
   &:hover {
     margin-top: -2px !important;
     margin-bottom: calc($margin-bottom + 2px) !important;
-    border: 2px solid var(--primary) !important;
-    box-shadow: 4px 6px var(--primary);
-    background-color: var(--d-hover) !important;
+    border: 1px solid var(--w-box-shadow-color) !important;
+  }
+
+  &:active {
+    margin-top: 2px !important;
+    margin-bottom: calc($margin-bottom - 2px) !important;
   }
 }
 
 @mixin icon-button-circle($size: var(--space-10)) {
-  border-radius: var(--w-border-radius-full);
+  border-radius: var(--w-border-radius-full) !important;
   height: $size;
   width: $size;
+}
+
+@mixin link {
+  width: fit-content;
+  margin: 0;
+  padding-inline: 4px;
+  border-radius: var(--w-border-radius-sm);
+  color: var(--d-link-color);
+  font-weight: 500;
+  transition: var(--w-transition);
+
+  &:hover {
+    color: var(--w-link-color-hover);
+    background-color: light-dark(var(--d-hover), var(--tertiary-medium));
+  }
+
+  &:disabled {
+    color: initial;
+    background-color: transparent;
+  }
+}
+
+@mixin link-highlight {
+  @include link;
+  color: var(--highlight-high);
+  background-color: var(--highlight-low);
+
+  &:hover {
+    color: var(--highlight-high);
+    background-color: var(--highlight-medium);
+  }
+
+  &:disabled {
+    &:hover {
+      pointer-events: none;
+      background-color: initial;
+    }
+  }
 }

@@ -1,0 +1,29 @@
+.zlb-community-expander:not(.zlb-community-expander--user-list) {
+  --zlb-expander-gap: var(--space-3);
+  --zlb-expander-padding: var(--space-3);
+  border-color: var(--w-box-shadow-color);
+  border-radius: var(--d-border-radius);
+  background-color: transparent;
+  box-shadow: 4px 4px var(--w-box-shadow-color);
+  transition: background-color 0.2s ease;
+  overflow: hidden;
+
+  .zlb-community-expander__title {
+    font-size: var(--font-0);
+    font-weight: normal;
+  }
+
+  .zlb-community-expander__summary {
+    border-bottom: 1px solid var(--w-box-shadow-color);
+    transition: var(--w-transition);
+    gap: var(--space-2);
+
+    &:hover {
+      background-color: var(--d-hover);
+    }
+
+    .w-forum-category-reset:hover {
+      background-color: var(--tertiary-medium);
+    }
+  }
+}

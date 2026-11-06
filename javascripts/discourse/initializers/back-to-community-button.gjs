@@ -1,26 +1,20 @@
+import { themePrefix } from "virtual:theme";
 import { withPluginApi } from "discourse/lib/plugin-api";
-
-const BACK_TO_COMMUNITY_LABEL = "Community";
+import { i18n } from "discourse-i18n";
 
 function updateBackToForumLabel() {
-  document.querySelectorAll("a.back-to-forum").forEach((anchor) => {
-    anchor.title = BACK_TO_COMMUNITY_LABEL;
+  const label = i18n(themePrefix("back_to_community"));
+  document.querySelectorAll(".c-header a.back-to-forum").forEach((anchor) => {
+    anchor.title = label;
 
-    const svg = anchor.querySelector("svg");
-    if (svg) {
-      let node = svg.nextSibling;
-      while (node) {
-        const next = node.nextSibling;
-        anchor.removeChild(node);
-        node = next;
-      }
-      anchor.appendChild(
-        document.createTextNode(` ${BACK_TO_COMMUNITY_LABEL}`)
-      );
-      return;
+    const text = Array.from(anchor.childNodes).find(
+      (node) => node.nodeType === Node.TEXT_NODE && node.textContent.trim()
+    );
+    if (text) {
+      text.textContent = ` ${label}`;
+    } else {
+      anchor.appendChild(document.createTextNode(` ${label}`));
     }
-
-    anchor.textContent = BACK_TO_COMMUNITY_LABEL;
   });
 }
 
@@ -29,10 +23,14 @@ export default {
 
   initialize() {
     withPluginApi((api) => {
-      api.onPageChange(() => updateBackToForumLabel());
-    });
+      if (
+        !api.container.lookup("service:site-settings").zlb_community_enabled
+      ) {
+        return;
+      }
 
-    document.addEventListener("DOMContentLoaded", updateBackToForumLabel);
-    updateBackToForumLabel();
+      api.onPageChange(updateBackToForumLabel);
+      updateBackToForumLabel();
+    });
   },
 };

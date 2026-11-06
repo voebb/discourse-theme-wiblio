@@ -1,14 +1,14 @@
 {
   "name": "wiblio",
   "authors": "enstef",
-  "about_url": "https://github.com/enstef/discourse-theme-wiblio",
+  "about_url": "https://github.com/voebb/discourse-theme-wiblio",
   "license_url": "TODO",
   "learn_more": "TODO",
-  "theme_version": "1.0.0",
+  "theme_version": "2.0.0-rc.1",
   "minimum_discourse_version": null,
   "maximum_discourse_version": null,
+  "components": ["https://github.com/voebb/wiblio-chat-bubbles"],
   "assets": {
-    "chat": "assets/chat.svg",
     "rhomb": "assets/rhomb.svg",
     "bg": "assets/bg.svg",
     "gt_pressura_black": "assets/GT-Pressura-Standard-Black.woff2",
@@ -16,6 +16,8 @@
   },
   "modifiers": {
     "svg_icons": [
+      "arrow-right",
+      "arrow-up",
       "fire",
       "far-square-check",
       "far-square",
@@ -24,20 +26,35 @@
       "heart",
       "user-plus"
     ],
-    "serialize_topic_is_hot": true
+    "serialize_topic_is_hot": true,
+    "only_theme_color_schemes": true
   },
   "color_schemes": {
-    "wiblio Light": {
+    "Wiblio Light": {
       "primary": "000000",
       "secondary": "ffffff",
-      "tertiary": "3CD6DB",
+      "tertiary": "3cd6db",
       "quaternary": "e69bae",
-      "highlight": "f8a70c",
-      "hover": "D1FFFF",
-      "selected": "64EEF2",
+      "highlight": "efcf71",
+      "hover": "d1ffff",
+      "selected": "64eef2",
       "love": "e69bae",
       "header_primary": "000000",
-      "success": "00AC81"
+      "success": "8AFFB6",
+      "danger": "f4776a"
+    },
+    "Wiblio Dark": {
+      "primary": "f2f2f2",
+      "secondary": "2c2c2c",
+      "tertiary": "3cd6db",
+      "quaternary": "e69bae",
+      "highlight": "efcf71",
+      "hover": "d1ffff",
+      "selected": "64eef2",
+      "love": "e69bae",
+      "header_primary": "f2f2f2",
+      "success": "8AFFB6",
+      "danger": "f4776a"
     }
   },
   "theme_site_settings": {

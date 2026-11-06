@@ -22,29 +22,13 @@
 
   &__button {
     width: var(--space-10);
-    height: var(--space-10);
     margin-right: var(--space-4);
-    background-color: var(
-      --quaternary
-    ) !important; // transparent button by default
-    border: 1px solid var(--primary) !important;
-    border-radius: var(--w-border-radius-full);
-    box-shadow: 2px 2px var(--primary);
-
-    &:hover {
-      border: 1px solid var(--primary);
-    }
-
-    .d-icon {
-      color: var(--primary);
-    }
   }
 
   .zlb-community-expander--user-list {
     margin-block-start: var(--space-3);
     padding: 0;
     border-block-start: 1px solid var(--content-border-color);
-    border-radius: unset;
     border-radius: 0 0 var(--d-border-radius) var(--d-border-radius);
 
     @include viewport.from(lg) {
@@ -109,7 +93,6 @@
       }
     }
 
-    // Spacing within button
     &[open] {
       .zlb-community-expander__state--expanded {
         display: flex;

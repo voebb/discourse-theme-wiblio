@@ -1,0 +1,58 @@
+.zlb-community-card {
+  --zlb-card-background-color: transparent;
+}
+
+.w-community-card {
+  position: relative;
+  isolation: isolate;
+
+  // Keep individual destinations above the card-wide link.
+  .zlb-community-card__content :is(a, button) {
+    position: relative;
+    z-index: 1;
+  }
+
+  &:focus-within .w-community-card-link .d-icon {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  html.discourse-no-touch &:hover .w-community-card-link .d-icon {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.w-community-card-link {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  color: var(--tertiary);
+
+  &:focus-visible {
+    outline: 2px solid var(--tertiary);
+    outline-offset: 2px;
+  }
+
+  .d-icon {
+    position: absolute;
+    inset-block-start: var(--zlb-card-padding);
+    inset-inline-end: var(--zlb-card-padding);
+    font-size: var(--font-down-2-rem);
+    opacity: 0;
+    transform: translateX(-4px);
+    transition:
+      opacity 0.15s,
+      transform 0.15s;
+
+    @media (hover: none) {
+      opacity: 1;
+      transform: none;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+      transform: none;
+    }
+  }
+}

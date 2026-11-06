@@ -9,16 +9,16 @@ import TopicLink from "discourse/components/topic-list/topic-link";
 import UnreadIndicator from "discourse/components/topic-list/unread-indicator";
 import TopicPostBadges from "discourse/components/topic-post-badges";
 import TopicStatus from "discourse/components/topic-status";
-import avatar from "discourse/helpers/avatar";
-import { categoryLinkHTML } from "discourse/helpers/category-link";
-import concatClass from "discourse/helpers/concat-class";
-import icon from "discourse/helpers/d-icon";
-import discourseTags from "discourse/helpers/discourse-tags";
-import formatDate from "discourse/helpers/format-date";
-import number from "discourse/helpers/number";
 import topicFeaturedLink from "discourse/helpers/topic-featured-link";
 import { shortDateNoYear } from "discourse/lib/formatter";
 import { or } from "discourse/truth-helpers";
+import avatar from "discourse/ui-kit/helpers/d-avatar";
+import { categoryLinkHTML } from "discourse/ui-kit/helpers/d-category-link";
+import concatClass from "discourse/ui-kit/helpers/d-concat-class";
+import discourseTags from "discourse/ui-kit/helpers/d-discourse-tags";
+import formatDate from "discourse/ui-kit/helpers/d-format-date";
+import icon from "discourse/ui-kit/helpers/d-icon";
+import number from "discourse/ui-kit/helpers/d-number";
 import { i18n } from "discourse-i18n";
 import { getTopicStatusBadge } from "../../lib/topic-status-badge";
 
@@ -106,6 +106,19 @@ export default class HighContextTopicCard extends Component {
       user: this.args.topic.lastPosterUser,
       username: this.args.topic.last_poster_username,
     };
+  }
+
+  get replyUsers() {
+    const users = (this.args.topic.posters || [])
+      .map((poster) => poster.user)
+      .filter((user) => user && user.id !== this.topicCreator?.id);
+    const lastPoster = this.lastPoster.user;
+
+    if (lastPoster && !users.some((user) => user.id === lastPoster.id)) {
+      users.push(lastPoster);
+    }
+
+    return users;
   }
 
   get topicTimestamp() {
@@ -208,11 +221,19 @@ export default class HighContextTopicCard extends Component {
       {{#if (or this.hasReplies this.hasAssigned)}}
         <div class="hc-topic-card__context">
           {{#if this.hasReplies}}
+            {{#if this.replyUsers.length}}
+              <div class="hc-topic-card__reply-users">
+                {{#each this.replyUsers key="id" as |user|}}
+                  <span
+                    class="hc-topic-card__reply-user"
+                    title={{user.username}}
+                  >
+                    {{avatar user imageSize="tiny"}}
+                  </span>
+                {{/each}}
+              </div>
+            {{/if}}
             <div class="hc-topic-card__last-reply">
-              {{avatar this.lastPoster.user imageSize="tiny"}}
-              <span
-                class="hc-topic-card__last-reply-name"
-              >{{this.lastPoster.username}}</span>
               <span>{{i18n (themePrefix "replied")}}</span>
               <span class="hc-topic-card__time">
                 {{formatDate @topic.bumpedAt leaveAgo="true"}}

@@ -1,0 +1,87 @@
+:root,
+:where(.uc-modernize-foundation-theme) {
+  --shadow-header: none;
+  --d-header-icon-color: var(--primary);
+  --d-header-icon-color--hover: var(--primary);
+  --d-header-icon-color--active: var(--primary);
+  --w-header-icon-background: var(--d-content-background);
+  --d-header-icon-background--hover: light-dark(
+    var(--w-html-background),
+    var(--d-hover)
+  );
+  --w-header-button-size: 2.5rem;
+  --d-logo-height: var(--w-header-button-size);
+}
+
+.d-header {
+  background-color: transparent;
+  transition: background-color 0.5s ease;
+
+  // Logo
+  .home-logo-wrapper-outlet {
+    overflow: visible;
+
+    .title {
+      --d-logo-height: var(--w-header-button-size);
+      overflow: visible;
+    }
+  }
+
+  &-icons {
+    column-gap: var(--space-2);
+    align-items: center;
+    padding-inline-end: var(--space-4);
+  }
+}
+
+body.scrolled {
+  .d-header {
+    background-color: var(--w-overlay);
+  }
+}
+
+.d-header-icons .language-switcher .language-switcher-trigger,
+.d-header-icons
+  > .header-color-scheme-toggle
+  > .interface-color-selector-trigger,
+.header-sidebar-toggle .btn-sidebar-toggle,
+#search-button,
+.chat-header-icon .btn,
+#toggle-current-user,
+#toggle-hamburger-menu,
+#site-logo {
+  box-sizing: border-box !important;
+  width: var(--w-header-button-size);
+  margin-top: 0;
+
+  &:hover {
+    margin-top: -2px;
+    margin-bottom: 2px;
+  }
+
+  &:active {
+    margin-top: 2px;
+    margin-bottom: -2px;
+  }
+
+  svg {
+    width: var(--space-4);
+  }
+}
+
+.header-sidebar-toggle .btn-sidebar-toggle {
+  margin-inline-end: var(--space-2);
+}
+
+#toggle-current-user {
+  img.avatar {
+    width: 100%;
+  }
+}
+
+// Login button on static
+.login-button {
+  &:hover {
+    margin-block-start: -2px;
+  }
+}

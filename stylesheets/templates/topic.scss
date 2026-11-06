@@ -1,5 +1,4 @@
 @use "lib/viewport";
-@use "_design-tokens/mixins";
 
 :root {
   --d-post-control-background--hover: var(--d-hover);
@@ -16,7 +15,7 @@
 
     &.past {
       border-color: var(--content-border-color);
-      background-color: var(--w-box-background);
+      background-color: var(--primary-very-low);
       color: var(--primary-medium);
     }
   }
@@ -63,7 +62,7 @@ body:not(.d-toc-installed) {
   .post-notice {
     margin-bottom: var(--space-3);
     border-radius: var(--d-border-radius);
-    border: 1px solid var(--w-border-color-hover);
+    border: 1px solid var(--content-border-color-hover);
 
     .d-icon {
       color: var(--tertiary-high);
@@ -102,14 +101,8 @@ body:not(.d-toc-installed) {
 }
 
 // Below post
-.small-action {
-  &-buttons {
-    height: fit-content;
-
-    .btn.no-text {
-      @include mixins.icon-button-circle(var(--space-7));
-    }
-  }
+.small-action-buttons {
+  height: fit-content;
 }
 
 // Footer
@@ -117,10 +110,6 @@ body:not(.d-toc-installed) {
   padding-block-end: var(--space-2);
   border-radius: var(--d-border-radius);
   border: 1px solid var(--content-border-color);
-
-  .btn.no-text {
-    @include mixins.icon-button-circle;
-  }
 
   @include viewport.until(sm) {
     padding: var(--space-2);
@@ -140,21 +129,11 @@ body:not(.d-toc-installed) {
     .pinned-button,
     .topic-notifications-button {
       display: block;
-      padding-inline: var(--space-2);
 
       .reason {
         display: flex;
         flex-flow: column nowrap;
         align-items: start;
-
-        .btn {
-          border: 1px solid var(--primary);
-          border-radius: var(--d-button-border-radius);
-        }
-
-        .text {
-          font-size: var(--font-down-1);
-        }
       }
     }
   }

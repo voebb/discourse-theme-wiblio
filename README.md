@@ -1,5 +1,72 @@
 # wiblio
 
+Chat bubbles, chat controls, and full-page chat styling live in the separate
+`wiblio-chat-bubbles` theme component, declared in `about.json` under `components`.
+Discourse installs and attaches it when installing Wiblio with component
+installation enabled. The component repository must be accessible to the
+Discourse server during installation.
+
+When upgrading an existing Wiblio installation or syncing with
+`discourse_theme watch`, check Wiblio's included components in the admin interface.
+If missing, install `https://github.com/voebb/wiblio-chat-bubbles` as a theme
+component and attach it to Wiblio. A normal theme update does not guarantee that
+new component dependencies are installed. Administrators can still detach the
+component; the dependency declaration does not enforce a permanent attachment.
+
+The component also supports Foundation independently; see its
+[README](https://github.com/voebb/wiblio-chat-bubbles#readme) for setup and styling
+variables. Community lobby layout remains in this theme.
+
+`general-nav-header.js` extends the registered `general-nav` sidebar section after
+`zlb-community-sidebar` initializes. Its header action opens the configured navigation
+category, using the same wide click area as the forum header in `sidebar.scss`.
+
+The dashboard events and forum cards have full-card navigation links, added
+by `community-card-links.js` and styled with `.w-community-card-link`. Individual
+event and subcategory links stay independently clickable above the card link.
+The top-corner arrow slides in on hover or keyboard focus, stays visible on touch
+devices, and respects reduced motion.
+
+Dashboard topic cards, including pinned topics, use the same full-card click
+behavior as forum topic lists. Links and controls within each card keep their
+individual actions.
+
+The forum expander marks the current subcategory button with
+`.zlb-community-category-button.is-active`. The theme updates this class on navigation.
+The selected tile links back to all community categories and displays a noninteractive
+clear-selection chip in its top corner. Its original category URL is preserved in
+`data-wiblio-category-url` so later navigation restores the correct link.
+
+`ForumCategoryBreadcrumbs` renders the community category and selected subcategory
+in the `discovery-above` outlet above the topic list at all viewport widths.
+On the main category, a button switches between all topics (`/all`) and topics
+directly in that category (`/none`). The community header and its title remain unchanged.
+The clear-selection action also appears after the last category badge in the
+breadcrumbs. Both clear-selection chips use the inactive filter style and appear
+only when a subcategory is selected.
+
+Community topic pages show only the topic’s direct category in `.topic-category`
+and below the title in the header, without its ancestors, via
+`community-topic-category.gjs`.
+
+The "New" navigation tab is hidden on community forum category pages via
+`list-controls.scss`; direct URLs remain accessible.
+
+Community topic-list filters use segmented navigation styled in
+`list-controls.scss`. `community-topic-navigation.js` keeps the links visible on
+mobile as well, with horizontal scrolling when space is limited.
+
+`topic-card-context.js` defines which lists use Wiblio topic cards. The topic-list
+transformers and desktop bulk-selection placement share that check. Bulk
+selection is moved into navigation controls on discovery topic lists, excluding
+documentation categories; other routes retain the incoming transformer value.
+Header and bulk-selection styles in `organisms/topic-list.scss` are scoped to
+`.topic-list.--d-topic-cards`, leaving standard tables' headers and controls intact.
+
+When the community plugin is enabled, `back-to-community-button.gjs` replaces
+the mobile chat header's forum label with the translated community label. It
+preserves the link, icon, and rendering markers and leaves other links unchanged.
+
 **Theme Summary**
 
 For more information working with and installing Discourse, please see the [Discourse documentation](https://meta.discourse.org/t/introduction-to-discourse-development).
@@ -31,3 +98,31 @@ When successful, you’ll see the messages below (your URL may differ). Visit th
 ✔ Theme uploaded (id:1)
 i Preview: http://localhost:4200/?preview_theme_id=1
 ```
+
+The theme’s `back-to-top.gjs` shows a floating scroll-to-top button after 300px
+on community category topic lists and, below the `md` viewport breakpoint, on
+the community dashboard. It respects reduced motion and uses translated labels.
+
+The `message-bus-startup` pre-initializer prevents topic tracking from starting
+MessageBus polling before the core instance initializer configures its AJAX
+adapter. Core still controls when polling starts, including keeping it stopped
+for anonymous visitors on login-required sites.
+
+`forum-list-scroll.js` positions the topic list below the sticky header, list
+controls, and breadcrumbs after same-tab link navigation from forum controls,
+breadcrumbs, or the category expander. Direct visits and browser history navigation
+retain the normal scroll behavior.
+
+Button appearance belongs in `stylesheets/atoms/button.scss`; positioning, width,
+and surrounding layout stay in their component stylesheets. The shared
+`button-special($margin-bottom: 0px, $size: md)` mixin sets only height for its
+size variants: `sm` uses `--space-8`, `md` uses `--space-10`, and `lg` uses
+`--space-12` (2rem, 2.5rem, and 3rem with the default spacing scale). It leaves
+font size and padding unchanged. Use `@include mixins.button-special($size: sm)`
+or combine it with the existing margin argument, for example
+`@include mixins.button-special($margin-bottom: 1rem, $size: lg)`.
+
+`button-shadow($offset-y: 3px, $hover-background: var(--d-hover))` shares the
+raised shadow and hover/active colors between special buttons and navbar controls.
+It leaves sizing, borders, rounding, and positioning to the caller; navbar margin
+animation remains in `stylesheets/organisms/navbar.scss`.

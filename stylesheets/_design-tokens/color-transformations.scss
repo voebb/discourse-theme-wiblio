@@ -1,0 +1,47 @@
+:root {
+  // tertiary
+  --tertiary-25: light-dark(
+    oklch(from var(--tertiary) calc(0.95 + l * 0.06) calc(c * 0.15) h),
+    oklch(from var(--tertiary) calc(l * 0.35) calc(c * 0.4) h)
+  );
+  --tertiary-50: light-dark(
+    oklch(from var(--tertiary) calc(0.9 + l * 0.12) calc(c * 0.25) h),
+    oklch(from var(--tertiary) calc(l * 0.36) calc(c * 0.5) h)
+  );
+  --tertiary-100: light-dark(
+    oklch(from var(--tertiary) calc(0.8 + l * 0.24) calc(c * 0.4) h),
+    oklch(from var(--tertiary) calc(l * 0.37) calc(c * 0.65) h)
+  );
+  --tertiary-200: light-dark(
+    oklch(from var(--tertiary) calc(0.6 + l * 0.48) calc(c * 0.65) h),
+    oklch(from var(--tertiary) calc(l * 0.4) calc(c * 0.8) h)
+  );
+  --tertiary-300: light-dark(
+    oklch(from var(--tertiary) calc(0.3 + l * 0.84) calc(c * 0.95) h),
+    oklch(from var(--tertiary) calc(l * 0.48) calc(c * 1) h)
+  );
+  --tertiary-400: light-dark(
+    oklch(from var(--tertiary) calc(l * 1.2) calc(c * 1.2) h),
+    oklch(from var(--tertiary) calc(l * 0.528) calc(c * 1.2) h)
+  );
+  --tertiary-500: light-dark(
+    oklch(from var(--tertiary) calc(l * 1.1667) calc(c * 1.1667) h),
+    oklch(from var(--tertiary) calc(l * 0.6067) calc(c * 1.1667) h)
+  );
+  --tertiary-600: light-dark(
+    oklch(from var(--tertiary) calc(l * 1.1333) calc(c * 1.1333) h),
+    oklch(from var(--tertiary) calc(l * 0.6853) calc(c * 1.1333) h)
+  );
+  --tertiary-700: light-dark(
+    oklch(from var(--tertiary) calc(l * 1.1) calc(c * 1.1) h),
+    oklch(from var(--tertiary) calc(l * 0.764) calc(c * 1.1) h)
+  );
+  --tertiary-800: light-dark(
+    oklch(from var(--tertiary) calc(l * 1.0667) calc(c * 1.0667) h),
+    oklch(from var(--tertiary) calc(l * 0.8427) calc(c * 1.0667) h)
+  );
+  --tertiary-900: light-dark(
+    oklch(from var(--tertiary) calc(l * 1.0333) calc(c * 1.0333) h),
+    oklch(from var(--tertiary) calc(l * 0.9213) calc(c * 1.0333) h)
+  );
+}

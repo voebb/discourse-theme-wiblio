@@ -28,7 +28,7 @@
       [user-end status-end last-posted-start last-seen-start added-start] auto
       [last-posted-end last-seen-end added-end];
     border: 1px solid var(--zlb-card-border-color);
-    border-radius: var(--zlb-card-border-radius);
+    border-radius: var(--d-border-radius);
     background-color: var(--zlb-card-background-color);
     padding: var(--zlb-card-padding);
     gap: var(--space-4) var(--space-2);
@@ -113,10 +113,5 @@
   .avatar {
     block-size: 6.25rem;
     inline-size: 6.25rem;
-  }
-
-  .group-member-dropdown summary {
-    border: 0 !important;
-    background-color: transparent;
   }
 }

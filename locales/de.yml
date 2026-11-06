@@ -5,6 +5,12 @@
 # https://translate.discourse.org/
 
 de:
+  clear_category_selection: "Auswahl aufheben"
+  hide_subcategories: "Unterkategorien ausblenden"
+  show_subcategories: "Unterkategorien einblenden"
+  back_to_top: "Nach oben"
+  back_to_community: "Community"
+  hot_nav_label: "Meist diskutiert"
   tos: "AGB"
   privacy: "Datenschutz"
   imprint: "Impressum"
@@ -13,7 +19,7 @@ de:
   unsolved: "Ungelöst"
   posted: "Gepostet"
   by_username: "von @%{username}"
-  replied: "antwortete"
+  replied: "Letzte Aktivität\u00a0"
   vote_count:
     one: "%{count} Stimme"
     other: "%{count} Stimmen"

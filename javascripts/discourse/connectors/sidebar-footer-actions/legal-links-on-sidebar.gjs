@@ -1,3 +1,3 @@
 import LegalLinks from "../../components/legal-links.gjs";
 
-<template><LegalLinks /></template>
+export default <template><LegalLinks /></template>

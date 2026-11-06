@@ -1,21 +1,13 @@
-@use "_design-tokens/mixins";
 @use "lib/viewport";
 
 .timeline-container .topic-timeline {
-  .timeline-controls,
-  .timeline-footer-controls {
-    .btn.no-text {
-      @include mixins.icon-button-circle;
-    }
-  }
-
   .timeline-scrollarea {
     border-left: 1px solid var(--content-border-color);
 
     .timeline-scroller {
       @include viewport.from(lg) {
         margin-left: -4.5px;
-        height: 40px !important; // height is coming from element style have no other choice
+        height: 40px !important; // Override the scroller's inline height.
       }
 
       .timeline-replies,

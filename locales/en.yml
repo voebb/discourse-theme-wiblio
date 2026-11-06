@@ -1,4 +1,10 @@
 en:
+  clear_category_selection: "Clear selection"
+  hide_subcategories: "Hide subcategories"
+  show_subcategories: "Show subcategories"
+  back_to_top: "Back to top"
+  back_to_community: "Community"
+  hot_nav_label: "Most discussed"
   tos: "Terms"
   privacy: "Privacy"
   imprint: "Imprint"
@@ -7,7 +13,7 @@ en:
   unsolved: "Unsolved"
   posted: "posted"
   by_username: "by @%{username}"
-  replied: "replied"
+  replied: "Last activity\u00a0"
   vote_count:
     one: "%{count} vote"
     other: "%{count} votes"

@@ -1,0 +1,24 @@
+.drop-down,
+.dropdown-menu {
+  border-radius: var(--d-border-radius) !important;
+  background-color: var(--secondary) !important;
+
+  &__item {
+    border-radius: var(--w-border-radius-small) !important;
+  }
+
+  > li a {
+    border-radius: var(--d-border-radius);
+  }
+}
+
+.select-kit.combo-box {
+  .select-kit-header {
+    transition: var(--w-transition);
+
+    &:hover {
+      background-color: var(--d-hover);
+      border-color: var(--content-border-color-hover);
+    }
+  }
+}
