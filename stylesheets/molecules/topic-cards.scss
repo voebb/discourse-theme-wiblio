@@ -255,8 +255,29 @@
 
   &__context {
     display: flex;
+    align-items: center;
     gap: var(--space-3);
     flex-wrap: wrap;
+  }
+
+  &__reply-users {
+    display: inline-flex;
+    align-items: center;
+    gap: -8px;
+  }
+
+  &__reply-user {
+    display: inline-flex;
+
+    &:not(:first-of-type) {
+      margin-left: calc(var(--space-1) * -1);
+    }
+
+    .avatar {
+      width: var(--space-6);
+      height: var(--space-6);
+      border-radius: var(--w-border-radius-full);
+    }
   }
 
   &__assigned {
@@ -367,30 +388,8 @@
 
   &__last-reply {
     display: inline-flex;
-    align-items: center;
-    gap: var(--space-1);
-    padding: var(--space-1);
-    border-radius: var(--w-border-radius-full);
-    background: linear-gradient(
-      to right bottom,
-      oklch(from var(--tertiary) calc(l * 1.2) calc(c * 1.2) h / 40%),
-      oklch(from var(--success) calc(l * 1.2) calc(c * 1.5) h / 40%)
-    ) !important;
     font-size: var(--font-down-2-rem);
     color: var(--primary-medium);
-
-    .avatar {
-      border-radius: 50%;
-      height: 1rem;
-      width: 1rem;
-    }
-
-    @include viewport.until(sm) {
-      .avatar {
-        width: 1rem;
-        height: 1rem;
-      }
-    }
   }
 
   &__time {

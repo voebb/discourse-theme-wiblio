@@ -8,6 +8,8 @@ const TOPIC_CARD_CONTEXTS = [
   "related",
   "group-activity",
   "user-activity",
+  "zlb-community-dashboard-topic-list",
+  "zlb-community-dashboard-pinned-topic",
 ];
 
 const isTopicCardContext = ({ listContext, category }) =>

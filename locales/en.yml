@@ -12,7 +12,7 @@ en:
   unsolved: "Unsolved"
   posted: "posted"
   by_username: "by @%{username}"
-  replied: "replied"
+  replied: "Last activity\u00a0"
   vote_count:
     one: "%{count} vote"
     other: "%{count} votes"

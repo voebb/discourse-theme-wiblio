@@ -108,6 +108,19 @@ export default class HighContextTopicCard extends Component {
     };
   }
 
+  get replyUsers() {
+    const users = (this.args.topic.posters || [])
+      .map((poster) => poster.user)
+      .filter((user) => user && user.id !== this.topicCreator?.id);
+    const lastPoster = this.lastPoster.user;
+
+    if (lastPoster && !users.some((user) => user.id === lastPoster.id)) {
+      users.push(lastPoster);
+    }
+
+    return users;
+  }
+
   get topicTimestamp() {
     return shortDateNoYear(new Date(this.args.topic.created_at));
   }
@@ -208,11 +221,19 @@ export default class HighContextTopicCard extends Component {
       {{#if (or this.hasReplies this.hasAssigned)}}
         <div class="hc-topic-card__context">
           {{#if this.hasReplies}}
+            {{#if this.replyUsers.length}}
+              <div class="hc-topic-card__reply-users">
+                {{#each this.replyUsers key="id" as |user|}}
+                  <span
+                    class="hc-topic-card__reply-user"
+                    title={{user.username}}
+                  >
+                    {{avatar user imageSize="tiny"}}
+                  </span>
+                {{/each}}
+              </div>
+            {{/if}}
             <div class="hc-topic-card__last-reply">
-              {{avatar this.lastPoster.user imageSize="tiny"}}
-              <span
-                class="hc-topic-card__last-reply-name"
-              >{{this.lastPoster.username}}</span>
               <span>{{i18n (themePrefix "replied")}}</span>
               <span class="hc-topic-card__time">
                 {{formatDate @topic.bumpedAt leaveAgo="true"}}

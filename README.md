@@ -17,25 +17,33 @@ The component also supports Foundation independently; see its
 [README](https://github.com/voebb/wiblio-chat-bubbles#readme) for setup and styling
 variables. Community lobby layout remains in this theme.
 
+`general-nav-header.js` extends the registered `general-nav` sidebar section after
+`zlb-community-sidebar` initializes. Its header action opens the configured navigation
+category, using the same wide click area as the forum header in `sidebar.scss`.
+
 The dashboard events and forum cards have full-card navigation links, added
 by `community-card-links.js` and styled with `.w-community-card-link`. Individual
 event and subcategory links stay independently clickable above the card link.
 The top-corner arrow slides in on hover or keyboard focus, stays visible on touch
 devices, and respects reduced motion.
 
+Dashboard topic cards, including pinned topics, use the same full-card click
+behavior as forum topic lists. Links and controls within each card keep their
+individual actions.
+
 The forum expander marks the current subcategory button with
 `.zlb-community-category-button.is-active`. The theme updates this class on navigation.
+The selected tile links back to all community categories and displays a noninteractive
+clear-selection chip in its top corner. Its original category URL is preserved in
+`data-wiblio-category-url` so later navigation restores the correct link.
 
 `ForumCategoryBreadcrumbs` renders the community category and selected subcategory
 in the `discovery-above` outlet above the topic list at all viewport widths.
 On the main category, a button switches between all topics (`/all`) and topics
 directly in that category (`/none`). The community header and its title remain unchanged.
-`forum-category-reset.js` adds a clear-selection chip next to the forum expander
-title through `api.onPageChange`, using the same styles as the breadcrumb filter.
-It only reads services after navigation and does not mount a component into the
-plugin’s managed DOM. The same clear-selection action also appears after the last
-category badge in the breadcrumbs. Both clear-selection chips use the inactive
-filter style and appear only when a subcategory is selected.
+The clear-selection action also appears after the last category badge in the
+breadcrumbs. Both clear-selection chips use the inactive filter style and appear
+only when a subcategory is selected.
 
 Community topic pages show only the topic’s direct category in `.topic-category`
 and below the title in the header, without its ancestors, via
