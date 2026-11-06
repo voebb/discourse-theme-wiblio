@@ -37,9 +37,6 @@
 @use "molecules/banner";
 @use "molecules/breadcrumps-category";
 @use "molecules/category-chooser";
-@use "molecules/chat-message" with (
-  $chat-svg: $chat
-);
 @use "molecules/create-topic";
 @use "molecules/expander";
 @use "molecules/expander-forum";
@@ -60,7 +57,6 @@
 @use "molecules/topic-type-selection-popup";
 
 // Organisms
-@use "organisms/chat-composer";
 @use "organisms/composer";
 @use "organisms/editor";
 @use "organisms/grid";
@@ -77,7 +73,6 @@
 // Templates
 @use "templates/calendar";
 @use "templates/categories";
-@use "templates/chat";
 @use "templates/group";
 @use "templates/lobby";
 @use "templates/static";

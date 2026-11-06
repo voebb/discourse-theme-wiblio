@@ -1,5 +1,22 @@
 # wiblio
 
+Chat bubbles, chat controls, and full-page chat styling live in the separate
+`wiblio-chat-bubbles` theme component, declared in `about.json` under `components`.
+Discourse installs and attaches it when installing Wiblio with component
+installation enabled. The component repository must be accessible to the
+Discourse server during installation.
+
+When upgrading an existing Wiblio installation or syncing with
+`discourse_theme watch`, check Wiblio's included components in the admin interface.
+If missing, install `https://github.com/voebb/wiblio-chat-bubbles` as a theme
+component and attach it to Wiblio. A normal theme update does not guarantee that
+new component dependencies are installed. Administrators can still detach the
+component; the dependency declaration does not enforce a permanent attachment.
+
+The component also supports Foundation independently; see its
+[README](https://github.com/voebb/wiblio-chat-bubbles#readme) for setup and styling
+variables. Community lobby layout remains in this theme.
+
 The dashboard events and forum cards have full-card navigation links, added
 by `community-card-links.js` and styled with `.w-community-card-link`. Individual
 event and subcategory links stay independently clickable above the card link.
